@@ -1,4 +1,6 @@
 interface:
   display_name: "Avalonia App Development"
   short_description: "Build fast, AOT-safe Avalonia apps"
+  icon_small: "./assets/avalonia-app-development-small.svg"
+  icon_large: "./assets/avalonia-app-development.png"
   default_prompt: "Use $avalonia-app-development to design and implement a reflection-free, AOT-compatible Avalonia app with compiled bindings and modern XAML/C# patterns."
