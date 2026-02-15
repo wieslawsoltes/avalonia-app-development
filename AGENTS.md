@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository defines and maintains the `avalonia-app-development` skill.
+This repository defines and maintains the `xaml-csharp-development-skill-for-avalonia` skill.
 
 Primary goals:
 - keep guidance accurate to the pinned Avalonia release,

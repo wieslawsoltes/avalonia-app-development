@@ -1,9 +1,9 @@
 ---
-name: avalonia-app-development
+name: xaml-csharp-development-skill-for-avalonia
 description: Build, review, migrate, and optimize Avalonia applications with modern XAML/C# patterns, compiled bindings, and AOT-friendly architecture. Use for tasks involving Avalonia app startup and lifetime wiring, view/viewmodel composition, bindings in .axaml/.xaml and C#, styles/themes/resources, platform-specific bootstrapping (desktop/browser/mobile/headless), trimming/NativeAOT compatibility, reactive UI flows, performance tuning, and troubleshooting build/runtime issues in Avalonia projects.
 ---
 
-# Avalonia App Development
+# XAML and C# Cross-Platform Development (for Avalonia)
 
 Use this skill to produce reflection-minimized, modern, fast Avalonia apps that stay maintainable across desktop, browser, and mobile targets.
 

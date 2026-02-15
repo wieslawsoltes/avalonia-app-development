@@ -1,4 +1,4 @@
-# Avalonia App Development Compendium
+# XAML and C# Cross-Platform Development (for Avalonia) Compendium
 
 Use this as the entry page for the full skill reference set.
 

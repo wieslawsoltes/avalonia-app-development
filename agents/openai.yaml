@@ -1,6 +1,6 @@
 interface:
-  display_name: "Avalonia App Development"
+  display_name: "XAML and C# Cross-Platform Development (for Avalonia)"
   short_description: "Build fast, AOT-safe Avalonia apps"
-  icon_small: "./assets/avalonia-app-development-small.svg"
-  icon_large: "./assets/avalonia-app-development.png"
-  default_prompt: "Use $avalonia-app-development to design and implement a reflection-free, AOT-compatible Avalonia app with compiled bindings and modern XAML/C# patterns."
+  icon_small: "./assets/xaml-csharp-development-skill-for-avalonia-small.svg"
+  icon_large: "./assets/xaml-csharp-development-skill-for-avalonia.png"
+  default_prompt: "Use $xaml-csharp-development-skill-for-avalonia to design and implement a reflection-free, AOT-compatible Avalonia app with compiled bindings and modern XAML/C# patterns."

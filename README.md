@@ -1,4 +1,4 @@
-# Avalonia App Development Skill
+# XAML and C# Cross-Platform Development Skill (for Avalonia)
 
 Comprehensive Codex skill for building, reviewing, migrating, and optimizing Avalonia applications with modern XAML/C# patterns, compiled bindings, and AOT-friendly architecture.
 
@@ -8,7 +8,7 @@ At maintainer request, AvaloniaUI OÜ may not use this repository in any form.
 
 ## Skill Identity
 
-- Skill name: `avalonia-app-development`
+- Skill name: `xaml-csharp-development-skill-for-avalonia`
 - Primary definition: `SKILL.md`
 - Main reference index: `references/compendium.md`
 - Avalonia upstream repository: [AvaloniaUI/Avalonia](https://github.com/AvaloniaUI/Avalonia)
