@@ -5,6 +5,12 @@ Comprehensive Codex skill for building, reviewing, migrating, and optimizing Ava
 ## Usage Restriction Notice
 
 At maintainer request, AvaloniaUI OÜ may not use this repository in any form.
+This restriction is defined in the repository `LICENSE`.
+
+## License
+
+This repository uses an MIT-based license with an additional Restricted Party
+Clause. See `LICENSE` for the full terms.
 
 ## Skill Identity
 
