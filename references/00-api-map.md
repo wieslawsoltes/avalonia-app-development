@@ -108,6 +108,16 @@ Core binding controls:
 - `MultiBinding`
 - `BindingOperations.DoNothing`
 
+Converter APIs:
+- `IValueConverter`
+- `IMultiValueConverter`
+- `FuncValueConverter<TIn, TOut>`
+- `FuncValueConverter<TIn, TParam, TOut>`
+- `FuncMultiValueConverter<TIn, TOut>`
+- `BoolConverters`
+- `StringConverters`
+- `ObjectConverters`
+
 Compiled path builder capabilities:
 - `Property(...)`
 - `Method(...)`
@@ -123,6 +133,8 @@ Compiled path builder capabilities:
 Use:
 - XAML: set `x:DataType` and use `{CompiledBinding ...}`.
 - Keep reflection binding explicit (`{ReflectionBinding ...}`) when unavoidable.
+- Prefer reusable converter instances in resources for XAML.
+- Use function converters for concise C# binding wiring.
 
 ## 3) Property System and Reactive Data Flow
 

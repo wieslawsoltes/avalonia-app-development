@@ -77,6 +77,7 @@ Recent additions include focused references for:
 - Runtime XAML manipulation and service-provider patterns
 - Visual tree and logical tree inspection/traversal
 - Data templates and `IDataTemplate` selector patterns
+- Value converters
 - Path icons, adorners, and shapes
 
 These are designed to reduce accidental drift to unreleased APIs.

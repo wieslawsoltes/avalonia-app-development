@@ -29,6 +29,7 @@ Primary entry for the full reference set:
 
 3. Establish binding, XAML, reactive, and command architecture.
 - Read `references/02-bindings-xaml-aot.md`.
+- Read `references/45-value-converters-single-multi-and-binding-wiring.md`.
 - Read `references/42-runtime-xaml-loader-and-dynamic-loading.md`.
 - Read `references/44-runtime-xaml-manipulation-and-service-provider-patterns.md`.
 - Read `references/03-reactive-threading.md`.

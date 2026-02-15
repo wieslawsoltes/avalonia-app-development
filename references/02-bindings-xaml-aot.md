@@ -20,6 +20,9 @@ Use runtime loaders only when the feature explicitly requires dynamic XAML (plug
 
 ## Binding Families
 
+For detailed converter guidance (single-value/multi-value, XAML resources, function-based converters, and binding wiring), see:
+- `45-value-converters-single-multi-and-binding-wiring.md`
+
 ### Compiled bindings (preferred)
 
 Primary APIs:
