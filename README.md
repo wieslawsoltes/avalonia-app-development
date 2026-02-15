@@ -78,7 +78,14 @@ Recent additions include focused references for:
 - Visual tree and logical tree inspection/traversal
 - Data templates and `IDataTemplate` selector patterns
 - Value converters
+- Binding value/notification and instanced binding semantics
+- Dispatcher priority, operations, and timers
+- TopLevel, window, and runtime services
+- Adaptive markup and dynamic resource patterns
+- Relative/static resource and name resolution markup
+- Template content and func template patterns
 - Path icons, adorners, and shapes
+- Per-control references for the full Avalonia control surface (`references/controls/`)
 
 These are designed to reduce accidental drift to unreleased APIs.
 
@@ -100,7 +107,7 @@ Recommended checks after regeneration:
 ## Maintenance Checklist for New Avalonia Release
 
 1. Switch target release tag (for example `11.3.x` -> `11.4.x`).
-2. Regenerate `api-index-generated.md` from the new tag.
+2. Regenerate `references/api-index-generated.md` from the new tag.
 3. Diff critical APIs referenced by docs.
 4. Update affected reference files.
 5. Update:

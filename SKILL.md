@@ -30,15 +30,20 @@ Primary entry for the full reference set:
 3. Establish binding, XAML, reactive, and command architecture.
 - Read `references/02-bindings-xaml-aot.md`.
 - Read `references/45-value-converters-single-multi-and-binding-wiring.md`.
+- Read `references/46-binding-value-notification-and-instanced-binding-semantics.md`.
+- Read `references/49-adaptive-markup-and-dynamic-resource-patterns.md`.
+- Read `references/50-relative-static-resource-and-name-resolution-markup.md`.
 - Read `references/42-runtime-xaml-loader-and-dynamic-loading.md`.
 - Read `references/44-runtime-xaml-manipulation-and-service-provider-patterns.md`.
 - Read `references/03-reactive-threading.md`.
+- Read `references/47-dispatcher-priority-operations-and-timers.md`.
 - Read `references/24-commands-hotkeys-and-gestures.md`.
 - Default to compiled bindings with `x:DataType`; keep UI-thread mutations explicit.
 
 4. Build view composition, locator strategy, and interaction routing.
 - Read `references/11-user-views-locator-and-tree-patterns.md`.
 - Read `references/38-data-templates-and-idatatemplate-selector-patterns.md`.
+- Read `references/51-template-content-and-func-template-patterns.md`.
 - Read `references/39-visual-tree-inspection-and-traversal.md`.
 - Read `references/40-logical-tree-inspection-and-traversal.md`.
 - Read `references/18-input-system-and-routed-events.md`.
@@ -59,6 +64,8 @@ Primary entry for the full reference set:
 - Read `references/10-templated-controls-and-control-themes.md`.
 - Read `references/36-adorners-focus-and-overlay-layers.md`.
 - Read `references/13-windowing-and-custom-decorations.md`.
+- Read `references/48-toplevel-window-and-runtime-services.md`.
+- Read `references/52-controls-reference-catalog.md` for per-control API quick lookup.
 - Read `references/25-popups-flyouts-tooltips-and-overlays.md`.
 - Separate control contract, template parts, and platform-specific window/popup behavior.
 
