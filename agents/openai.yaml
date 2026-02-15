@@ -1,0 +1,4 @@
+interface:
+  display_name: "Avalonia App Development"
+  short_description: "Build fast, AOT-safe Avalonia apps"
+  default_prompt: "Use $avalonia-app-development to design and implement a reflection-free, AOT-compatible Avalonia app with compiled bindings and modern XAML/C# patterns."
