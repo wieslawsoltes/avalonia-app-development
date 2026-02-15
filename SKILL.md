@@ -19,6 +19,7 @@ Primary entry for the full reference set:
 
 2. Lock platform bootstrap and build pipeline before UI work.
 - Read `references/05-platforms-and-bootstrap.md`.
+- Read `references/29-platform-services-storage-clipboard-launcher-screens-and-dragdrop.md`.
 - Read `references/06-msbuild-aot-and-tooling.md`.
 - Set platform options and confirm XAML/compiled-binding configuration for AOT.
 

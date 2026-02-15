@@ -33,14 +33,16 @@ Use this as the entry page for the full skill reference set.
 27. Testing stack (headless/render/UI): `26-testing-stack-headless-render-and-ui-tests.md`
 28. Diagnostics/profiling + devtools: `27-diagnostics-profiling-and-devtools.md`
 29. Custom themes (XAML + code-only): `28-custom-themes-xaml-and-code-only.md`
-30. Layout measure/arrange + custom controls/panels: `30-layout-measure-arrange-and-custom-layout-controls.md`
-31. Generated API index: `api-index-generated.md`
+30. Platform services + storage/clipboard/launcher/screens/dragdrop: `29-platform-services-storage-clipboard-launcher-screens-and-dragdrop.md`
+31. Layout measure/arrange + custom controls/panels: `30-layout-measure-arrange-and-custom-layout-controls.md`
+32. Generated API index: `api-index-generated.md`
 
 ## Fast Navigation by Task
 
 - Startup/lifetime wiring:
   - `01-architecture-and-lifetimes.md`
   - `05-platforms-and-bootstrap.md`
+  - `29-platform-services-storage-clipboard-launcher-screens-and-dragdrop.md`
 
 - Binding correctness and AOT safety:
   - `02-bindings-xaml-aot.md`
