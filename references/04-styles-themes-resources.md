@@ -3,6 +3,7 @@
 ## Styling Surface
 
 Primary APIs:
+
 - `Style`
 - `Styles`
 - `ControlTheme`
@@ -10,106 +11,171 @@ Primary APIs:
 - `ThemeVariant`
 - `ThemeVariantScope`
 - `ResourceDictionary`
+- `StyleBase`, `SetterBase`
+- `StyleQuery`, `StyleQueries`, `StyleQueryComparisonOperator`
+- `IStyleHost`, `IStyleable`, `IThemeVariantHost`, `IGlobalStyles`
+- `ISetterInstance`, `ISetterValue`
+- `ContainerSizing`
 
 ## Recommended Layering
 
-1. `Application.Styles`:
-- Host global themes and broad app-level styles.
+1. `Application.Styles`
+- global themes and broad app-level style policy.
 
-2. `ControlTheme` per control family:
-- Keep lookless/themeable control appearance isolated.
+2. `ControlTheme`
+- control-family skinning and templated look.
 
-3. Local control styles:
-- Apply small local adjustments closest to usage sites.
+3. Local `Style`
+- narrow view-local adjustments.
 
-4. Resources:
-- Place shared constants/brushes/spacing in dictionaries.
-- Use theme dictionaries for variant-specific values.
+4. Resources and theme dictionaries
+- stable keys for colors/spacing/metrics.
+
+## Runtime `Styles` Collection Operations
+
+`Styles` is a mutable style collection and a resource provider.
+
+High-value members for runtime composition:
+
+- `Count`, `Owner`, `Resources`
+- indexer `this[int index]`
+- `CollectionChanged`, `OwnerChanged`
+- `TryGetResource(...)`
+
+Batch and reordering APIs:
+
+- `AddRange(...)`, `InsertRange(...)`
+- `Move(...)`, `MoveRange(...)`
+- `RemoveAll(...)`, `RemoveRange(...)`
+- `IndexOf(...)`, `Insert(...)`, `RemoveAt(...)`
+- `Contains(...)`, `CopyTo(...)`, `GetEnumerator()`
+
+Use `AddRange`/`InsertRange` and `MoveRange` when applying feature packs to reduce churn vs per-item edits.
+
+```csharp
+var styles = Application.Current!.Styles;
+
+styles.AddRange(new IStyle[]
+{
+    new Style(x => x.OfType<Button>().Class("accent"))
+    {
+        Setters =
+        {
+            new Setter(Button.FontWeightProperty, FontWeight.Bold)
+        }
+    }
+});
+
+if (styles.Contains(styles[0]))
+    styles.Move(0, styles.Count - 1);
+```
+
+Framework-level style contracts used by control/theme infrastructure:
+
+- `StyleBase.Parent`, `StyleBase.Setters`
+- `IGlobalStyles.GlobalStylesAdded`, `IGlobalStyles.GlobalStylesRemoved`
+- `IStyleHost`, `IStyleable`, `IThemeVariantHost`
+- `ISetterInstance`, `ISetterValue`, `SetterBase`
+
+## Selector API Strategy (`Selectors`)
+
+Typed selector APIs are easier to refactor than long selector strings.
+
+Commonly useful APIs:
+
+- `Selectors.Is(...)`, `Selectors.Is<T>()`
+- `Selectors.OfType(...)`, `Selectors.OfType<T>()`
+- `Selectors.Class(...)`, `Selectors.Name(...)`
+- `Selectors.Child()`, `Selectors.Descendant()`, `Selectors.Template()`, `Selectors.Nesting()`
+- `Selectors.Not(...)`
+- `Selectors.NthChild(...)`, `Selectors.NthLastChild(...)`
+- `Selectors.Or(...)`
+- `Selectors.PropertyEquals(...)`
+
+Container-query helper contracts:
+
+- `StyleQuery`
+- `StyleQueryComparisonOperator`
+- `StyleQueries.And(params StyleQuery[] queries)`
+- `StyleQueries.And(IReadOnlyList<StyleQuery> query)`
+
+```csharp
+var selector = default(Selector?)
+    .Is<Button>()
+    .Class("accent")
+    .Not(x => x.Class("danger"))
+    .NthChild(step: 2, offset: 1);
+
+var style = new Style(_ => selector!);
+```
 
 ## Theme Variant Model
 
-Theme APIs:
-- `ThemeVariant.Default`
-- `ThemeVariant.Light`
-- `ThemeVariant.Dark`
-- `RequestedThemeVariant`
+Core values and fields:
+
+- `ThemeVariant.Default`, `ThemeVariant.Light`, `ThemeVariant.Dark`
+- `ThemeVariant.InheritVariant`
+- explicit conversion operators between `ThemeVariant` and `PlatformThemeVariant`
+
+App and subtree controls:
+
+- `Application.RequestedThemeVariant`
+- `ThemeVariantScope.RequestedThemeVariant`
 - `ActualThemeVariant`
+- `ThemeVariantTypeConverter` (`CanConvertFrom(...)`, `ConvertFrom(...)`)
 
-Use:
-- Set `Application.RequestedThemeVariant` for app-wide preference.
-- Use `ThemeVariantScope` for subtree overrides.
+Use `ThemeVariantScope` for local overrides and avoid branching style logic in code.
 
-## Resource Dictionaries
+## Resource Dictionaries in Style Pipelines
 
-`ResourceDictionary` highlights:
-- `MergedDictionaries`
-- `ThemeDictionaries`
+`ResourceDictionary` features commonly used with styles:
+
+- `MergedDictionaries`, `ThemeDictionaries`
 - `TryGetResource(...)`
+- `AddDeferred(...)` / `AddNotSharedDeferred(...)`
+- `SetItems(...)`, `ContainsKey(...)`, `EnsureCapacity(...)`
 
-Use:
-- Keep keys stable and explicit.
-- Use `ThemeDictionaries` for dark/light values, not runtime `if` logic in controls.
+Deferred resource entries are useful when expensive value construction should happen only if a key is requested.
 
-## Selector Strategy
+Container sizing attached-property APIs (media-query-like behavior):
 
-### XAML selector strings
+- `Container.SizingProperty`
+- `Container.GetSizing(...)`
+- `Container.SetSizing(...)`
+- `ContainerSizing` (`Normal`, `Width`, `Height`, `WidthAndHeight`)
 
-Good for static styles in compiled XAML files.
+## Includes, Dynamic Resources, and AOT Notes
 
-### C# typed selectors
+XAML include and dynamic-resource APIs:
 
-`Selectors` factory methods (`OfType<T>`, `Class`, `Name`, `Child`, `Descendant`, `Template`, etc.) give stronger refactorability and avoid some runtime parser tradeoffs.
-
-Example:
-
-```csharp
-var style = new Style(x => x.OfType<Button>().Class("accent"));
-style.Setters.Add(new Setter(Button.FontWeightProperty, FontWeight.Bold));
-```
-
-## Includes and AOT Notes
-
-XAML include APIs:
-- `StyleInclude`
-- `ResourceInclude`
-- `MergeResourceInclude`
+- `StyleInclude`, `ResourceInclude`
+- `DynamicResourceExtension` (`ResourceKey`)
 
 Guidance:
-- Includes declared in compiled XAML are generally the intended safe path.
-- Dynamic loading/inclusion patterns should be treated as advanced scenarios and reviewed for trim impact.
 
-## ControlTheme Guidance
-
-`ControlTheme`:
-- Requires `TargetType`.
-- Supports `BasedOn` composition.
-
-Use:
-- Put control skinning behavior here instead of monolithic global selectors.
-- Keep template-specific nested selectors constrained and readable.
+- keep default style/theme definitions in compiled XAML,
+- use runtime include/dynamic-resource patterns for explicit plugin or user-driven theme swaps.
 
 ## Common Styling Mistakes
 
-1. Massive global style files with no ownership boundaries.
-- Fix: split by feature/control category.
+1. Massive global style files with unclear ownership.
+- Fix: split by feature/control category and use `AddRange` for bundle registration.
 
-2. Duplicated color/spacing literals in many views.
-- Fix: centralize in resources and theme dictionaries.
+2. Runtime mutation without ordering discipline.
+- Fix: use `Move`/`MoveRange` when precedence must be explicit.
 
-3. Heavy selector chains that are hard to maintain.
-- Fix: prefer direct classes, clear scope, and control themes.
+3. Overly complex selector chains.
+- Fix: prefer clear classes and typed `Selectors` composition.
 
-4. Runtime style construction for static concerns.
-- Fix: move static style definitions back into compiled XAML.
+4. Theme logic in code-behind.
+- Fix: use `ThemeDictionaries` + `DynamicResource`.
 
 ## XAML-First and Code-Only Usage
 
 Default mode:
-- Author styles/themes/resources in XAML first.
-- Use code-only style construction when requested.
 
-XAML-first references:
-- `Style`, `ControlTheme`, `ThemeVariantScope`, `ResourceDictionary`
+- author styles/themes/resources in XAML first,
+- use code-only style composition when runtime style packs are required.
 
 XAML-first usage example:
 

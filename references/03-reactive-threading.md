@@ -19,6 +19,89 @@ Use:
 - `InvokeAsync` when caller must await completion.
 - `Invoke` only for short synchronous operations.
 
+## Dispatcher Operation Lifecycle
+
+`InvokeAsync(...)` returns `DispatcherOperation` / `DispatcherOperation<T>`.
+
+High-value APIs:
+- `Status` (`Pending`, `Executing`, `Completed`, `Aborted`)
+- `Priority` (can be adjusted while queued)
+- `Abort()`
+- `GetTask()` / `GetAwaiter()`
+- `Completed` / `Aborted` events
+- `Wait()` (use with care; avoid blocking UI thread)
+
+Pattern:
+
+```csharp
+var op = Dispatcher.UIThread.InvokeAsync(
+    () => ApplyUiDelta(snapshot),
+    DispatcherPriority.Background);
+
+if (cancellationToken.IsCancellationRequested)
+    op.Abort();
+
+await op.GetTask();
+```
+
+Guideline:
+- Prefer `await op.GetTask()` over `Wait()` in async code paths.
+- Treat `Wait()` as a narrow escape hatch for synchronous boundaries.
+
+## Priority Strategy
+
+Useful priorities in app code:
+- `Send`: immediate synchronous work (already on UI thread).
+- `Normal` / `Default`: most UI updates.
+- `Input`: input-adjacent work.
+- `Render` / `Loaded`: render/layout-adjacent work.
+- `Background` / `ContextIdle` / `ApplicationIdle`: non-urgent UI updates.
+
+Keep priority choices stable and intentional. Escalating everything to high priority causes responsiveness regressions.
+
+## Await With Priority
+
+`Dispatcher.UIThread.AwaitWithPriority(...)` lets you continue on the dispatcher with explicit priority after a task completes.
+
+```csharp
+await Dispatcher.UIThread.AwaitWithPriority(loadTask, DispatcherPriority.Background);
+// Continuation is now queued on UI dispatcher at Background priority.
+UpdateUiFromLoadedData();
+```
+
+Use this when you need deterministic continuation priority instead of default scheduler behavior.
+
+## DispatcherTimer Patterns
+
+For scheduled UI work:
+- periodic: `DispatcherTimer.Run(...)`
+- one-shot: `DispatcherTimer.RunOnce(...)`
+- imperative control: `Start()`, `Stop()`, `Interval`, `IsEnabled`, `Tick`
+
+```csharp
+IDisposable heartbeat = DispatcherTimer.Run(
+    action: () =>
+    {
+        UpdateClockText();
+        return !viewModel.IsDisposed;
+    },
+    interval: TimeSpan.FromSeconds(1),
+    priority: DispatcherPriority.Background);
+```
+
+Dispose returned timer handles during teardown to avoid stale callbacks.
+
+## Dispatcher Exception Pipeline
+
+Dispatcher exposes exception hooks for invoked delegates:
+- `UnhandledExceptionFilter`
+- `UnhandledException`
+
+Use them as a final safety net and telemetry path, not as normal control flow.
+- keep handlers lightweight,
+- avoid allocations/heavy work in the handler itself,
+- mark handled only when recovery is explicit and safe.
+
 ## Reactive Property Pipelines
 
 Useful entry points:

@@ -3,9 +3,10 @@
 ## Table of Contents
 1. Scope and APIs
 2. Input and Routing Flow
-3. Authoring Patterns
-4. Best Practices
-5. Troubleshooting
+3. Routed Event Metadata and Diagnostics
+4. Authoring Patterns
+5. Best Practices
+6. Troubleshooting
 
 ## Scope and APIs
 
@@ -26,13 +27,17 @@ Important members:
 - `Interactive.AddHandler(...)`, `RemoveHandler(...)`, `RaiseEvent(...)`
 - `RoutedEvent.Register<TOwner, TEventArgs>(...)`
 - `RoutedEvent.AddClassHandler(...)`
+- `RoutedEvent.EventArgsType`, `RoutedEvent.HasRaisedSubscriptions`
 - `RoutedEvent.Raised`, `RoutedEvent.RouteFinished`
 - `RoutedEventArgs.Handled`, `Route`, `Source`, `RoutedEvent`
+- `CancelRoutedEventArgs`, `CancelRoutedEventArgs.Cancel`
 - `InputElement.KeyDownEvent`, `KeyUpEvent`, `TextInputEvent`
 - `InputElement.PointerPressedEvent`, `PointerMovedEvent`, `PointerReleasedEvent`, `PointerWheelChangedEvent`
 - `PointerEventArgs.GetPosition(...)`, `GetCurrentPoint(...)`, `PreventGestureRecognition()`
 - `Gestures.TappedEvent`, `DoubleTappedEvent`, `HoldingEvent`, `PinchEvent`, `ScrollGestureEvent`
-- `InteractiveExtensions.GetObservable(...)`, `AddDisposableHandler(...)`
+- `EventRoute.HasHandlers`
+- `RoutedEventRegistry.GetAllRegistered()`
+- `InteractiveExtensions.GetObservable(...)`, `AddDisposableHandler(...)`, `GetInteractiveParent()`
 
 Reference source files:
 - `src/Avalonia.Base/Interactivity/Interactive.cs`
@@ -61,6 +66,86 @@ Routing strategy quick guide:
 - `Bubble`: source to root.
 
 Use `Tunnel` for interception, `Bubble` for normal control-level handling.
+
+## Routed Event Metadata and Diagnostics
+
+Use routed-event metadata APIs when auditing event topology in larger control trees:
+
+- `RoutedEvent.EventArgsType` lets you validate event-args contracts before wiring generic handlers.
+- `RoutedEvent.HasRaisedSubscriptions` tells you whether `RoutedEvent.Raised` has observers.
+- `RoutedEventRegistry.Instance.GetAllRegistered()` gives a global routed-event inventory for diagnostics.
+- `InteractiveExtensions.GetInteractiveParent()` is a fast parent hop for event-path inspection on `Interactive`.
+
+Example diagnostics pass:
+
+```csharp
+using Avalonia.Interactivity;
+
+foreach (var routedEvent in RoutedEventRegistry.Instance.GetAllRegistered())
+{
+    _logger.Debug(
+        "Event={Name}, Owner={Owner}, Args={Args}, HasRaisedSubscribers={HasSubscribers}",
+        routedEvent.Name,
+        routedEvent.OwnerType.Name,
+        routedEvent.EventArgsType.Name,
+        routedEvent.HasRaisedSubscriptions);
+}
+```
+
+You can instrument one routed event to inspect route activity:
+
+```csharp
+using Avalonia.Interactivity;
+
+IDisposable raisedSub = InputElement.PointerPressedEvent.Raised
+    .Subscribe(tuple =>
+    {
+        (object sender, RoutedEventArgs args) = tuple;
+        _ = sender;
+        _ = args.Route;
+    });
+
+IDisposable finishedSub = InputElement.PointerPressedEvent.RouteFinished
+    .Subscribe(args => _ = args.Handled);
+```
+
+`CancelRoutedEventArgs` is the canonical cancelable routed-event args type. Constructor forms:
+
+- `new CancelRoutedEventArgs()`
+- `new CancelRoutedEventArgs(routedEvent)`
+- `new CancelRoutedEventArgs(routedEvent, source)`
+
+Cancelable custom event pattern:
+
+```csharp
+using Avalonia.Interactivity;
+
+public class DocumentHost : Avalonia.Controls.Control
+{
+    public static readonly RoutedEvent<CancelRoutedEventArgs> BeforeCloseEvent =
+        RoutedEvent.Register<DocumentHost, CancelRoutedEventArgs>(
+            nameof(BeforeClose),
+            RoutingStrategies.Bubble);
+
+    public event EventHandler<CancelRoutedEventArgs>? BeforeClose
+    {
+        add => AddHandler(BeforeCloseEvent, value);
+        remove => RemoveHandler(BeforeCloseEvent, value);
+    }
+
+    public bool RequestClose()
+    {
+        var args = new CancelRoutedEventArgs(BeforeCloseEvent, this);
+        RaiseEvent(args);
+        return !args.Cancel;
+    }
+}
+```
+
+Low-level route creation with `EventRoute` is uncommon in app code, but when used:
+
+- use `EventRoute.HasHandlers` before raising work-heavy payloads,
+- dispose routes quickly to release pooled buffers.
 
 ## Authoring Patterns
 

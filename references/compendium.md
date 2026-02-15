@@ -50,16 +50,25 @@ Use this as the entry page for the full skill reference set.
 43. XAML in libraries and resource packaging: `43-xaml-in-libraries-and-resource-packaging.md`
 44. Runtime XAML manipulation and service-provider patterns: `44-runtime-xaml-manipulation-and-service-provider-patterns.md`
 45. Value converters: `45-value-converters-single-multi-and-binding-wiring.md`
-46. Generated API index: `api-index-generated.md`
+46. Binding value/notification and instanced binding semantics: `46-binding-value-notification-and-instanced-binding-semantics.md`
+47. Dispatcher priority, operations, and timers: `47-dispatcher-priority-operations-and-timers.md`
+48. TopLevel, window, and runtime services: `48-toplevel-window-and-runtime-services.md`
+49. Adaptive markup and dynamic resource patterns: `49-adaptive-markup-and-dynamic-resource-patterns.md`
+50. Relative/static resource and name resolution markup: `50-relative-static-resource-and-name-resolution-markup.md`
+51. Template content and func template patterns: `51-template-content-and-func-template-patterns.md`
+52. Controls reference catalog: `52-controls-reference-catalog.md`
+API index: `api-index-generated.md`
 
 ## Fast Navigation by Task
 
 - Startup/lifetime wiring:
   - `01-architecture-and-lifetimes.md`
   - `05-platforms-and-bootstrap.md`
+  - `48-toplevel-window-and-runtime-services.md`
   - `29-storage-provider-and-file-pickers.md`
 
 - Platform services and external integration:
+  - `48-toplevel-window-and-runtime-services.md`
   - `29-storage-provider-and-file-pickers.md`
   - `31-clipboard-and-data-transfer.md`
   - `32-launcher-and-external-open.md`
@@ -71,10 +80,14 @@ Use this as the entry page for the full skill reference set.
   - `42-runtime-xaml-loader-and-dynamic-loading.md`
   - `43-xaml-in-libraries-and-resource-packaging.md`
   - `44-runtime-xaml-manipulation-and-service-provider-patterns.md`
+  - `49-adaptive-markup-and-dynamic-resource-patterns.md`
+  - `50-relative-static-resource-and-name-resolution-markup.md`
 
 - Binding correctness and AOT safety:
   - `02-bindings-xaml-aot.md`
   - `45-value-converters-single-multi-and-binding-wiring.md`
+  - `46-binding-value-notification-and-instanced-binding-semantics.md`
+  - `50-relative-static-resource-and-name-resolution-markup.md`
   - `06-msbuild-aot-and-tooling.md`
   - `41-xaml-compiler-and-build-pipeline.md`
   - `42-runtime-xaml-loader-and-dynamic-loading.md`
@@ -83,18 +96,21 @@ Use this as the entry page for the full skill reference set.
 
 - Reactive UI correctness:
   - `03-reactive-threading.md`
+  - `47-dispatcher-priority-operations-and-timers.md`
 
 - Theme/style consistency:
   - `04-styles-themes-resources.md`
   - `10-templated-controls-and-control-themes.md`
   - `16-property-system-attached-properties-behaviors-and-style-properties.md`
   - `17-resources-assets-theme-variants-and-xmlns.md`
+  - `49-adaptive-markup-and-dynamic-resource-patterns.md`
   - `43-xaml-in-libraries-and-resource-packaging.md`
   - `28-custom-themes-xaml-and-code-only.md`
 
 - View composition and lookup patterns:
   - `11-user-views-locator-and-tree-patterns.md`
   - `38-data-templates-and-idatatemplate-selector-patterns.md`
+  - `51-template-content-and-func-template-patterns.md`
   - `39-visual-tree-inspection-and-traversal.md`
   - `40-logical-tree-inspection-and-traversal.md`
 
@@ -111,6 +127,7 @@ Use this as the entry page for the full skill reference set.
   - `20-itemscontrol-virtualization-and-recycling.md`
   - `21-custom-layout-authoring.md`
   - `38-data-templates-and-idatatemplate-selector-patterns.md`
+  - `51-template-content-and-func-template-patterns.md`
 
 - Validation and accessibility:
   - `22-validation-pipeline-and-data-errors.md`
@@ -122,7 +139,9 @@ Use this as the entry page for the full skill reference set.
 
 - Windowing and custom chrome:
   - `13-windowing-and-custom-decorations.md`
+  - `48-toplevel-window-and-runtime-services.md`
   - `25-popups-flyouts-tooltips-and-overlays.md`
+  - `52-controls-reference-catalog.md`
 
 - Drawing and graphics:
   - `14-custom-drawing-text-shapes-and-skia.md`

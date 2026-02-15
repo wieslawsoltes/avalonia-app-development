@@ -22,6 +22,7 @@ Primary APIs:
 - `StorageProviderExtensions.TryGetFolderFromPathAsync(...)`
 - `StorageProviderExtensions.TryGetLocalPath(...)`
 - `WellKnownFolder`
+- `ManagedFileDialogExtensions`
 
 Important members:
 - `IStorageProvider.CanOpen`, `CanSave`, `CanPickFolder`
@@ -32,6 +33,7 @@ Important members:
 - `TryGetWellKnownFolderAsync(...)`
 - `IStorageFile.OpenReadAsync()`, `OpenWriteAsync()`
 - `IStorageItem.SaveBookmarkAsync()`, `DeleteAsync()`, `MoveAsync(...)`
+- `ShowManagedAsync(...)`
 
 Reference source files:
 - `src/Avalonia.Controls/TopLevel.cs`
@@ -43,6 +45,7 @@ Reference source files:
 - `src/Avalonia.Base/Platform/Storage/FilePickerSaveOptions.cs`
 - `src/Avalonia.Base/Platform/Storage/StorageProviderExtensions.cs`
 - `src/Avalonia.Base/Platform/Storage/WellKnownFolder.cs`
+- `src/Avalonia.Dialogs/ManagedFileDialogExtensions.cs`
 
 ## Capability and Lifecycle Model
 
@@ -115,6 +118,15 @@ public static class StorageWorkflows
     }
 }
 ```
+
+## Managed Dialog Extensions
+
+When `Avalonia.Dialogs` managed dialogs are enabled, `ManagedFileDialogExtensions` adds:
+
+- `ShowManagedAsync(this OpenFileDialog dialog, Window parent, ManagedFileDialogOptions? options = null)`
+- `ShowManagedAsync<TWindow>(this OpenFileDialog dialog, Window parent, ManagedFileDialogOptions? options = null)`
+
+Use these as compatibility shims when you need managed dialog behavior across platforms with inconsistent native dialog support.
 
 ## Bookmarks and Path Strategies
 

@@ -23,6 +23,15 @@ Use runtime loaders only when the feature explicitly requires dynamic XAML (plug
 For detailed converter guidance (single-value/multi-value, XAML resources, function-based converters, and binding wiring), see:
 - `45-value-converters-single-multi-and-binding-wiring.md`
 
+For advanced typed/untyped binding value semantics (`BindingValue<T>`, `BindingNotification`, `InstancedBinding`, `IndexerDescriptor`), see:
+- `46-binding-value-notification-and-instanced-binding-semantics.md`
+
+For `RelativeSource`, `StaticResource`, and name-scope resolution markup (`ResolveByNameExtension`), see:
+- `50-relative-static-resource-and-name-resolution-markup.md`
+
+Advanced binding-assignment contract:
+- `AssignBindingAttribute` marks members where a binding object should be assigned instead of initiating a live binding.
+
 ### Compiled bindings (preferred)
 
 Primary APIs:
@@ -137,6 +146,67 @@ Use:
 - Set fallback/null handling deliberately (`FallbackValue`, `TargetNullValue`, `StringFormat`).
 - For form scenarios, pair binding mode/update trigger with UX requirements.
 - Use explicit reflection binding only where compiled path is not feasible.
+
+## Advanced Binding Result Semantics
+
+When debugging or building advanced binding flows, use these APIs deliberately:
+- typed path: `BindingValue<T>` + `BindingValueType`,
+- untyped path: `BindingNotification` + `BindingErrorType`,
+- state bridging: `BindingValue<T>.FromUntyped(...)`, `ToUntyped()`, `ToOptional()`,
+- expression inspection: `BindingOperations.GetBindingExpressionBase(...)`.
+
+State mapping you should rely on:
+- `BindingValue<T>.Unset` maps to `AvaloniaProperty.UnsetValue`,
+- `BindingValue<T>.DoNothing` maps to `BindingOperations.DoNothing`,
+- `BindingError` / `DataValidationError` can carry fallback values,
+- `BindingNotification` can carry both error metadata and a fallback/passthrough value.
+
+Example: inspect typed binding stream safely.
+
+```csharp
+using Avalonia;
+using Avalonia.Data;
+
+IDisposable sub = textBox
+    .GetBindingObservable(TextBox.TextProperty)
+    .Subscribe(v =>
+    {
+        switch (v.Type)
+        {
+            case BindingValueType.Value:
+                viewModel.LastValidText = v.GetValueOrDefault() ?? string.Empty;
+                break;
+            case BindingValueType.DataValidationError:
+            case BindingValueType.BindingError:
+                viewModel.LastBindingError = v.Error?.Message;
+                break;
+            case BindingValueType.UnsetValue:
+                // Target will fall back to the property's unbound/default behavior.
+                break;
+            case BindingValueType.DoNothing:
+                // Preserve current target state.
+                break;
+        }
+    });
+```
+
+Example: explicit source update for `UpdateSourceTrigger=Explicit`.
+
+```csharp
+var expr = BindingOperations.GetBindingExpressionBase(textBox, TextBox.TextProperty);
+expr?.UpdateSource();
+```
+
+## Instanced and Indexer Binding APIs (Advanced)
+
+Advanced app code occasionally needs:
+- `InstancedBinding` factory helpers (`OneWay`, `TwoWay`, `OneTime`, `OneWayToSource`),
+- `IndexerDescriptor` (`!property` / `~property` operator paths) for concise property-indexer binding wiring.
+
+Compatibility note:
+- `IBinding.Initiate(...)` and `BindingOperations.Apply(...)` are obsolete compatibility paths in Avalonia 11.3.12 and are not recommended for new app code.
+
+These APIs are useful for dynamic binding infrastructure and diagnostics tooling, not as default app authoring style. Prefer normal XAML binding syntax unless you need dynamic composition.
 
 ## Anti-Patterns
 

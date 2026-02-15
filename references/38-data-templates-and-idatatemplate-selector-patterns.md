@@ -7,8 +7,9 @@
 4. Typed Templates and DataType Rules
 5. ItemTemplate, DisplayMemberBinding, and Recycling
 6. TreeDataTemplate Patterns
-7. Best Practices
-8. Troubleshooting
+7. Function Tree Templates and Template Utility APIs
+8. Best Practices
+9. Troubleshooting
 
 ## Scope and APIs
 
@@ -22,6 +23,9 @@ Primary APIs:
 - `IRecyclingDataTemplate`
 - `ITypedDataTemplate`
 - `ITreeDataTemplate`
+- `FuncTreeDataTemplate`
+- `FuncTreeDataTemplate<T>`
+- `TemplateContent`
 - `ItemsControl.ItemTemplate`
 - `ContentPresenter.ContentTemplate`
 
@@ -33,8 +37,16 @@ Reference source files:
 - `src/Avalonia.Controls/Templates/IRecyclingDataTemplate.cs`
 - `src/Avalonia.Controls/Templates/ITypedDataTemplate.cs`
 - `src/Avalonia.Controls/Templates/ITreeDataTemplate.cs`
+- `src/Avalonia.Controls/Templates/FuncTreeDataTemplate.cs`
+- `src/Avalonia.Controls/Templates/FuncTreeDataTemplate\`1.cs`
+- `src/Avalonia.Controls/Templates/FuncTemplate\`1.cs`
+- `src/Avalonia.Controls/Templates/FuncTemplate\`2.cs`
+- `src/Avalonia.Controls/Templates/ITemplate\`1.cs`
+- `src/Avalonia.Controls/Templates/ITemplate\`2.cs`
+- `src/Avalonia.Controls/Templates/FuncTemplateNameScopeExtensions.cs`
 - `src/Markup/Avalonia.Markup.Xaml/Templates/DataTemplate.cs`
 - `src/Markup/Avalonia.Markup.Xaml/Templates/TreeDataTemplate.cs`
+- `src/Markup/Avalonia.Markup.Xaml/Templates/TemplateContent.cs`
 - `src/Avalonia.Controls/Presenters/ContentPresenter.cs`
 - `src/Avalonia.Controls/ItemsControl.cs`
 
@@ -149,6 +161,31 @@ For hierarchical data, use `TreeDataTemplate`/`ITreeDataTemplate`.
 In `11.3.12`, `TreeDataTemplate.ItemsSource` supports:
 - `Binding`
 - `CompiledBindingExtension`
+
+## Function Tree Templates and Template Utility APIs
+
+Function-based tree templates:
+- `FuncTreeDataTemplate`
+- `FuncTreeDataTemplate<T>`
+- `FuncTreeDataTemplate(Type type, Func<object?, INameScope, Control> build, Func<object?, IEnumerable> itemsSelector)`
+- `FuncTreeDataTemplate(Func<object?, bool> match, Func<object?, INameScope, Control?> build, Func<object?, IEnumerable> itemsSelector)`
+- `FuncTreeDataTemplate(Func<T, INameScope, Control> build, Func<T, IEnumerable> itemsSelector)`
+- `FuncTreeDataTemplate(Func<T, bool> match, Func<T, INameScope, Control> build, Func<T, IEnumerable> itemsSelector)`
+
+Template utility contracts often used with this space:
+- `ITemplate<TControl>`
+- `ITemplate<TParam, TControl>`
+- `FuncTemplate<TControl>`
+- `FuncTemplate<TParam, TControl>`
+- `FuncTemplateNameScopeExtensions.RegisterInNameScope<T>(...)`
+- `TemplateContent.Load(...)`
+
+API-index compatibility note:
+- `references/api-index-generated.md` includes `FuncTreeDataTemplate.ItemsSelector(object item)` and `TreeDataTemplate.ItemsSelector(object item)` signatures.
+- In app authoring, use `FuncTreeDataTemplate` selector delegates and `TreeDataTemplate.ItemsSource` as primary configuration paths.
+
+For end-to-end advanced coverage of these APIs, see:
+- `51-template-content-and-func-template-patterns.md`
 
 ## Best Practices
 

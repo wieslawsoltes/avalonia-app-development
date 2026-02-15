@@ -25,7 +25,9 @@ Important members:
 - `HotKeyManager.HotKeyProperty`, `SetHotKey(...)`, `GetHotKey(...)`
 - `InputElement.KeyBindings` list
 - `KeyBinding.Gesture`, `Command`, `CommandParameter`, `TryHandle(...)`
+- `KeyBinding.GestureProperty`, `KeyBinding.CommandParameterProperty`
 - `KeyGesture.Parse(...)`, `Matches(...)`, `ToString(...)`
+- `KeyGesture.KeyModifiers`
 - `Gestures.AddTappedHandler(...)`, `AddHoldingHandler(...)`, `AddPinchHandler(...)`
 
 Reference source files:
@@ -46,6 +48,11 @@ Architecture layers:
 3. Command execution with parameter and `CanExecute` semantics.
 
 Use hotkeys for control-scoped shortcuts and `KeyBindings` for root-level or view-level shortcuts.
+
+Property-system details that matter in custom input infrastructure:
+
+- `KeyBinding.GestureProperty` and `KeyBinding.CommandParameterProperty` are styled properties,
+- `KeyGesture.KeyModifiers` is the canonical modifier set used by `Matches(...)`.
 
 ## Authoring Patterns
 

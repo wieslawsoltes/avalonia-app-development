@@ -3,12 +3,17 @@
 ## Table of Contents
 1. Scope and APIs
 2. Avalonia Property System
-3. Attached Property Authoring
-4. Behavior Patterns
-5. Style Property Authoring
-6. Container Queries (Media Query Equivalent)
-7. Best Practices
-8. Troubleshooting
+3. Property Identity, Flags, and Metadata Lookup
+4. Metadata and Binding Defaults
+5. Effective Values, Base Values, and Priority-Safe Updates
+6. Change Events and Registry Diagnostics
+7. Attached Property Authoring
+8. Behavior Patterns
+9. Style Property Authoring
+10. Container Queries (Media Query Equivalent)
+11. Best Practices
+12. Troubleshooting
+13. XAML-First and Code-Only Usage
 
 ## Scope and APIs
 
@@ -16,11 +21,18 @@ Primary APIs:
 - `AvaloniaProperty.Register<TOwner, TValue>(...)`
 - `AvaloniaProperty.RegisterAttached<...>(...)`
 - `AvaloniaProperty.RegisterDirect<...>(...)`
+- `AvaloniaProperty.Name`, `PropertyType`, `OwnerType`
+- `AvaloniaProperty.GetMetadata<T>()` / `GetMetadata(Type)` / `GetMetadata(AvaloniaObject)`
+- `AvaloniaProperty.IsValidValue(object?)`
+- `AvaloniaProperty.UnsetValue` and `UnsetValueType`
 - `StyledProperty<T>`
 - `AttachedProperty<T>`
 - `DirectProperty<TOwner, TValue>`
 - `AvaloniaObject.GetValue/SetValue/ClearValue/SetCurrentValue`
 - `AvaloniaObject.Bind(...)`
+- `AvaloniaPropertyChangedEventArgs` / `AvaloniaPropertyChangedEventArgs<T>`
+- `AvaloniaPropertyChangedExtensions`
+- `AvaloniaPropertyRegistry`
 - `Setter`, `Style`, `Styles`, `Selectors`
 - `ContainerQuery`, `Container.Name`, `Container.Sizing`
 - `Interactive`, routed events, `InteractiveExtensions`
@@ -30,6 +42,11 @@ Reference source files:
 - `src/Avalonia.Base/AvaloniaObject.cs`
 - `src/Avalonia.Base/AttachedProperty.cs`
 - `src/Avalonia.Base/DirectProperty.cs`
+- `src/Avalonia.Base/StyledProperty.cs`
+- `src/Avalonia.Base/AvaloniaPropertyMetadata.cs`
+- `src/Avalonia.Base/AvaloniaPropertyRegistry.cs`
+- `src/Avalonia.Base/AvaloniaPropertyChangedEventArgs.cs`
+- `src/Avalonia.Base/AvaloniaPropertyChangedExtensions.cs`
 - `src/Avalonia.Base/Styling/Setter.cs`
 - `src/Avalonia.Base/Styling/Style.cs`
 - `src/Avalonia.Base/Styling/ContainerQuery.cs`
@@ -53,6 +70,168 @@ Choose registration based on need:
 - Use `Register` for normal styleable control properties.
 - Use `RegisterAttached` for layout/behavior metadata shared by arbitrary hosts.
 - Use `RegisterDirect` for high-performance field-backed values.
+
+## Property Identity, Flags, and Metadata Lookup
+
+Every `AvaloniaProperty` exposes identity and capability flags:
+- `Name`
+- `PropertyType`
+- `OwnerType`
+- `Inherits`
+- `IsAttached`
+- `IsDirect`
+- `IsReadOnly`
+
+Metadata and validation query APIs:
+- `GetMetadata<T>()`
+- `GetMetadata(Type)`
+- `GetMetadata(AvaloniaObject)`
+- `IsValidValue(object?)`
+
+Indexer helper operators:
+- `operator !(AvaloniaProperty)` for property-indexer binding descriptors.
+- `operator ~(AvaloniaProperty)` for descriptor inversion workflows.
+
+Unset marker semantics:
+- `AvaloniaProperty.UnsetValue` is a singleton `UnsetValueType`.
+- `UnsetValueType` means “no value provided by this source”, which is different from `null`.
+
+Administrative cleanup API:
+- `Unregister(Type)` exists for specialized cleanup/testing paths, not normal app runtime flows.
+
+Example:
+
+```csharp
+AvaloniaProperty property = TextBox.TextProperty;
+string name = property.Name;
+Type propertyType = property.PropertyType;
+Type ownerType = property.OwnerType;
+
+AvaloniaPropertyMetadata metadataByType = property.GetMetadata(typeof(TextBox));
+AvaloniaPropertyMetadata metadataByInstance = property.GetMetadata(textBox);
+
+object? candidate = "hello";
+if (!property.IsValidValue(candidate))
+    candidate = AvaloniaProperty.UnsetValue; // UnsetValueType marker
+
+var descriptor = ~property;
+```
+
+## Metadata and Binding Defaults
+
+`AvaloniaPropertyMetadata` controls binding and validation behavior at registration/owner level.
+
+Key points:
+- `DefaultBindingMode` resolves `BindingMode.Default` to a concrete mode (commonly `OneWay`).
+- `EnableDataValidation` opt-in controls whether a property participates in data-validation messages.
+- metadata is merged per owner; call `AddOwner(...)` + optional metadata overrides for owner-specific behavior.
+
+`StyledProperty<T>` advanced APIs:
+- `AddOwner<TOwner>(...)`
+- `OverrideMetadata<T>(...)`
+- `OverrideDefaultValue<T>(...)`
+- `GetDefaultValue(Type)` / `GetDefaultValue(AvaloniaObject)`
+- `CoerceValue(AvaloniaObject, TValue)`
+- `ValidateValue`
+
+`DirectProperty<TOwner, TValue>` advanced owner extension:
+- `AddOwner<TNewOwner>(getter, setter, unsetValue, defaultBindingMode, enableDataValidation)`
+- `Getter`
+
+Metadata lifecycle APIs (mainly for control/framework authors):
+- `AvaloniaPropertyMetadata.Merge(...)`
+- `AvaloniaPropertyMetadata.Freeze()`
+- `AvaloniaPropertyMetadata.IsReadOnly`
+- `AvaloniaPropertyMetadata.GenerateTypeSafeMetadata()`
+
+Use these APIs to tune property behavior per control family, not per instance.
+
+Notes:
+- `StyledProperty<T>.ValidateValue` is the runtime predicate used to validate typed values before they become effective.
+- `DirectProperty<TOwner, TValue>.Getter` exposes the field-backed read delegate used by direct property access paths.
+
+## Effective Values, Base Values, and Priority-Safe Updates
+
+Important distinction:
+- effective value: what the control currently sees (after bindings/styles/animation),
+- base value: styled property value excluding animation and excluding inherited/default fallback.
+
+Useful APIs:
+- `GetBaseValue<T>(StyledProperty<T>)`
+- `IsAnimating(AvaloniaProperty)`
+- `IsSet(AvaloniaProperty)`
+- `SetCurrentValue(...)` (preserve existing binding/style source)
+- `CoerceValue(AvaloniaProperty)`
+- `AvaloniaProperty.UnsetValue`
+
+`UnsetValue` versus `null`:
+- `null` can be a valid effective value for many reference-type properties.
+- `AvaloniaProperty.UnsetValue` (`UnsetValueType`) means the current source did not produce a value, so priority fallback continues.
+
+Example:
+
+```csharp
+if (control.IsSet(MyControl.ValueProperty))
+{
+    var baseValue = control.GetBaseValue(MyControl.ValueProperty).GetValueOrDefault();
+    // Use baseValue for diagnostics or non-animated logic paths.
+}
+
+control.SetCurrentValue(MyControl.ValueProperty, 42);
+control.CoerceValue(MyControl.ValueProperty);
+```
+
+When updating control-owned properties at runtime, prefer `SetCurrentValue` over `SetValue` to avoid accidentally breaking app-declared bindings and style precedence.
+
+## Change Events and Registry Diagnostics
+
+Change event APIs:
+- `AvaloniaObject.PropertyChanged`
+- `AvaloniaProperty.Changed`
+- `AvaloniaPropertyChangedEventArgs(AvaloniaObject sender, BindingPriority priority)`
+- `AvaloniaPropertyChangedEventArgs.Property`
+- `AvaloniaPropertyChangedEventArgs.Sender`
+- `AvaloniaPropertyChangedEventArgs.Priority`
+- `AvaloniaPropertyChangedEventArgs.OldValue` / `AvaloniaPropertyChangedEventArgs.NewValue`
+- typed argument paths via `AvaloniaPropertyChangedEventArgs<T>`
+- typed values on generic args:
+  - `AvaloniaPropertyChangedEventArgs<T>.OldValue`
+  - `AvaloniaPropertyChangedEventArgs<T>.NewValue`
+- strongly-typed helper extensions:
+  - `AvaloniaPropertyChangedExtensions.GetOldValue<T>()`
+  - `AvaloniaPropertyChangedExtensions.GetNewValue<T>()`
+
+Typed constructor path for manual advanced scenarios:
+- `AvaloniaPropertyChangedEventArgs<T>(AvaloniaObject sender, AvaloniaProperty<T> property, Optional<T> oldValue, BindingValue<T> newValue, BindingPriority priority)`
+
+Registry APIs (diagnostics/tooling oriented):
+- `AvaloniaPropertyRegistry.Instance`
+- `GetRegistered(Type)` / `GetRegisteredAttached(Type)` / `GetRegisteredDirect(Type)` / `GetRegisteredInherited(Type)`
+- `FindRegistered(Type, string)` / `FindRegistered(AvaloniaObject, string)`
+- `FindRegisteredDirect<T>(AvaloniaObject, DirectPropertyBase<T>)`
+- `IsRegistered(Type, AvaloniaProperty)` / `IsRegistered(object, AvaloniaProperty)`
+- `UnregisterByModule(IEnumerable<Type>)`
+
+Practical uses:
+- verify attached/direct registration during control migrations,
+- detect incorrect owner registration when a property appears to be ignored,
+- build lightweight diagnostics tooling for property discovery.
+
+Example:
+
+```csharp
+control.PropertyChanged += (_, e) =>
+{
+    if (e.Property == TextBox.TextProperty)
+    {
+        string? oldText = e.GetOldValue<string?>();
+        string? newText = e.GetNewValue<string?>();
+    }
+};
+
+var registry = AvaloniaPropertyRegistry.Instance;
+bool isRegistered = registry.IsRegistered(typeof(TextBox), TextBox.TextProperty);
+```
 
 ## Attached Property Authoring
 

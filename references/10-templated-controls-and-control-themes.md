@@ -4,8 +4,10 @@
 1. Scope and APIs
 2. Authoring Workflow
 3. XAML and C# Patterns
-4. Best Practices
-5. Troubleshooting
+4. Template Utility Bridge
+5. Best Practices
+6. Troubleshooting
+7. XAML-First and Code-Only Usage
 
 ## Scope and APIs
 
@@ -16,6 +18,8 @@ Primary APIs from the Avalonia codebase:
 - `ControlTheme`
 - `StyledElement.Theme`
 - `TemplateBinding`
+- `IControlTemplate`
+- `TemplateExtensions.GetTemplateChildren(...)`
 - `ThemeVariantScope`
 
 Important members:
@@ -27,12 +31,15 @@ Important members:
 - `ControlTheme.TargetType`
 - `ControlTheme.BasedOn`
 - `StyledElement.Theme`
+- `TemplateBinding.Description`
 
 Reference source files:
 - `src/Avalonia.Controls/Primitives/TemplatedControl.cs`
 - `src/Avalonia.Base/Controls/Metadata/TemplatePartAttribute.cs`
 - `src/Avalonia.Base/Styling/ControlTheme.cs`
 - `src/Avalonia.Base/Data/TemplateBinding.cs`
+- `src/Avalonia.Controls/Templates/IControlTemplate.cs`
+- `src/Avalonia.Controls/Templates/TemplateExtensions.cs`
 
 ## Authoring Workflow
 
@@ -99,6 +106,8 @@ Use `TemplateBinding` for templated parent properties:
 - `Foreground="{TemplateBinding Foreground}"`
 - `BorderBrush="{TemplateBinding BorderBrush}"`
 
+For diagnostics and tooling output, `TemplateBinding.Description` returns a concise `"TemplateBinding: <Property>"` string.
+
 Use nested styles in themes for pseudo-classes:
 
 ```xml
@@ -122,6 +131,19 @@ Apply per-instance theme explicitly:
 ```xml
 <local:FastCard Theme="{StaticResource DangerFastCard}" />
 ```
+
+## Template Utility Bridge
+
+For advanced template helper APIs used by framework-style control authoring, see:
+- `51-template-content-and-func-template-patterns.md`
+
+Key bridge APIs:
+- `IControlTemplate`
+- `ITemplate<TemplatedControl, TemplateResult<Control>?>`
+- `TemplateExtensions.GetTemplateChildren(...)`
+- `TemplateContent.Load(...)`
+
+Use this layer for diagnostics and advanced template composition, while keeping normal control-theme authoring in XAML.
 
 ## Best Practices
 

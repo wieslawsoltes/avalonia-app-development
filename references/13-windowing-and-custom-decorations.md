@@ -2,57 +2,105 @@
 
 ## Table of Contents
 1. Scope and APIs
-2. App-Level Windowing APIs
-3. Custom Client Area and Decorations
-4. Platform-Specific Decoration Hooks
-5. Best Practices
-6. Troubleshooting
+2. `Window` Surface and Decoration APIs
+3. `WindowBase` Integration APIs
+4. `TopLevel` Bridge APIs
+5. Custom Client Area and Drag/Resize
+6. Window Metadata and Event Argument APIs
+7. Platform-Specific Decoration Hooks
+8. Best Practices
+9. Troubleshooting
 
 ## Scope and APIs
 
 Primary app-building APIs:
-- `Window`
-- `TopLevel`
-- `SystemDecorations`
-- `ExtendClientAreaToDecorationsHint`
-- `ExtendClientAreaChromeHints`
-- `ExtendClientAreaTitleBarHeightHint`
-- `Window.BeginMoveDrag(...)`
-- `Window.BeginResizeDrag(...)`
-- `TopLevel.TransparencyLevelHint`
-- `TopLevel.ActualTransparencyLevel`
 
-Related platform-facing interfaces (mostly unstable/internal implementation points):
+- `Window`, `WindowBase`, `TopLevel`
+- `SystemDecorations`, `SizeToContent`, `WindowClosingBehavior`
+- `WindowTransparencyLevel`, `WindowTransparencyLevelCollection`
+- `ExtendClientAreaToDecorationsHint`, `ExtendClientAreaChromeHints`, `ExtendClientAreaTitleBarHeightHint`
+- `Window.BeginMoveDrag(...)`, `Window.BeginResizeDrag(...)`
+- `Window.WindowDecorationMargin`, `Window.OffScreenMargin`
+- `WindowIcon`
+- `WindowCloseReason`, `WindowClosingEventArgs`
+- `WindowResizeReason`, `WindowResizedEventArgs`
+
+Related platform-facing interfaces (mostly backend-level):
+
 - `ITopLevelImpl`
+- `IWindowBaseImpl`
 - `IWindowImpl`
 - `IWindowingPlatform`
 
-Reference source files:
-- `src/Avalonia.Controls/Window.cs`
-- `src/Avalonia.Controls/TopLevel.cs`
-- `src/Avalonia.Controls/Platform/IWindowImpl.cs`
-- `src/Avalonia.Controls/Platform/ITopLevelImpl.cs`
-- `src/Avalonia.Controls/Platform/ExtendClientAreaChromeHints.cs`
+For service access from top-level surfaces (`StorageProvider`, `Clipboard`, `Launcher`, `Screens`, platform handle), see:
+- `48-toplevel-window-and-runtime-services.md`
 
-## App-Level Windowing APIs
+## `Window` Surface and Decoration APIs
 
-Use `Window` for normal desktop app UI:
-- Size/state: `SizeToContent`, `WindowState`, `CanResize`, `CanMinimize`, `CanMaximize`
-- Frame/chrome: `SystemDecorations`, `ExtendClientArea*`
-- Taskbar and activation: `ShowInTaskbar`, `ShowActivated`
+Key `Window` properties/events for custom chrome and host behavior:
 
-Use `TopLevel` for cross-window surface behavior:
-- Transparency: `TransparencyLevelHint`, `ActualTransparencyLevel`
-- Theme bridge to frame: `RequestedThemeVariant`, `ActualThemeVariant`
-- Frame callback scheduling: `RequestAnimationFrame`
+- `SizeToContentProperty`, `SizeToContent`
+- `ExtendClientAreaChromeHintsProperty`, `ExtendClientAreaChromeHints`
+- `WindowDecorationMarginProperty`, `WindowDecorationMargin`
+- `OffScreenMarginProperty`, `OffScreenMargin`
+- `SystemDecorationsProperty`, `SystemDecorations`
+- `ClosingBehaviorProperty`, `ClosingBehavior`
+- `WindowStateProperty`, `WindowState`
+- `IconProperty`, `Icon`
+- `WindowStartupLocationProperty`, `WindowStartupLocation`
+- `OwnedWindows`
+- `IsExtendedIntoWindowDecorations`
+- `IsDialog`
+- `Closing`
 
-## Custom Client Area and Decorations
+Lifecycle and ordering helpers:
+
+- `Show()`, `Show(owner)`, `ShowDialog(owner)`, `ShowDialog<TResult>(owner)`
+- `Hide()`, `Close()`, `Close(dialogResult)`
+- `SortWindowsByZOrder(Window[] windows)`
+
+Platform access:
+
+- `Window.PlatformImpl`
+
+## `WindowBase` Integration APIs
+
+Useful `WindowBase` APIs for host-level coordination:
+
+- `OwnerProperty`, `Owner`
+- `IsActive`
+- `Topmost`
+- `DesktopScaling`
+- `Activate()`
+- `PositionChanged`, `Resized`, `Activated`, `Deactivated`
+- `WindowBase.PlatformImpl`
+
+Use `WindowBase` events when writing shared behaviors that apply to normal windows and derived host surfaces.
+
+## `TopLevel` Bridge APIs
+
+`WindowBase : TopLevel`, so decoration code is often coupled with these shared members:
+
+- `ClientSizeProperty`, `ClientSize`
+- `FrameSizeProperty`, `FrameSize`
+- `PointerOverElementProperty`
+- `TransparencyLevelHintProperty`
+- `ActualTransparencyLevelProperty`
+- `TransparencyBackgroundFallbackProperty`, `TransparencyBackgroundFallback`
+- `SystemBarColorProperty`, `SetSystemBarColor(...)`, `GetSystemBarColor(...)`
+- `SetAutoSafeAreaPadding(...)`, `GetAutoSafeAreaPadding(...)`
+- `RenderScaling`
+- `Opened`, `ScalingChanged`, `BackRequested`
+- `TopLevel.PlatformImpl`, `TryGetPlatformHandle()`
+
+## Custom Client Area and Drag/Resize
 
 To build custom title bars/chrome:
+
 1. Set `ExtendClientAreaToDecorationsHint="True"`.
 2. Configure `ExtendClientAreaChromeHints`.
-3. Set `SystemDecorations` if needed.
-4. Handle dragging/resizing through window methods.
+3. Set `SystemDecorations` as needed.
+4. Handle dragging/resizing via window APIs.
 
 Example:
 
@@ -84,12 +132,86 @@ private void ResizeGripPressed(object? sender, PointerPressedEventArgs e)
 ```
 
 Built-in managed decoration controls:
+
 - `Avalonia.Controls.Chrome.TitleBar`
 - `Avalonia.Controls.Chrome.CaptionButtons`
+
+## Window Metadata and Event Argument APIs
+
+Transparency APIs:
+
+- `WindowTransparencyLevel` (record struct)
+- static values:
+  - `WindowTransparencyLevel.None`
+  - `WindowTransparencyLevel.Transparent`
+  - `WindowTransparencyLevel.Blur`
+  - `WindowTransparencyLevel.AcrylicBlur`
+  - `WindowTransparencyLevel.Mica`
+- `WindowTransparencyLevelCollection`
+
+Example transparency hint ordering:
+
+```csharp
+TransparencyLevelHint = new WindowTransparencyLevelCollection(new[]
+{
+    WindowTransparencyLevel.Mica,
+    WindowTransparencyLevel.AcrylicBlur,
+    WindowTransparencyLevel.Blur,
+    WindowTransparencyLevel.Transparent,
+    WindowTransparencyLevel.None
+});
+```
+
+Window icon APIs:
+
+- `WindowIcon(Bitmap bitmap)`
+- `WindowIcon(string fileName)`
+- `WindowIcon(Stream stream)`
+- `Save(Stream stream)`
+
+Example:
+
+```csharp
+using var iconStream = File.OpenRead("Assets/app-icon.ico");
+Icon = new WindowIcon(iconStream);
+
+using var outStream = File.Create("Assets/icon-copy.ico");
+Icon?.Save(outStream);
+```
+
+Closing and resize event argument types:
+
+- `WindowCloseReason`
+- `WindowClosingEventArgs`
+  - `CloseReason`
+  - `IsProgrammatic`
+- `WindowResizeReason`
+- `WindowResizedEventArgs`
+  - `Reason`
+
+Example:
+
+```csharp
+Closing += (_, e) =>
+{
+    if (e.CloseReason == WindowCloseReason.ApplicationShutdown)
+        return;
+
+    if (!e.IsProgrammatic && HasUnsavedChanges())
+        e.Cancel = true;
+};
+
+Resized += (_, e) =>
+{
+    if (e.Reason == WindowResizeReason.DpiChange)
+        RecomputeDpiSensitiveLayout();
+};
+```
 
 ## Platform-Specific Decoration Hooks
 
 Platform extension APIs for deeper control:
+
 - Win32: `Win32Properties`
   - `AddWindowStylesCallback`
   - `AddWndProcHookCallback`
@@ -98,72 +220,28 @@ Platform extension APIs for deeper control:
   - `NetWmWindowTypeProperty`
   - `WmClassProperty`
 
-Use these only when standard cross-platform APIs are insufficient.
+Use these only when cross-platform `Window`/`TopLevel` APIs are insufficient.
 
 ## Best Practices
 
-- Start with cross-platform `Window` APIs first.
-- Only add platform-specific hooks behind runtime checks.
-- Keep drag/resize behavior centralized in one chrome component.
-- Account for `WindowDecorationMargin` and `OffScreenMargin` in custom layout.
+- Start with portable `Window`/`WindowBase` APIs first.
+- Keep drag/resize handlers in one chrome component.
+- Observe `WindowDecorationMargin` and `OffScreenMargin` in layout/pointer hit regions.
+- Treat `PlatformImpl` as an escape hatch, not baseline app code.
 
 ## Troubleshooting
 
-1. Custom title bar visible but dragging fails:
-- Ensure pointer handler calls `BeginMoveDrag` on press with left button.
+1. Title bar visible but dragging fails.
+- Ensure pointer handler calls `BeginMoveDrag` with left button pressed.
 
-2. Resize handles do nothing:
+2. Resize handles do nothing.
 - Confirm `CanResize=true` and call `BeginResizeDrag` with correct `WindowEdge`.
 
-3. Transparency hint not honored:
-- `TransparencyLevelHint` is best-effort; check `ActualTransparencyLevel`.
+3. Client content overlaps system chrome.
+- Use `WindowDecorationMargin`/`OffScreenMargin` to compensate.
 
-4. Decorated area overlaps content:
-- Observe `WindowDecorationMargin`/`OffScreenMargin` and adjust layout padding.
+4. Window close flow is inconsistent with owned windows.
+- Check `ClosingBehavior` (`OwnerAndChildWindows` vs `OwnerWindowOnly`).
 
-5. Inconsistent behavior across OSes:
-- This is expected for decoration internals; prefer portable APIs for baseline UX.
-
-## XAML-First and Code-Only Usage
-
-Default mode:
-- Define custom chrome surface in XAML first.
-- Use code-only window composition only when requested.
-
-XAML-first complete example:
-
-```xml
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="MyApp.MainWindow"
-        ExtendClientAreaToDecorationsHint="True"
-        ExtendClientAreaChromeHints="NoChrome"
-        SystemDecorations="None">
-  <Grid RowDefinitions="32,*">
-    <Border Grid.Row="0" Background="#2A2E35" PointerPressed="TitleBarPointerPressed">
-      <TextBlock Margin="10,0" VerticalAlignment="Center" Text="My App" />
-    </Border>
-    <ContentPresenter Grid.Row="1" />
-  </Grid>
-</Window>
-```
-
-Code-only alternative (on request):
-
-```csharp
-using Avalonia.Controls;
-using Avalonia.Input;
-
-var window = new Window
-{
-    ExtendClientAreaToDecorationsHint = true,
-    ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.NoChrome,
-    SystemDecorations = SystemDecorations.None
-};
-
-window.PointerPressed += (_, e) =>
-{
-    if (e.GetCurrentPoint(window).Properties.IsLeftButtonPressed)
-        window.BeginMoveDrag(e);
-};
-```
+5. Cross-OS decoration differences.
+- Expected; prefer portable APIs for baseline behavior and gate platform-specific hooks.

@@ -2,23 +2,24 @@
 
 ## Goals
 
-- Keep startup deterministic.
-- Keep app lifetime logic explicit and testable.
-- Keep platform-specific behavior in one place.
+- Keep startup deterministic and debuggable.
+- Keep lifetime transitions explicit (`Startup`, activation, shutdown, exit).
+- Keep platform-specific bootstrapping isolated from app composition.
 
 ## Recommended Project Shape
 
-- `Program.cs`: platform startup (`BuildAvaloniaApp`, `StartWithClassicDesktopLifetime`, browser start, etc).
-- `App.axaml` + `App.axaml.cs`: global resources, theme, and lifetime-based root assignment.
-- `Views/`: `Window`, `UserControl`, template resources.
-- `ViewModels/`: state, commands, async workflows, observables.
-- `Services/`: I/O, persistence, HTTP, domain logic.
+- `Program.cs`: `BuildAvaloniaApp`, platform bootstrap, and app start method.
+- `App.axaml` + `App.axaml.cs`: global resources/themes and root assignment.
+- `Views/`: `Window` / `UserControl` definitions.
+- `ViewModels/`: app state, commands, async workflows.
+- `Services/`: I/O, storage, launcher, domain services.
 
 ## Startup Baseline
 
 ```csharp
 using System;
 using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 
 internal static class Program
 {
@@ -32,19 +33,182 @@ internal static class Program
 }
 ```
 
-## App Baseline (Desktop + SingleView + Activation Feature)
+## `AppBuilder` Orchestration Surface
+
+High-value app startup APIs:
+
+- `Configure<TApp>()`, `Configure<TApp>(Func<TApp> appFactory)`
+- `UseWindowingSubsystem(...)`, `UseRenderingSubsystem(...)`, `UseRuntimePlatformSubsystem(...)`, `UseStandardRuntimePlatformSubsystem()`
+- `With<T>(T options)`, `With<T>(Func<T> options)`
+- `ConfigureFonts(...)`
+- `AfterSetup(...)`, `AfterApplicationSetup(...)`, `AfterPlatformServicesSetup(...)`
+- `SetupWithoutStarting()`, `SetupWithLifetime(...)`, `Start(AppMainDelegate, args)`
+- `AppMainDelegate`
+
+Useful diagnostics/introspection properties while composing startup:
+
+- `Instance`, `ApplicationType`
+- `WindowingSubsystemInitializer`, `WindowingSubsystemName`
+- `RenderingSubsystemInitializer`, `RenderingSubsystemName`
+- `RuntimePlatformServicesInitializer`, `RuntimePlatformServicesName`
+- `AfterSetupCallback`, `AfterPlatformServicesSetupCallback`
+- `LifetimeOverride`
+
+Example:
 
 ```csharp
-using Avalonia;
+public static AppBuilder BuildAvaloniaApp()
+    => AppBuilder.Configure<App>(() => new App())
+        .UsePlatformDetect()
+        .AfterPlatformServicesSetup(builder =>
+        {
+            // Platform services are registered here.
+            _ = builder.RuntimePlatformServicesName;
+        })
+        .AfterSetup(builder =>
+        {
+            // Application instance exists here.
+            _ = builder.Instance;
+        });
+```
+
+## `Application` Lifecycle Surface
+
+App-level events and collections often needed in production apps:
+
+- `Application.ResourcesChanged`
+- `Application.ActualThemeVariantChanged`
+- `Application.UrlsOpened` (obsolete compatibility event for URL activation flows)
+- `Application.DataTemplates`
+- `Application.DataContextProperty`
+- `Application.NameProperty`
+- `Application.Name`
+
+Pattern:
+
+```csharp
+public override void OnFrameworkInitializationCompleted()
+{
+    ResourcesChanged += (_, _) => { };
+    ActualThemeVariantChanged += (_, _) => { };
+    UrlsOpened += (_, e) =>
+    {
+        // Compatibility path; prefer IActivatableLifetime for new code.
+        _navigation.OpenUrls(e.Urls);
+    };
+
+    _ = DataTemplates;
+    base.OnFrameworkInitializationCompleted();
+}
+```
+
+`Application` identity and root data context are explicit property-system entries:
+
+- `DataContextProperty` (styled property owner on `Application`)
+- `NameProperty` (direct property)
+- `Name` (CLR wrapper)
+
+Example:
+
+```csharp
+public override void Initialize()
+{
+    // Set root application identity and default binding context intentionally.
+    Name = "MyApp";
+    DataContext = _rootShellState;
+}
+```
+
+## Lifetime Selection and Activation
+
+Main lifetime choices:
+
+- `IClassicDesktopStyleApplicationLifetime` for multi-window desktop apps.
+- `ISingleViewApplicationLifetime` for single-root hosts.
+- `IActivatableLifetime` for activation/deactivation flow.
+- `ISingleTopLevelApplicationLifetime` when the host has exactly one `TopLevel`.
+
+Compatibility note:
+- `IActivatableApplicationLifetime` exists as an obsolete compatibility interface and has no effect in `11.3.12`; use `Application.Current.TryGetFeature<IActivatableLifetime>()`.
+
+Related public activation types:
+
+- `ActivatableLifetimeBase`
+- `ActivatedEventArgs` (`Kind` as `ActivationKind`)
+- `ProtocolActivatedEventArgs` (`Uri`)
+- `FileActivatedEventArgs` (`Files`)
+
+Pattern:
+
+```csharp
+if (ApplicationLifetime is IActivatableLifetime activatable)
+{
+    activatable.Activated += (_, e) =>
+    {
+        if (e is ProtocolActivatedEventArgs p)
+            _navigation.OpenUri(p.Uri);
+        else if (e is FileActivatedEventArgs f)
+            _navigation.OpenFiles(f.Files);
+    };
+}
+```
+
+## Desktop Lifetime Operational APIs
+
+Desktop-specific useful APIs:
+
+- `ClassicDesktopStyleApplicationLifetime.Args`
+- `ClassicDesktopStyleApplicationLifetime.ShutdownMode`
+- `ClassicDesktopStyleApplicationLifetime.ShutdownRequested`
+- `ClassicDesktopStyleApplicationLifetime.Startup`
+- `ClassicDesktopStyleApplicationLifetime.Exit`
+- `ClassicDesktopStyleApplicationLifetimeOptions.ProcessUrlActivationCommandLine`
+- `ClassicDesktopStyleApplicationLifetimeExtensions`
+
+Event arg types used by controlled lifetime:
+
+- `ControlledApplicationLifetimeStartupEventArgs` (`Args`)
+- `ShutdownRequestedEventArgs` (`Cancel`)
+- `ControlledApplicationLifetimeExitEventArgs` (`ApplicationExitCode`)
+
+Pattern:
+
+```csharp
+if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+{
+    desktop.Startup += (_, e) =>
+    {
+        string[] args = e.Args;
+        _ = args.Length;
+    };
+
+    desktop.ShutdownRequested += (_, e) =>
+    {
+        e.Cancel = !CanCloseSafely();
+    };
+
+    desktop.Exit += (_, e) =>
+    {
+        e.ApplicationExitCode = 0;
+    };
+}
+```
+
+Additional desktop startup helpers:
+
+- `DesktopApplicationExtensions.RunWithMainWindow<TWindow>()`
+- `AppBuilderDesktopExtensions`
+
+## Root Assignment Baseline
+
+```csharp
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.Platform;
 
 public class App : Application
 {
-    public override void Initialize()
-        => AvaloniaXamlLoader.Load(this);
+    public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
     public override void OnFrameworkInitializationCompleted()
     {
@@ -63,128 +227,21 @@ public class App : Application
             };
         }
 
-        if (Application.Current?.TryGetFeature<IActivatableLifetime>() is { } activatable)
-        {
-            activatable.Activated += (_, _) => { };
-            activatable.Deactivated += (_, _) => { };
-        }
-
         base.OnFrameworkInitializationCompleted();
     }
 }
 ```
 
-## Lifetime Selection Rules
-
-- Choose `IClassicDesktopStyleApplicationLifetime` when multiple windows/dialogs/system menu integration are required.
-- Choose `ISingleViewApplicationLifetime` when the host presents one root view (browser/mobile shell).
-- Use `IActivatableLifetime` feature hooks when you need activation/deactivation events from the host platform.
-
-## Shutdown Behavior
-
-Desktop controls:
-- `ShutdownMode`:
-  - `OnLastWindowClose` for consumer desktop apps.
-  - `OnMainWindowClose` for strict primary-window behavior.
-  - `OnExplicitShutdown` for background/tray-style apps.
-- `ShutdownRequested` to inspect/cancel shutdown requests.
-
-Use:
-- Keep shutdown policy in one place (e.g., startup/lifetime config).
-- Avoid hidden calls to `Shutdown()` from deeply nested UI components.
-
-## `AppBuilder.With<TOptions>` Pattern
-
-Use options binding instead of scattered globals:
-
-```csharp
-public static AppBuilder BuildAvaloniaApp()
-    => AppBuilder.Configure<App>()
-        .UsePlatformDetect()
-        .With(new Win32PlatformOptions
-        {
-            RenderingMode = new[]
-            {
-                Win32RenderingMode.AngleEgl,
-                Win32RenderingMode.Software
-            }
-        })
-        .With(new X11PlatformOptions
-        {
-            RenderingMode = new[]
-            {
-                X11RenderingMode.Glx,
-                X11RenderingMode.Software
-            }
-        });
-```
-
-## Service Registration Strategy
-
-`Application.RegisterServices()` is the framework-level default service registration hook.
-
-Guidance:
-- Keep app-specific service wiring explicit and centralized.
-- Avoid service location from random controls; inject through constructors/factories where possible.
-- If using external DI container, bridge it once during startup.
-
 ## Common Architecture Mistakes
 
-1. Mixing startup, navigation, and business logic in `Program.cs`.
-- Fix: keep `Program.cs` minimal; perform app-level branching in `App`.
+1. Mixing business logic into `Program.cs`.
+- Fix: keep `Program.cs` focused on `AppBuilder` composition.
 
-2. Assigning `MainWindow`/`MainView` before lifetime is set.
-- Fix: assign roots inside `OnFrameworkInitializationCompleted()`.
+2. Assigning `MainWindow`/`MainView` outside `OnFrameworkInitializationCompleted()`.
+- Fix: assign roots only after lifetime is established.
 
-3. Duplicating platform setup in multiple entry points.
-- Fix: one shared `BuildAvaloniaApp()` plus thin platform launchers.
+3. Shutdown logic spread across views/viewmodels.
+- Fix: route lifecycle shutdown through one app-level service/lifetime adapter.
 
-4. Hiding shutdown side-effects in viewmodels.
-- Fix: route shutdown through a dedicated application service/lifetime adapter.
-
-## XAML-First and Code-Only Usage
-
-Default mode:
-- Use XAML for root view composition and compiled bindings.
-- Use code-only root/view setup only when requested.
-
-XAML-first references:
-- `App.axaml`, `MainWindow.axaml`, `x:DataType`, compiled bindings
-
-XAML-first usage example:
-
-```xml
-<Application xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="MyApp.App">
-  <Application.Styles>
-    <FluentTheme />
-  </Application.Styles>
-</Application>
-```
-
-```xml
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:MyApp.ViewModels"
-        x:Class="MyApp.MainWindow"
-        x:DataType="vm:MainWindowViewModel">
-  <TextBlock Text="{CompiledBinding Title}" />
-</Window>
-```
-
-Code-only alternative (on request):
-
-```csharp
-desktop.MainWindow = new Window
-{
-    DataContext = new MainWindowViewModel(),
-    Content = new StackPanel
-    {
-        Children =
-        {
-            new TextBlock { [!TextBlock.TextProperty] = new Binding("Title") }
-        }
-    }
-};
-```
+4. Using startup callback hooks without clear ownership.
+- Fix: keep `AfterSetup`/`AfterPlatformServicesSetup` callbacks minimal and deterministic.
