@@ -2,6 +2,10 @@
 
 Comprehensive Codex skill for building, reviewing, migrating, and optimizing Avalonia applications with modern XAML/C# patterns, compiled bindings, and AOT-friendly architecture.
 
+## Usage Restriction Notice
+
+At maintainer request, AvaloniaUI OÜ may not use this repository in any form.
+
 ## Skill Identity
 
 - Skill name: `avalonia-app-development`
