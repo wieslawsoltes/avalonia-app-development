@@ -211,6 +211,37 @@ Template/data template APIs:
 - `FuncDataTemplate`
 - `DataTemplates`
 
+Menu surface APIs:
+- `MenuBase`, `Menu`, `MenuItem`
+- `ContextMenu`
+- `MenuFlyout`, `MenuFlyoutPresenter`
+- `NativeMenu`, `NativeMenuItem`, `NativeMenuItemSeparator`, `NativeMenuBar`
+- `NativeMenu.SetMenu(...)`, `NativeMenu.GetMenu(...)`, `NativeMenu.GetIsNativeMenuExported(...)`
+
+Tray and notification APIs:
+- `TrayIcon`, `TrayIcons`
+- `TrayIcon.SetIcons(...)`, `TrayIcon.GetIcons(...)`
+- `TrayIcon.Icon`, `TrayIcon.ToolTipText`, `TrayIcon.IsVisible`, `TrayIcon.Menu`
+- `MacOSProperties.IsTemplateIcon`
+- `INotification`, `Notification`, `NotificationType`
+- `INotificationManager`, `IManagedNotificationManager`
+- `WindowNotificationManager`, `NotificationPosition`
+
+Scrolling, text editing, and gesture APIs:
+- `ScrollViewer` (`Offset`, `Extent`, `Viewport`, `ScrollBarMaximum`, `ScrollChanged`)
+- `ScrollViewer` attached options (`HorizontalScrollBarVisibility`, `VerticalScrollBarVisibility`, `AllowAutoHide`, `IsScrollChainingEnabled`, `IsScrollInertiaEnabled`, `IsDeferredScrollingEnabled`)
+- `ScrollViewer` snap/anchor surface (`HorizontalSnapPointsType`, `VerticalSnapPointsType`, `HorizontalSnapPointsAlignment`, `VerticalSnapPointsAlignment`, `RegisterAnchorCandidate`, `UnregisterAnchorCandidate`)
+- `TextBox` (`Text`, `CaretIndex`, `SelectionStart`, `SelectionEnd`, `SelectedText`, `AcceptsReturn`, `TextWrapping`, `IsReadOnly`)
+- `TextBox` clipboard/edit commands (`Cut`, `Copy`, `Paste`, `Undo`, `Redo`, `SelectAll`, `ClearSelection`, `Clear`, `ScrollToLine`)
+- `TextBox` command state (`CanCut`, `CanCopy`, `CanPaste`, `CanUndo`, `CanRedo`, `IsUndoEnabled`, `UndoLimit`)
+- `Gestures` routed events (`Tapped`, `DoubleTapped`, `RightTapped`, `Holding`, `Pinch`, `PullGesture`, `ScrollGesture`)
+- `TextInputOptions` attached properties (`ContentType`, `ReturnKeyType`, `Multiline`, `AutoCapitalization`, `IsSensitive`, `ShowSuggestions`)
+
+Automation and attached behavior APIs:
+- `AutomationProperties` (`Name`, `AutomationId`, `HelpText`, `LabeledBy`, `LiveSetting`, `AccessibilityView`, `IsOffscreenBehavior`)
+- `ToolTip` attached APIs (`Tip`, `IsOpen`, `Placement`, `ShowDelay`, `BetweenShowDelay`, `ShowOnDisabled`, `ServiceEnabled`)
+- `RelativePanel` attached layout APIs (`Above`, `Below`, `LeftOf`, `RightOf`, `Align*With*`)
+
 Important behavior:
 - `DataTemplates` collection expects typed templates (`DataType`) for robust matching in shared/global scenarios.
 
@@ -229,6 +260,11 @@ XAML include APIs:
 - `StyleInclude`
 - `ResourceInclude`
 - `MergeResourceInclude`
+
+Media primitives:
+- `Colors`
+- `Brushes`
+- `FormattedText`
 
 Use:
 - Prefer typed selector construction in C# (`new Style(x => x.OfType<Button>())`) for trim-safe code paths when you need runtime selector building.
@@ -272,8 +308,15 @@ Platform-specific entry points:
 - Linux framebuffer: `StartLinuxFbDev(...)`, `StartLinuxDrm(...)`, `StartLinuxDirect(...)`, `LinuxFramebufferPlatformOptions`
 - Headless/testing: `UseHeadless(...)`, `AvaloniaHeadlessPlatformOptions`
 
+Advanced graphics/interop surfaces (specialized):
+- `IPlatformGraphics`, `IPlatformGraphicsContext`, `IPlatformGraphicsReadyStateFeature` (unstable contracts)
+- OpenGL: `IGlContext`, `GlInterface`, `GlVersion`, `IGlPlatformSurface`, `IGlPlatformSurfaceRenderTarget`
+- Vulkan: `IVulkanPlatformGraphicsContext`, `IVulkanDevice`, `IVulkanRenderTarget`, `VulkanOptions`
+- Linux framebuffer/DRM: `DrmOutputOptions`, `FbdevOutput`, `DrmCard`, `DrmResources`
+
 Use:
 - Always include software fallback in rendering mode arrays for robust deployment.
+- Keep interop-boundary APIs isolated from normal view/application code.
 
 ## 9) Build and Tooling Surface
 

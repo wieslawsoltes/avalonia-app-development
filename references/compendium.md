@@ -57,6 +57,15 @@ Use this as the entry page for the full skill reference set.
 50. Relative/static resource and name resolution markup: [`50-relative-static-resource-and-name-resolution-markup.md`](50-relative-static-resource-and-name-resolution-markup)
 51. Template content and func template patterns: [`51-template-content-and-func-template-patterns.md`](51-template-content-and-func-template-patterns)
 52. Controls reference catalog: [`52-controls-reference-catalog.md`](52-controls-reference-catalog)
+53. Menu controls, context menu, and menu flyout patterns: [`53-menu-controls-contextmenu-and-menuflyout-patterns.md`](53-menu-controls-contextmenu-and-menuflyout-patterns)
+54. Native menu and native menubar integration: [`54-native-menu-and-native-menubar-integration.md`](54-native-menu-and-native-menubar-integration)
+55. Tray icons and system tray integration: [`55-tray-icons-and-system-tray-integration.md`](55-tray-icons-and-system-tray-integration)
+56. Managed notifications and WindowNotificationManager: [`56-managed-notifications-and-window-notification-manager.md`](56-managed-notifications-and-window-notification-manager)
+57. ScrollViewer offset, anchoring, and snap points: [`57-scrollviewer-offset-anchoring-and-snap-points.md`](57-scrollviewer-offset-anchoring-and-snap-points)
+58. TextBox editing, clipboard, undo/redo, and input options: [`58-textbox-editing-clipboard-undo-and-input-options.md`](58-textbox-editing-clipboard-undo-and-input-options)
+59. Media colors, brushes, and FormattedText practical usage: [`59-media-colors-brushes-and-formatted-text-practical-usage.md`](59-media-colors-brushes-and-formatted-text-practical-usage)
+60. Automation properties and attached behavior patterns: [`60-automation-properties-and-attached-behavior-patterns.md`](60-automation-properties-and-attached-behavior-patterns)
+61. Rendering and interop boundaries (OpenGL/Vulkan/framebuffer): [`61-rendering-and-interop-boundaries-opengl-vulkan-framebuffer.md`](61-rendering-and-interop-boundaries-opengl-vulkan-framebuffer)
 API index: [`api-index-generated.md`](api-index-generated)
 
 ## Fast Navigation by Task
@@ -74,6 +83,8 @@ API index: [`api-index-generated.md`](api-index-generated)
   - [`32-launcher-and-external-open.md`](32-launcher-and-external-open)
   - [`33-screens-and-display-awareness.md`](33-screens-and-display-awareness)
   - [`34-dragdrop-workflows.md`](34-dragdrop-workflows)
+  - [`54-native-menu-and-native-menubar-integration.md`](54-native-menu-and-native-menubar-integration)
+  - [`55-tray-icons-and-system-tray-integration.md`](55-tray-icons-and-system-tray-integration)
 
 - XAML compiler, runtime loader, and manipulation:
   - [`41-xaml-compiler-and-build-pipeline.md`](41-xaml-compiler-and-build-pipeline)
@@ -118,6 +129,9 @@ API index: [`api-index-generated.md`](api-index-generated)
   - [`18-input-system-and-routed-events.md`](18-input-system-and-routed-events)
   - [`19-focus-and-keyboard-navigation.md`](19-focus-and-keyboard-navigation)
   - [`24-commands-hotkeys-and-gestures.md`](24-commands-hotkeys-and-gestures)
+  - [`57-scrollviewer-offset-anchoring-and-snap-points.md`](57-scrollviewer-offset-anchoring-and-snap-points)
+  - [`58-textbox-editing-clipboard-undo-and-input-options.md`](58-textbox-editing-clipboard-undo-and-input-options)
+  - [`53-menu-controls-contextmenu-and-menuflyout-patterns.md`](53-menu-controls-contextmenu-and-menuflyout-patterns)
   - [`34-dragdrop-workflows.md`](34-dragdrop-workflows)
   - [`36-adorners-focus-and-overlay-layers.md`](36-adorners-focus-and-overlay-layers)
   - [`39-visual-tree-inspection-and-traversal.md`](39-visual-tree-inspection-and-traversal)
@@ -126,12 +140,14 @@ API index: [`api-index-generated.md`](api-index-generated)
   - [`30-layout-measure-arrange-and-custom-layout-controls.md`](30-layout-measure-arrange-and-custom-layout-controls)
   - [`20-itemscontrol-virtualization-and-recycling.md`](20-itemscontrol-virtualization-and-recycling)
   - [`21-custom-layout-authoring.md`](21-custom-layout-authoring)
+  - [`57-scrollviewer-offset-anchoring-and-snap-points.md`](57-scrollviewer-offset-anchoring-and-snap-points)
   - [`38-data-templates-and-idatatemplate-selector-patterns.md`](38-data-templates-and-idatatemplate-selector-patterns)
   - [`51-template-content-and-func-template-patterns.md`](51-template-content-and-func-template-patterns)
 
 - Validation and accessibility:
   - [`22-validation-pipeline-and-data-errors.md`](22-validation-pipeline-and-data-errors)
   - [`23-accessibility-and-automation.md`](23-accessibility-and-automation)
+  - [`60-automation-properties-and-attached-behavior-patterns.md`](60-automation-properties-and-attached-behavior-patterns)
 
 - Animation and rendering loops:
   - [`12-animations-transitions-and-frame-loops.md`](12-animations-transitions-and-frame-loops)
@@ -141,12 +157,21 @@ API index: [`api-index-generated.md`](api-index-generated)
   - [`13-windowing-and-custom-decorations.md`](13-windowing-and-custom-decorations)
   - [`48-toplevel-window-and-runtime-services.md`](48-toplevel-window-and-runtime-services)
   - [`25-popups-flyouts-tooltips-and-overlays.md`](25-popups-flyouts-tooltips-and-overlays)
+  - [`53-menu-controls-contextmenu-and-menuflyout-patterns.md`](53-menu-controls-contextmenu-and-menuflyout-patterns)
+  - [`54-native-menu-and-native-menubar-integration.md`](54-native-menu-and-native-menubar-integration)
+  - [`55-tray-icons-and-system-tray-integration.md`](55-tray-icons-and-system-tray-integration)
+  - [`56-managed-notifications-and-window-notification-manager.md`](56-managed-notifications-and-window-notification-manager)
   - [`52-controls-reference-catalog.md`](52-controls-reference-catalog)
 
 - Drawing and graphics:
   - [`14-custom-drawing-text-shapes-and-skia.md`](14-custom-drawing-text-shapes-and-skia)
   - [`35-path-icons-and-vector-geometry-assets.md`](35-path-icons-and-vector-geometry-assets)
   - [`37-shapes-geometry-and-hit-testing.md`](37-shapes-geometry-and-hit-testing)
+  - [`59-media-colors-brushes-and-formatted-text-practical-usage.md`](59-media-colors-brushes-and-formatted-text-practical-usage)
+
+- Advanced rendering and interop:
+  - [`15-compositor-and-custom-visuals.md`](15-compositor-and-custom-visuals)
+  - [`61-rendering-and-interop-boundaries-opengl-vulkan-framebuffer.md`](61-rendering-and-interop-boundaries-opengl-vulkan-framebuffer)
 
 - Testing and diagnostics:
   - [`26-testing-stack-headless-render-and-ui-tests.md`](26-testing-stack-headless-render-and-ui-tests)

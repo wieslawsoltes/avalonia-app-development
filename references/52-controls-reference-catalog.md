@@ -14,7 +14,7 @@ This catalog provides one reference document per public Avalonia control type.
 
 ## Entry Point
 
-- [`controls/README.md`](controls/README)
+- [`controls/README.md`](controls/)
 
 ## Generation
 
@@ -22,7 +22,7 @@ Use the generator script to rebuild all control references:
 
 ```bash
 python3 scripts/generate_control_reference_docs.py \
-  --repo /Users/wieslawsoltes/GitHub/Avalonia \
+  --repo <path-to-avalonia-repo> \
   --git-ref 11.3.12 \
   --output-dir references/controls
 ```

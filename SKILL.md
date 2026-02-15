@@ -48,6 +48,8 @@ Primary entry for the full reference set:
 - Read `references/40-logical-tree-inspection-and-traversal.md`.
 - Read `references/18-input-system-and-routed-events.md`.
 - Read `references/19-focus-and-keyboard-navigation.md`.
+- Read `references/57-scrollviewer-offset-anchoring-and-snap-points.md`.
+- Read `references/58-textbox-editing-clipboard-undo-and-input-options.md`.
 - Read `references/34-dragdrop-workflows.md`.
 - Keep routed-input handling thin and deterministic; prefer command/state dispatch.
 
@@ -65,6 +67,10 @@ Primary entry for the full reference set:
 - Read `references/36-adorners-focus-and-overlay-layers.md`.
 - Read `references/13-windowing-and-custom-decorations.md`.
 - Read `references/48-toplevel-window-and-runtime-services.md`.
+- Read `references/53-menu-controls-contextmenu-and-menuflyout-patterns.md`.
+- Read `references/54-native-menu-and-native-menubar-integration.md`.
+- Read `references/55-tray-icons-and-system-tray-integration.md`.
+- Read `references/56-managed-notifications-and-window-notification-manager.md`.
 - Read `references/52-controls-reference-catalog.md` for per-control API quick lookup.
 - Read `references/25-popups-flyouts-tooltips-and-overlays.md`.
 - Separate control contract, template parts, and platform-specific window/popup behavior.
@@ -73,6 +79,7 @@ Primary entry for the full reference set:
 - Read `references/30-layout-measure-arrange-and-custom-layout-controls.md`.
 - Read `references/21-custom-layout-authoring.md`.
 - Read `references/20-itemscontrol-virtualization-and-recycling.md`.
+- Read `references/57-scrollviewer-offset-anchoring-and-snap-points.md`.
 - Use invalidation discipline (`InvalidateMeasure`/`InvalidateArrange`) and recycling-aware templates.
 
 8. Add motion, compositor effects, and custom rendering only where needed.
@@ -80,11 +87,14 @@ Primary entry for the full reference set:
 - Read `references/15-compositor-and-custom-visuals.md`.
 - Read `references/14-custom-drawing-text-shapes-and-skia.md`.
 - Read `references/37-shapes-geometry-and-hit-testing.md`.
+- Read `references/59-media-colors-brushes-and-formatted-text-practical-usage.md`.
+- Read `references/61-rendering-and-interop-boundaries-opengl-vulkan-framebuffer.md` for advanced interop only.
 - Prefer built-in transitions/animations first; use custom draw/compositor paths for hotspots.
 
 9. Complete validation, accessibility, and automation semantics.
 - Read `references/22-validation-pipeline-and-data-errors.md`.
 - Read `references/23-accessibility-and-automation.md`.
+- Read `references/60-automation-properties-and-attached-behavior-patterns.md`.
 - Ensure data errors, labels, focus order, and automation metadata are stable and testable.
 
 10. Verify quality with tests, diagnostics, and performance passes.

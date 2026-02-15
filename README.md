@@ -95,6 +95,15 @@ Recent additions include focused references for:
 - Relative/static resource and name resolution markup
 - Template content and func template patterns
 - Path icons, adorners, and shapes
+- Menu controls, context menu, and menu flyout patterns
+- Native menu and native menubar integration
+- Tray icons and system tray integration
+- Managed notifications and `WindowNotificationManager`
+- `ScrollViewer` offset, anchoring, and snap points
+- `TextBox` editing, clipboard, undo/redo, and text input options
+- Media `Colors`, `Brushes`, and `FormattedText` usage
+- `AutomationProperties` and attached behavior patterns
+- Advanced rendering/interop boundaries (OpenGL, Vulkan, Linux framebuffer)
 - Per-control references for the full Avalonia control surface (`references/controls/`)
 
 These are designed to reduce accidental drift to unreleased APIs.
