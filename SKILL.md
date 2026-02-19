@@ -107,6 +107,18 @@ Primary entry for the full reference set:
 - Read `references/09-end-to-end-examples.md`.
 - Use `references/api-index-generated.md` for signature-level API lookup and drift checks.
 
+12. For web-to-desktop migration work, map HTML/CSS idioms explicitly.
+- Read `references/62-html-css-to-avalonia-modern-ui-conversion-index.md`.
+- Use detailed topic docs under `references/html-to-avalonia/` (index at `references/html-to-avalonia/README.md`, currently `00`-`39`).
+
+13. For Windows desktop migration work, map WinForms idioms explicitly.
+- Read `references/63-winforms-to-avalonia-modern-ui-conversion-index.md`.
+- Use detailed topic docs under `references/winforms-to-avalonia/` (index at `references/winforms-to-avalonia/README.md`, currently `00`-`38`).
+
+14. For XAML desktop migration work, map WPF idioms explicitly.
+- Read `references/64-wpf-to-avalonia-modern-ui-conversion-index.md`.
+- Use detailed topic docs under `references/wpf-to-avalonia/` (index at `references/wpf-to-avalonia/README.md`, currently `00`-`45`).
+
 ## Public API Coverage
 
 Use curated app-building API guidance first:
