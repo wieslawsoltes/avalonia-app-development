@@ -213,9 +213,11 @@ Template/data template APIs:
 
 Menu surface APIs:
 - `MenuBase`, `Menu`, `MenuItem`
+- `MenuItem.Icon`
 - `ContextMenu`
 - `MenuFlyout`, `MenuFlyoutPresenter`
 - `NativeMenu`, `NativeMenuItem`, `NativeMenuItemSeparator`, `NativeMenuBar`
+- `NativeMenuItem.Icon`
 - `NativeMenu.SetMenu(...)`, `NativeMenu.GetMenu(...)`, `NativeMenu.GetIsNativeMenuExported(...)`
 
 Tray and notification APIs:
@@ -237,6 +239,12 @@ Scrolling, text editing, and gesture APIs:
 - `Gestures` routed events (`Tapped`, `DoubleTapped`, `RightTapped`, `Holding`, `Pinch`, `PullGesture`, `ScrollGesture`)
 - `TextInputOptions` attached properties (`ContentType`, `ReturnKeyType`, `Multiline`, `AutoCapitalization`, `IsSensitive`, `ShowSuggestions`)
 
+Icon and image APIs:
+- `IconElement`, `PathIcon`
+- `Path`, `Geometry`, `StreamGeometry`, `PathGeometry`, `GeometryGroup`, `CombinedGeometry`
+- `Image`, `IImage`, `Bitmap`, `CroppedBitmap`, `DrawingImage`, `GeometryDrawing`
+- `WindowIcon`
+
 Automation and attached behavior APIs:
 - `AutomationProperties` (`Name`, `AutomationId`, `HelpText`, `LabeledBy`, `LiveSetting`, `AccessibilityView`, `IsOffscreenBehavior`)
 - `ToolTip` attached APIs (`Tip`, `IsOpen`, `Placement`, `ShowDelay`, `BetweenShowDelay`, `ShowOnDisabled`, `ServiceEnabled`)
@@ -245,16 +253,23 @@ Automation and attached behavior APIs:
 Important behavior:
 - `DataTemplates` collection expects typed templates (`DataType`) for robust matching in shared/global scenarios.
 
-## 6) Styling, Themes, and Resources
+## 6) Styling, Themes, Resources, and Design Tokens
 
 Key APIs:
 - `Style`
 - `Styles`
 - `ControlTheme`
+- `FluentTheme`
+- `DensityStyle`
+- `ColorPaletteResources`
 - `Selectors` (typed selector builder in C#)
 - `ThemeVariant` (`Default`, `Light`, `Dark`)
 - `ThemeVariantScope`
 - `ResourceDictionary` (`MergedDictionaries`, `ThemeDictionaries`, `TryGetResource`)
+- `DynamicResourceExtension`
+- `Classes`, `IPseudoClasses`
+- `ItemsControl.ItemContainerTheme`
+- `Flyout.FlyoutPresenterTheme`
 
 XAML include APIs:
 - `StyleInclude`
@@ -264,11 +279,39 @@ XAML include APIs:
 Media primitives:
 - `Colors`
 - `Brushes`
+- `BoxShadows`
+- `FontFamily`
 - `FormattedText`
+- `FlowDirection`
+
+Motion and responsive helpers:
+- `Transitions`
+- `BrushTransition`, `ColorTransition`, `CornerRadiusTransition`, `BoxShadowsTransition`, `TransformOperationsTransition`
+- `TransitioningContentControl`, `IPageTransition`, `CrossFade`, `PageSlide`, `CompositePageTransition`
+- `ElementComposition`, `Compositor`, `ExpressionAnimation`, `ImplicitAnimationCollection`
+- `CompositionAnimationGroup`
+- `Gestures`, `PinchGestureRecognizer`, `ScrollGestureRecognizer`, `PullGestureRecognizer`
+- `RefreshContainer`
+- `Container.SetSizing(...)`, `ContainerSizing`
+- `StyleQuery`, `StyleQueries`, `ContainerQuery`
 
 Use:
 - Prefer typed selector construction in C# (`new Style(x => x.OfType<Button>())`) for trim-safe code paths when you need runtime selector building.
 - Use `ThemeDictionaries` to isolate per-theme values instead of ad-hoc runtime checks.
+- Use `FluentTheme.Palettes` only for palette-level customization; keep app semantic tokens in your own resource dictionaries.
+- Use `ControlTheme` for reusable component families and `ItemContainerTheme` / `FlyoutPresenterTheme` for high-value container and overlay polish.
+- Model design systems as primitive tokens -> semantic tokens -> component tokens.
+- Use transitions first for simple state changes, page transitions for view swaps, and composition APIs for shell-level or high-frequency motion.
+- Use composition groups and implicit animations when several shell effects must stay coordinated; for app code in Avalonia `11.3.12`, prefer animation parameter APIs over direct `CompositionPropertySet` construction.
+- Design for localization, `FlowDirection`, and mixed input early so the visual system holds up under RTL, touch, and dense professional workflows.
+- Use `PathIcon` plus shared geometry resources for most single-color command icons; use `Image`/`Bitmap`, `WindowIcon`, or native-menu bitmaps only when the target surface requires them.
+
+Design-system references:
+- [`66-professional-ui-design-tokens-and-themes.md`](66-professional-ui-design-tokens-and-themes)
+- [`professional-design/README.md`](professional-design/README)
+- [`67-microsoft-fluent-design-and-fluenttheme.md`](67-microsoft-fluent-design-and-fluenttheme)
+- [`fluent-design/README.md`](fluent-design/README)
+- [`fluent-design/13-fluent-icons-public-icon-sets-selection-and-avalonia-usage.md`](fluent-design/13-fluent-icons-public-icon-sets-selection-and-avalonia-usage)
 
 ## 7) Input, Commands, and Routed Events
 

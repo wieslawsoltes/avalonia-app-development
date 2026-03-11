@@ -1,6 +1,6 @@
 ---
 name: xaml-csharp-development-skill-for-avalonia
-description: Build, review, migrate, and optimize Avalonia applications with modern XAML/C# patterns, compiled bindings, and AOT-friendly architecture. Use for tasks involving Avalonia app startup and lifetime wiring, view/viewmodel composition, bindings in .axaml/.xaml and C#, styles/themes/resources, platform-specific bootstrapping (desktop/browser/mobile/headless), trimming/NativeAOT compatibility, reactive UI flows, performance tuning, and troubleshooting build/runtime issues in Avalonia projects.
+description: Build, review, design, migrate, and optimize Avalonia applications with modern XAML/C# patterns, compiled bindings, AOT-friendly architecture, professional UI/UX design systems, design tokens, control themes, and Microsoft Fluent design system customization. Use for tasks involving Avalonia app startup and lifetime wiring, view/viewmodel composition, bindings in .axaml/.xaml and C#, styles/themes/resources, polished visual design, FluentTheme palette work, platform-specific bootstrapping (desktop/browser/mobile/headless), trimming/NativeAOT compatibility, reactive UI flows, performance tuning, and troubleshooting build/runtime issues in Avalonia projects.
 ---
 
 # XAML and C# Cross-Platform Development (for Avalonia)
@@ -60,6 +60,8 @@ Primary entry for the full reference set:
 - Read `references/43-xaml-in-libraries-and-resource-packaging.md`.
 - Read `references/35-path-icons-and-vector-geometry-assets.md`.
 - Read `references/28-custom-themes-xaml-and-code-only.md`.
+- Read `references/66-professional-ui-design-tokens-and-themes.md` and use the detailed topics under `references/professional-design/README.md` for professional UI/UX systems, token architecture, typography, spacing, command language, quality gates, information architecture, navigation, forms, dense workflows, localization, BiDi, touch/gesture behavior, responsive layout, stateful feedback, motion, composition, overlays, and component variants.
+- Read `references/67-microsoft-fluent-design-and-fluenttheme.md` and use the detailed topics under `references/fluent-design/README.md` when the user wants Microsoft Fluent design, FluentTheme palette customization, density tuning, brand/token mapping, Fluent shells, language-system guidance, localized/inclusive content patterns, navigation, notification language, materials, motion, composition, touch/gesture behavior, Fluent-specific interaction guidance, or Fluent/public icon-system guidance in Avalonia.
 - Keep property metadata, style selectors, media rules, and resource lookup predictable.
 
 6. Implement controls and window surfaces.

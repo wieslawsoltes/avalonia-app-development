@@ -31,6 +31,8 @@ This skill covers app-development-facing Avalonia topics, including:
 - XAML compilation and runtime loading patterns
 - Compiled bindings, typed templates, and data/template composition
 - Styling, theming, resources, and asset packaging
+- Professional UI/UX design systems, token architecture, typography, spacing, motion, and component variants
+- Microsoft Fluent design system mapping, `FluentTheme` palette customization, and density tuning
 - Controls, templates, input/focus, layout, rendering, and animation
 - Platform services (storage provider, clipboard, launcher, drag/drop, screens)
 - Diagnostics, performance, testing, accessibility, and troubleshooting
@@ -98,6 +100,31 @@ Recent additions include focused references for:
 - Media `Colors`, `Brushes`, and `FormattedText` usage
 - `AutomationProperties` and attached behavior patterns
 - Advanced rendering/interop boundaries (OpenGL, Vulkan, Linux framebuffer)
+- Professional UI design lane (`references/66-professional-ui-design-tokens-and-themes.md`) with detailed topics in `references/professional-design/`:
+  - token architecture and resource layering,
+  - typography, iconography, and content hierarchy,
+  - color/surface/elevation/material depth,
+  - component variants, shell surfaces, responsive layout, stateful feedback,
+  - motion, focus, accessibility, and design review checklists,
+  - design-system governance, command language, and quality gates,
+  - transitions, page transitions, composition animations, and motion architecture,
+  - information architecture, navigation selection, and progressive disclosure,
+  - forms, decision-heavy workflows, and data-dense surface rules,
+  - advanced composition with implicit animations, expressions, and animation groups,
+  - localization, BiDi, inclusive-design, and mixed-input touch/gesture rules.
+- Microsoft Fluent design lane (`references/67-microsoft-fluent-design-and-fluenttheme.md`) with detailed topics in `references/fluent-design/`:
+  - `FluentTheme` bootstrap, density, and palette customization,
+  - Fluent alias-token and brand mapping on top of palette resources,
+  - Fluent typography/layout/shape/iconography guidance,
+  - control, navigation, command-surface, shell, dialog, flyout, and window-chrome patterns,
+  - materials, motion, wait UX, content tone, accessibility, and end-to-end Fluent recipes,
+  - Fluent language-system, command labeling, teaching, and onboarding guidance,
+  - Fluent transitions, composition animations, and depth choreography recipes,
+  - Fluent navigation, information architecture, and productivity shell patterns,
+  - Fluent status, confirmation, and notification language patterns,
+  - advanced Fluent shell choreography using implicit animations, expressions, and grouped composition motion,
+  - Fluent localization, BiDi, inclusive content, and posture-aware touch/gesture feedback patterns,
+  - Fluent icon-library selection plus Avalonia `PathIcon`/`Path`/`DrawingImage`/`Image`/`WindowIcon` usage patterns.
 - Per-control references for the full Avalonia control surface (`references/controls/`)
 - HTML/CSS-to-Avalonia migration lane (`references/62-html-css-to-avalonia-modern-ui-conversion-index.md`) with detailed topics in `references/html-to-avalonia/`:
   - layout/box-model/flex/grid responsive mapping,

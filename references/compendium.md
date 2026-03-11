@@ -70,6 +70,8 @@ Use this as the entry page for the full skill reference set.
 63. WinForms to Avalonia modern UI conversion index: [`63-winforms-to-avalonia-modern-ui-conversion-index.md`](63-winforms-to-avalonia-modern-ui-conversion-index)
 64. WPF to Avalonia modern UI conversion index: [`64-wpf-to-avalonia-modern-ui-conversion-index.md`](64-wpf-to-avalonia-modern-ui-conversion-index)
 65. WinUI to Avalonia modern UI conversion index: [`65-winui-to-avalonia-modern-ui-conversion-index.md`](65-winui-to-avalonia-modern-ui-conversion-index)
+66. Professional UI design tokens and themes: [`66-professional-ui-design-tokens-and-themes.md`](66-professional-ui-design-tokens-and-themes)
+67. Microsoft Fluent design and FluentTheme: [`67-microsoft-fluent-design-and-fluenttheme.md`](67-microsoft-fluent-design-and-fluenttheme)
 API index: [`api-index-generated.md`](api-index-generated)
 
 ## Fast Navigation by Task
@@ -121,6 +123,8 @@ API index: [`api-index-generated.md`](api-index-generated)
   - [`49-adaptive-markup-and-dynamic-resource-patterns.md`](49-adaptive-markup-and-dynamic-resource-patterns)
   - [`43-xaml-in-libraries-and-resource-packaging.md`](43-xaml-in-libraries-and-resource-packaging)
   - [`28-custom-themes-xaml-and-code-only.md`](28-custom-themes-xaml-and-code-only)
+  - [`66-professional-ui-design-tokens-and-themes.md`](66-professional-ui-design-tokens-and-themes)
+  - [`67-microsoft-fluent-design-and-fluenttheme.md`](67-microsoft-fluent-design-and-fluenttheme)
 
 - View composition and lookup patterns:
   - [`11-user-views-locator-and-tree-patterns.md`](11-user-views-locator-and-tree-patterns)
@@ -187,6 +191,41 @@ API index: [`api-index-generated.md`](api-index-generated)
 
 - API lookup by file/signature:
   - [`api-index-generated.md`](api-index-generated)
+
+- Professional UI design systems:
+  - Index: [`66-professional-ui-design-tokens-and-themes.md`](66-professional-ui-design-tokens-and-themes)
+  - Detailed topics (`00`-`12`): [`professional-design/README.md`](professional-design/README)
+  - [`00-design-token-architecture-and-resource-layering.md`](professional-design/00-design-token-architecture-and-resource-layering)
+  - [`01-typography-iconography-and-content-hierarchy.md`](professional-design/01-typography-iconography-and-content-hierarchy)
+  - [`02-color-surfaces-elevation-and-material-depth.md`](professional-design/02-color-surfaces-elevation-and-material-depth)
+  - [`03-component-themes-variants-and-shell-surfaces.md`](professional-design/03-component-themes-variants-and-shell-surfaces)
+  - [`04-responsive-layout-density-and-stateful-feedback.md`](professional-design/04-responsive-layout-density-and-stateful-feedback)
+  - [`05-motion-focus-accessibility-and-design-review.md`](professional-design/05-motion-focus-accessibility-and-design-review)
+  - [`06-design-system-governance-language-and-quality-gates.md`](professional-design/06-design-system-governance-language-and-quality-gates)
+  - [`07-animations-composition-and-motion-architecture.md`](professional-design/07-animations-composition-and-motion-architecture)
+  - [`08-information-architecture-navigation-and-progressive-disclosure.md`](professional-design/08-information-architecture-navigation-and-progressive-disclosure)
+  - [`09-forms-decision-heavy-ux-and-data-dense-surfaces.md`](professional-design/09-forms-decision-heavy-ux-and-data-dense-surfaces)
+  - [`10-advanced-composition-implicit-expression-and-animation-group-patterns.md`](professional-design/10-advanced-composition-implicit-expression-and-animation-group-patterns)
+  - [`11-globalization-localization-bidi-and-inclusive-design.md`](professional-design/11-globalization-localization-bidi-and-inclusive-design)
+  - [`12-touch-gesture-postures-and-kinetic-feedback.md`](professional-design/12-touch-gesture-postures-and-kinetic-feedback)
+
+- Microsoft Fluent design system:
+  - Index: [`67-microsoft-fluent-design-and-fluenttheme.md`](67-microsoft-fluent-design-and-fluenttheme)
+  - Detailed topics (`00`-`13`): [`fluent-design/README.md`](fluent-design/README)
+  - [`00-fluent-theme-bootstrap-density-and-palette-customization.md`](fluent-design/00-fluent-theme-bootstrap-density-and-palette-customization)
+  - [`01-fluent-alias-tokens-brand-mapping-materials-and-elevation.md`](fluent-design/01-fluent-alias-tokens-brand-mapping-materials-and-elevation)
+  - [`02-fluent-typography-layout-shape-and-iconography.md`](fluent-design/02-fluent-typography-layout-shape-and-iconography)
+  - [`03-fluent-controls-navigation-and-command-surfaces.md`](fluent-design/03-fluent-controls-navigation-and-command-surfaces)
+  - [`04-fluent-shells-dialogs-window-chrome-and-transient-surfaces.md`](fluent-design/04-fluent-shells-dialogs-window-chrome-and-transient-surfaces)
+  - [`05-fluent-motion-content-wait-ux-and-accessibility-recipes.md`](fluent-design/05-fluent-motion-content-wait-ux-and-accessibility-recipes)
+  - [`06-fluent-language-system-content-commanding-and-teaching-patterns.md`](fluent-design/06-fluent-language-system-content-commanding-and-teaching-patterns)
+  - [`07-fluent-motion-composition-and-depth-recipes.md`](fluent-design/07-fluent-motion-composition-and-depth-recipes)
+  - [`08-fluent-navigation-information-architecture-and-productivity-shells.md`](fluent-design/08-fluent-navigation-information-architecture-and-productivity-shells)
+  - [`09-fluent-language-system-status-confirmation-and-notification-patterns.md`](fluent-design/09-fluent-language-system-status-confirmation-and-notification-patterns)
+  - [`10-fluent-advanced-composition-implicit-expression-and-shell-choreography.md`](fluent-design/10-fluent-advanced-composition-implicit-expression-and-shell-choreography)
+  - [`11-fluent-localization-bidi-and-inclusive-content-patterns.md`](fluent-design/11-fluent-localization-bidi-and-inclusive-content-patterns)
+  - [`12-fluent-touch-gesture-posture-and-motion-feedback.md`](fluent-design/12-fluent-touch-gesture-posture-and-motion-feedback)
+  - [`13-fluent-icons-public-icon-sets-selection-and-avalonia-usage.md`](fluent-design/13-fluent-icons-public-icon-sets-selection-and-avalonia-usage)
 
 - HTML/CSS modern UI migration:
   - [`62-html-css-to-avalonia-modern-ui-conversion-index.md`](62-html-css-to-avalonia-modern-ui-conversion-index)
