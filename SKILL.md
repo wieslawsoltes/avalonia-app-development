@@ -125,6 +125,13 @@ Primary entry for the full reference set:
 - Read `references/65-winui-to-avalonia-modern-ui-conversion-index.md`.
 - Use detailed topic docs under `references/winui-to-avalonia/` (index at `references/winui-to-avalonia/README.md`, currently `00`-`66`).
 
+16. For Avalonia 12 preview migration work, use the dedicated preview lane.
+- Read `references/68-avalonia-12-preview2-migration-guide.md`.
+- Use `references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md` for the exhaustive breaking-change and new-API inventory.
+- Use `references/api-index-12.0.0-preview2-generated.md` for preview signature lookup.
+- Cross-check the official upstream breaking-change docs linked from `references/68-avalonia-12-preview2-migration-guide.md`, especially the `v12 Breaking Changes` wiki page.
+- Keep default implementation guidance pinned to `11.3.12` unless the task explicitly targets the preview lane.
+
 ## Public API Coverage
 
 Use curated app-building API guidance first:
@@ -133,6 +140,12 @@ Use curated app-building API guidance first:
 For a generated, broad signature index of app-building surface:
 - `references/api-index-generated.md`
 
+For Avalonia 12 preview migration work:
+- `references/68-avalonia-12-preview2-migration-guide.md`
+- `references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md`
+- `references/api-index-12.0.0-preview2-generated.md`
+- the official upstream breaking-change wiki links embedded in `references/68-avalonia-12-preview2-migration-guide.md`
+
 Regenerate index after repo upgrades or if API drift is suspected:
 
 ```bash
@@ -140,6 +153,22 @@ python3 scripts/generate_api_index.py \
   --repo <path-to-avalonia-repo> \
   --git-ref 11.3.12 \
   --output references/api-index-generated.md
+```
+
+Regenerate the preview migration artifacts:
+
+```bash
+python3 scripts/generate_api_index.py \
+  --repo <path-to-avalonia-repo> \
+  --git-ref 12.0.0-preview2 \
+  --output references/api-index-12.0.0-preview2-generated.md \
+  --max-per-file 100000
+
+python3 scripts/generate_api_migration_report.py \
+  --repo <path-to-avalonia-repo> \
+  --from-ref 11.3.12 \
+  --to-ref 12.0.0-preview2 \
+  --output references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md
 ```
 
 Search patterns for the large generated index:
