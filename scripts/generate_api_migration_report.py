@@ -47,6 +47,21 @@ DELEGATE_START_RE = re.compile(
     r"(?:new\s+|unsafe\s+|static\s+|partial\s+|readonly\s+|ref\s+)*delegate\b"
 )
 ACCESS_MODIFIER_RE = re.compile(r"^\s*(public|internal|private|protected)\b")
+DECLARATION_START_RE = re.compile(
+    r"^\s*(?:"
+    r"event\b|"
+    r"static\b|"
+    r"abstract\b|"
+    r"sealed\b|"
+    r"partial\b|"
+    r"delegate\b|"
+    r"new\b|"
+    r"unsafe\b|"
+    r"readonly\b|"
+    r"ref\b|"
+    r"[A-Za-z_@]"
+    r")"
+)
 TARGET_KIND_LABELS = {
     "T": "type",
     "M": "method/member",
@@ -185,9 +200,9 @@ def append_api_item(
 def is_implicit_interface_member_start(line: str, stripped: str, scope: TypeScope | None) -> bool:
     if scope is None or not (scope.is_public and scope.is_interface):
         return False
-    if stripped.startswith("[") or stripped.startswith("public:"):
+    if stripped.startswith(("[", "}", "#")) or stripped.startswith("public:"):
         return False
-    return ACCESS_MODIFIER_RE.match(line) is None
+    return ACCESS_MODIFIER_RE.match(line) is None and DECLARATION_START_RE.match(line) is not None
 
 
 def extract_api_items(repo: pathlib.Path, path: pathlib.Path) -> list[ApiItem]:

@@ -131,6 +131,65 @@ class GenerateApiMigrationReportTests(unittest.TestCase):
         self.assertIn("void Execute();", signatures)
         self.assertIn("string Name { get; }", signatures)
 
+    def test_extract_signatures_skips_interface_closing_brace_as_member_start(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "Sample.cs"
+            path.write_text(
+                textwrap.dedent(
+                    """\
+                    namespace Sample;
+
+                    public interface IFoo
+                    {
+                        void Execute();
+                    }
+
+                    public class Bar
+                    {
+                        public void Run() { }
+                    }
+                    """
+                ),
+                encoding="utf-8",
+            )
+
+            _, signatures = extract_signatures(path)
+
+        self.assertNotIn("} public class Bar {", signatures)
+        self.assertIn("public class Bar", signatures)
+        self.assertIn("public void Run() { }", signatures)
+
+    def test_extract_api_items_skips_interface_closing_brace_as_member_start(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            repo = Path(temp_dir)
+            path = repo / "src" / "Sample.cs"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                textwrap.dedent(
+                    """\
+                    namespace Sample;
+
+                    public interface IFoo
+                    {
+                        void Execute();
+                    }
+
+                    public static class FeatureExtensions
+                    {
+                        public static void Run() { }
+                    }
+                    """
+                ),
+                encoding="utf-8",
+            )
+
+            items = extract_api_items(repo, path)
+
+        signatures = {item.signature for item in items}
+        self.assertFalse(any(signature.startswith("} ") for signature in signatures))
+        self.assertIn("public static class FeatureExtensions {", signatures)
+        self.assertIn("public static void Run() { }", signatures)
+
     def test_main_cleans_up_first_worktree_if_second_ref_setup_fails(self) -> None:
         cleanup_calls: list[str] = []
 

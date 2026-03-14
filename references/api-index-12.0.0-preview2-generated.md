@@ -1,10 +1,10 @@
 # Avalonia Public API Index (Generated)
 
-- Generated at (UTC): `2026-03-14 18:22:53Z`
+- Generated at (UTC): `2026-03-14 18:39:15Z`
 - Repository: `Avalonia@12.0.0-preview2`
 - Git ref: `12.0.0-preview2`
 - Files scanned: `2658`
-- Captured public signatures: `11491`
+- Captured public signatures: `11173`
 
 ## Scope
 
@@ -36,7 +36,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `int VirtualViewId { get; }`
 - `bool PerformNodeAction(int action, Bundle? arguments);`
 - `void PopulateNodeInfo(AccessibilityNodeInfoCompat nodeInfo);`
-- `} }`
 
 ### `src/Android/Avalonia.Android/AvaloniaActivity.cs`
 - Namespace: `Avalonia.Android`
@@ -74,13 +73,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IActivityResultHandler`
 - `public Action<int, Result, Intent?>? ActivityResult { get; set; }`
 - `public Action<int, string[], Permission[]>? RequestPermissionsResult { get; set; }`
-- `}`
 
 ### `src/Android/Avalonia.Android/IAndroidNavigationService.cs`
 - `public interface IActivityNavigationService`
 - `event EventHandler<AndroidBackRequestedEventArgs> BackRequested;`
 - `public class AndroidBackRequestedEventArgs : EventArgs`
-- `} public class AndroidBackRequestedEventArgs : EventArgs {`
 - `public bool Handled { get; set; }`
 
 ### `src/Android/Avalonia.Android/IAvaloniaActivity.cs`
@@ -89,7 +86,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `object? Content { get; set; }`
 - `event EventHandler<ActivatedEventArgs>? Activated;`
 - `event EventHandler<ActivatedEventArgs>? Deactivated;`
-- `}`
 
 ### `src/Android/Avalonia.Android/Platform/SkiaPlatform/AndroidFramebuffer.cs`
 - `public enum AndroidPixelFormat`
@@ -216,16 +212,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `event EventHandler<ActivatedEventArgs>? Deactivated;`
 - `public bool TryLeaveBackground();`
 - `public bool TryEnterBackground();`
-- `}`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/IActivityApplicationLifetime.cs`
 - `public interface IActivityApplicationLifetime : IApplicationLifetime`
 - `Func<Control>? MainViewFactory { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/IApplicationLifetime.cs`
 - `public interface IApplicationLifetime`
-- `} }`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/IClassicDesktopStyleApplicationLifetime.cs`
 - `public interface IClassicDesktopStyleApplicationLifetime : IControlledApplicationLifetime`
@@ -235,25 +228,21 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Window? MainWindow { get; set; }`
 - `IReadOnlyList<Window> Windows { get; }`
 - `event EventHandler<ShutdownRequestedEventArgs>? ShutdownRequested;`
-- `} }`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/IControlledApplicationLifetime.cs`
 - `public interface IControlledApplicationLifetime : IApplicationLifetime`
 - `event EventHandler<ControlledApplicationLifetimeStartupEventArgs> Startup;`
 - `event EventHandler<ControlledApplicationLifetimeExitEventArgs> Exit;`
 - `void Shutdown(int exitCode = 0);`
-- `} }`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/ISingleTopLevelApplicationLifetime.cs`
 - Namespace: `Avalonia.Controls.ApplicationLifetimes`
 - `public interface ISingleTopLevelApplicationLifetime : IApplicationLifetime`
 - `TopLevel? TopLevel { get; }`
-- `}`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/ISingleViewApplicationLifetime.cs`
 - `public interface ISingleViewApplicationLifetime : IApplicationLifetime`
 - `Control? MainView { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Controls/ApplicationLifetimes/ProtocolActivatedEventArgs.cs`
 - Namespace: `Avalonia.Controls.ApplicationLifetimes`
@@ -738,7 +727,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `AutomationPeer? GetFocus();`
 - `AutomationPeer? GetPeerFromPoint(Point p);`
 - `event EventHandler? FocusChanged;`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IExpandCollapseProvider.cs`
 - `public interface IExpandCollapseProvider`
@@ -746,12 +734,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool ShowsMenu { get; }`
 - `void Expand();`
 - `void Collapse();`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IInvokeProvider.cs`
 - `public interface IInvokeProvider`
 - `void Invoke();`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IRangeValueProvider.cs`
 - `public interface IRangeValueProvider`
@@ -762,7 +748,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double LargeChange { get; }`
 - `double SmallChange { get; }`
 - `public void SetValue(double value);`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IRootProvider.cs`
 - `public interface IRootProvider`
@@ -770,7 +755,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `AutomationPeer? GetFocus();`
 - `AutomationPeer? GetPeerFromPoint(Point p);`
 - `event EventHandler? FocusChanged;`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IScrollProvider.cs`
 - `public enum ScrollAmount`
@@ -783,7 +767,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double VerticalViewSize { get; }`
 - `void Scroll(ScrollAmount horizontalAmount, ScrollAmount verticalAmount);`
 - `void SetScrollPercent(double horizontalPercent, double verticalPercent);`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/ISelectionItemProvider .cs`
 - `public interface ISelectionItemProvider`
@@ -792,28 +775,24 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void AddToSelection();`
 - `void RemoveFromSelection();`
 - `void Select();`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/ISelectionProvider.cs`
 - `public interface ISelectionProvider`
 - `bool CanSelectMultiple { get; }`
 - `bool IsSelectionRequired { get; }`
 - `IReadOnlyList<AutomationPeer> GetSelection();`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IToggleProvider.cs`
 - `public enum ToggleState`
 - `public interface IToggleProvider`
 - `ToggleState ToggleState { get; }`
 - `void Toggle();`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/Provider/IValueProvider.cs`
 - `public interface IValueProvider`
 - `bool IsReadOnly { get; }`
 - `public string? Value { get; }`
 - `public void SetValue(string? value);`
-- `} }`
 
 ### `src/Avalonia.Controls/Automation/RangeValuePatternIdentifiers.cs`
 - `public static class RangeValuePatternIdentifiers`
@@ -1069,7 +1048,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - Namespace: `Avalonia.Controls.Chrome`
 - `public interface IWindowDrawnDecorationsTemplate : ITemplate`
 - `new TemplateResult<WindowDrawnDecorationsContent> Build();`
-- `}`
 
 ### `src/Avalonia.Controls/Chrome/WindowDecorationProperties.cs`
 - Namespace: `Avalonia.Controls.Chrome`
@@ -1250,7 +1228,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface ICommandBarElement`
 - `bool IsCompact { get; set; }`
 - `bool IsInOverflow { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Controls/ContainerClearingEventArgs.cs`
 - `public class ContainerClearingEventArgs : EventArgs`
@@ -1930,31 +1907,26 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/IGlobalDataTemplates.cs`
 - `public interface IGlobalDataTemplates : IDataTemplateHost`
-- `} }`
 
 ### `src/Avalonia.Controls/INativeMenuExporterEventsImplBridge.cs`
 - `public interface INativeMenuExporterEventsImplBridge`
 - `void RaiseNeedsUpdate ();`
 - `void RaiseOpening();`
 - `void RaiseClosed();`
-- `} }`
 
 ### `src/Avalonia.Controls/INativeMenuItemExporterEventsImplBridge.cs`
 - `public interface INativeMenuItemExporterEventsImplBridge`
 - `void RaiseClicked ();`
-- `} }`
 
 ### `src/Avalonia.Controls/IScrollAnchorProvider.cs`
 - `public interface IScrollAnchorProvider`
 - `Control? CurrentAnchor { get; }`
 - `void RegisterAnchorCandidate(Control element);`
 - `void UnregisterAnchorCandidate(Control element);`
-- `} }`
 
 ### `src/Avalonia.Controls/ISelectable.cs`
 - `public interface ISelectable`
 - `bool IsSelected { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Controls/IconElement.cs`
 - `public abstract class IconElement : TemplatedControl`
@@ -2237,7 +2209,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IManagedNotificationManager : INotificationManager`
 - `void Show(object content);`
 - `void Close(object content);`
-- `} }`
 
 ### `src/Avalonia.Controls/Notifications/INotification.cs`
 - `public interface INotification`
@@ -2247,14 +2218,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `TimeSpan Expiration { get; }`
 - `Action? OnClick { get; }`
 - `Action? OnClose { get; }`
-- `} }`
 
 ### `src/Avalonia.Controls/Notifications/INotificationManager.cs`
 - `public interface INotificationManager`
 - `void Show(INotification notification);`
 - `void Close(INotification notification);`
 - `void CloseAll();`
-- `} }`
 
 ### `src/Avalonia.Controls/Notifications/Notification.cs`
 - `public class Notification : INotification, INotifyPropertyChanged`
@@ -2484,7 +2453,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Task PopAllModalsAsync(IPageTransition? transition);`
 - `void InsertPage(Page page, Page before);`
 - `void RemovePage(Page page);`
-- `} }`
 
 ### `src/Avalonia.Controls/Page/ModalPoppedEventArgs.cs`
 - `public class ModalPoppedEventArgs : EventArgs`
@@ -2714,13 +2682,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Controls/Platform/Dialogs/IMountedVolumeInfoProvider.cs`
 - `public interface IMountedVolumeInfoProvider`
 - `IDisposable Listen(ObservableCollection<MountedVolumeInfo> mountedDrives);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/Dialogs/IStorageProviderFactory.cs`
 - Namespace: `Avalonia.Controls.Platform`
 - `public interface IStorageProviderFactory`
 - `IStorageProvider CreateProvider(TopLevel topLevel);`
-- `}`
 
 ### `src/Avalonia.Controls/Platform/Dialogs/MountedDriveInfo.cs`
 - `public class MountedVolumeInfo : IEquatable<MountedVolumeInfo>`
@@ -2735,7 +2701,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Rect OccludedRect { get; }`
 - `event EventHandler<InputPaneStateEventArgs>? StateChanged;`
 - `public abstract class InputPaneBase : IInputPane`
-- `} [PrivateApi] public abstract class InputPaneBase : IInputPane {`
 - `public virtual InputPaneState State { get; protected set; }`
 - `public virtual Rect OccludedRect { get; protected set; }`
 - `public event EventHandler<InputPaneStateEventArgs>? StateChanged;`
@@ -2758,7 +2723,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Color? SystemBarColor { get; set; }`
 - `event EventHandler<SafeAreaChangedArgs>? SafeAreaChanged;`
 - `public abstract class InsetsManagerBase : IInsetsManager`
-- `} [PrivateApi] public abstract class InsetsManagerBase : IInsetsManager {`
 - `public virtual bool? IsSystemBarVisible { get; set; }`
 - `public virtual bool DisplayEdgeToEdgePreference { get; set; }`
 - `public virtual Thickness SafeAreaPadding { get; protected set; }`
@@ -2774,7 +2738,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IMenuInteractionHandler`
 - `void Attach(MenuBase menu);`
 - `void Detach(MenuBase menu);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/INativeControlHostImpl.cs`
 - `public interface INativeControlHostImpl`
@@ -2783,40 +2746,33 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `INativeControlHostControlTopLevelAttachment CreateNewAttachment(IPlatformHandle handle);`
 - `bool IsCompatibleWith(IPlatformHandle handle);`
 - `public interface INativeControlHostDestroyableControlHandle : IPlatformHandle`
-- `} [Unstable] public interface INativeControlHostDestroyableControlHandle : IPlatformHandle {`
 - `void Destroy();`
 - `public interface INativeControlHostControlTopLevelAttachment : IDisposable`
-- `} [Unstable] public interface INativeControlHostControlTopLevelAttachment : IDisposable {`
 - `INativeControlHostImpl? AttachedTo { get; set; }`
 - `bool IsCompatibleWith(INativeControlHostImpl host);`
 - `void HideWithSize(Size size);`
 - `void ShowInBounds(Rect rect);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IPlatformIconLoader.cs`
 - `public interface IPlatformIconLoader`
 - `IWindowIconImpl LoadIcon(string fileName);`
 - `IWindowIconImpl LoadIcon(Stream stream);`
 - `IWindowIconImpl LoadIcon(IBitmapImpl bitmap);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IPlatformLifetimeEventsImpl.cs`
 - `public interface IPlatformLifetimeEventsImpl`
 - `event EventHandler<ShutdownRequestedEventArgs>? ShutdownRequested;`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IPlatformNativeSurfaceHandle.cs`
 - `public interface INativePlatformHandleSurface : IPlatformHandle, IPlatformRenderSurface`
 - `PixelSize Size { get; }`
 - `double Scaling { get; }`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IPopupImpl.cs`
 - `public interface IPopupImpl : IWindowBaseImpl`
 - `IPopupPositioner? PopupPositioner { get; }`
 - `void SetWindowManagerAddShadowHint(bool enabled);`
 - `void TakeFocus();`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IScreenImpl.cs`
 - `public interface IScreenImpl`
@@ -2829,7 +2785,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Screen? ScreenFromRect(PixelRect rect);`
 - `Task<bool> RequestScreenDetails();`
 - `public class PlatformScreen(IPlatformHandle platformHandle) : Screen`
-- `} [PrivateApi] public class PlatformScreen(IPlatformHandle platformHandle) : Screen {`
 - `public override IPlatformHandle? TryGetPlatformHandle() => platformHandle;`
 - `public override int GetHashCode() => platformHandle.GetHashCode();`
 - `public override bool Equals(Screen? obj) {`
@@ -2868,19 +2823,15 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `WindowTransparencyLevel TransparencyLevel { get; }`
 - `AcrylicPlatformCompensationLevels AcrylicCompensationLevels { get; }`
 - `void SetFrameThemeVariant(PlatformThemeVariant themeVariant);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/ITopLevelNativeMenuExporter.cs`
 - `public interface INativeMenuExporter`
 - `void SetNativeMenu(NativeMenu? menu);`
 - `public interface ITopLevelNativeMenuExporter : INativeMenuExporter`
-- `} [Unstable] public interface ITopLevelNativeMenuExporter : INativeMenuExporter {`
 - `bool IsNativeMenuExported { get; }`
 - `event EventHandler OnIsNativeMenuExportedChanged;`
 - `public interface INativeMenuExporterProvider`
-- `} [Unstable] public interface INativeMenuExporterProvider {`
 - `INativeMenuExporter? NativeMenuExporter { get; }`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/ITrayIconImpl.cs`
 - `public interface ITrayIconImpl : IDisposable`
@@ -2890,15 +2841,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `INativeMenuExporter? MenuExporter { get; }`
 - `Action? OnClicked { get; set; }`
 - `public interface ITrayIconWithIsTemplateImpl : ITrayIconImpl`
-- `} [Unstable] public interface ITrayIconWithIsTemplateImpl : ITrayIconImpl {`
 - `void SetIsTemplateIcon(bool isTemplateIcon);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IWin32OptionsTopLevelImpl.cs`
 - `public interface IWin32OptionsTopLevelImpl : ITopLevelImpl`
 - `public CustomWindowStylesCallback? WindowStylesCallback { get; set; }`
 - `public CustomWndProcHookCallback? WndProcHookCallback { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IWindowBaseImpl.cs`
 - `public interface IWindowBaseImpl : ITopLevelImpl`
@@ -2912,12 +2860,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Action? Activated { get; set; }`
 - `Size MaxAutoSizeHint { get; }`
 - `void SetTopmost(bool value);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IWindowIconImpl.cs`
 - `public interface IWindowIconImpl`
 - `void Save(Stream outputStream);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IWindowImpl.cs`
 - `public interface IWindowImpl : IWindowBaseImpl`
@@ -2947,7 +2893,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void SetMinMaxSize(Size minSize, Size maxSize);`
 - `void SetExtendClientAreaToDecorationsHint(bool extendIntoClientAreaHint);`
 - `void SetExtendClientAreaTitleBarHeightHint(double titleBarHeight);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IWindowingPlatform.cs`
 - `public interface IWindowingPlatform`
@@ -2956,7 +2901,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IWindowImpl CreateEmbeddableWindow();`
 - `ITrayIconImpl? CreateTrayIcon();`
 - `void GetWindowsZOrder(ReadOnlySpan<IWindowImpl> windows, Span<long> zOrder);`
-- `} }`
 
 ### `src/Avalonia.Controls/Platform/IX11OptionsToplevelImplFeature.cs`
 - Namespace: `Avalonia.Controls.Platform`
@@ -2964,7 +2908,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IX11OptionsToplevelImplFeature`
 - `void SetNetWmWindowType(X11NetWmWindowType type);`
 - `void SetWmClass(string? className);`
-- `}`
 
 ### `src/Avalonia.Controls/Platform/MacOSProperties.cs`
 - Namespace: `Avalonia.Controls`
@@ -3232,7 +3175,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool BringIntoView(Control target, Rect targetRect);`
 - `Control? GetControlInDirection(NavigationDirection direction, Control? from);`
 - `void RaiseScrollInvalidated(EventArgs e);`
-- `} }`
 
 ### `src/Avalonia.Controls/Primitives/IScrollSnapPointsInfo.cs`
 - `public interface IScrollSnapPointsInfo`
@@ -3242,7 +3184,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double GetRegularSnapPoints(Orientation orientation, SnapPointsAlignment snapPointsAlignment, out double offset);`
 - `event EventHandler<RoutedEventArgs> HorizontalSnapPointsChanged;`
 - `event EventHandler<RoutedEventArgs> VerticalSnapPointsChanged;`
-- `} }`
 
 ### `src/Avalonia.Controls/Primitives/ItemSelectionEventTriggers.cs`
 - Namespace: `Avalonia.Controls.Primitives`
@@ -3341,7 +3282,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public enum PopupGravity`
 - `public interface IPopupPositioner`
 - `void Update(PopupPositionerParameters parameters);`
-- `} internal static class PopupPositionerExtensions {`
 
 ### `src/Avalonia.Controls/Primitives/PopupPositioning/ManagedPopupPositioner.cs`
 - `public interface IManagedPopupPositionerPopup`
@@ -3350,7 +3290,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double Scaling { get; }`
 - `void MoveAndResize(Point devicePoint, Size virtualSize);`
 - `public class ManagedPopupPositionerScreenInfo`
-- `} [PrivateApi] public class ManagedPopupPositionerScreenInfo {`
 - `public Rect Bounds { get; }`
 - `public Rect WorkingArea { get; }`
 - `public ManagedPopupPositionerScreenInfo(Rect bounds, Rect workingArea) {`
@@ -3923,7 +3862,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void SelectAll();`
 - `void Clear();`
 - `public static class SelectionModelExtensions`
-- `} public static class SelectionModelExtensions {`
 - `public static IDisposable BatchUpdate(this ISelectionModel model) {`
 - `public record struct BatchUpdateOperation : IDisposable`
 - `public BatchUpdateOperation(ISelectionModel owner) {`
@@ -4297,44 +4235,36 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Templates/IControlTemplate.cs`
 - `public interface IControlTemplate : ITemplate<TemplatedControl, TemplateResult<Control>?>`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/IDataTemplate.cs`
 - `public interface IDataTemplate : ITemplate<object?, Control?>`
 - `bool Match(object? data);`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/IDataTemplateHost.cs`
 - `public interface IDataTemplateHost`
 - `DataTemplates DataTemplates { get; }`
 - `bool IsDataTemplatesInitialized { get; }`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/IRecyclingDataTemplate.cs`
 - `public interface IRecyclingDataTemplate : IDataTemplate`
 - `Control? Build(object? data, Control? existing);`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/ITemplate`1.cs`
 - `public interface ITemplate<TControl> : ITemplate where TControl : Control?`
 - `new TControl Build();`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/ITemplate`2.cs`
 - `public interface ITemplate<TParam, TControl>`
 - `TControl Build(TParam param);`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/ITreeDataTemplate.cs`
 - `public interface ITreeDataTemplate : IDataTemplate`
 - `IDisposable BindChildren(AvaloniaObject target, AvaloniaProperty targetProperty, object item);`
-- `} }`
 
 ### `src/Avalonia.Controls/Templates/ITypedDataTemplate.cs`
 - Namespace: `Avalonia.Controls.Templates`
 - `public interface ITypedDataTemplate : IDataTemplate`
 - `Type? DataType { get; }`
-- `}`
 
 ### `src/Avalonia.Controls/Templates/TemplateExtensions.cs`
 - `public static class TemplateExtensions`
@@ -4736,7 +4666,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `event EventHandler<RoutedEventArgs>? Commit;`
 - `event EventHandler<RoutedEventArgs>? Cancel;`
 - `void HandleKeyDown(KeyEventArgs e);`
-- `} }`
 
 ### `src/Avalonia.Controls/Utils/SelectingItemsControlSelectionAdapter.cs`
 - `public class SelectingItemsControlSelectionAdapter : ISelectionAdapter`
@@ -4755,7 +4684,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `TState UndoRedoState { get; set; }`
 - `void OnUndoStackChanged();`
 - `void OnRedoStackChanged();`
-- `} private readonly LinkedList<TState> _states = new LinkedList<TState>();`
 
 ### `src/Avalonia.Controls/Viewbox.cs`
 - `public class Viewbox : Control`
@@ -5098,12 +5026,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IInputBackend`
 - `void Initialize(IScreenInfoProvider info, Action<RawInputEventArgs> onInput);`
 - `void SetInputRoot(IInputRoot root);`
-- `} }`
 
 ### `src/Linux/Avalonia.LinuxFramebuffer/Input/IScreenInfoProvider.cs`
 - `public interface IScreenInfoProvider`
 - `Size ScaledSize { get; }`
-- `} }`
 
 ### `src/Linux/Avalonia.LinuxFramebuffer/Input/LibInput/LibInputBackend.Pointer.cs`
 - Namespace: `Avalonia.LinuxFramebuffer.Input.LibInput`
@@ -5281,13 +5207,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Linux/Avalonia.LinuxFramebuffer/Output/IGlOutputBackend.cs`
 - `public interface IGlOutputBackend : IOutputBackend`
 - `public IPlatformGraphics PlatformGraphics { get; }`
-- `} }`
 
 ### `src/Linux/Avalonia.LinuxFramebuffer/Output/IOutputBackend.cs`
 - `public interface IOutputBackend : IPlatformRenderSurface`
 - `PixelSize PixelSize { get; }`
 - `double Scaling { get; set; }`
-- `} }`
 
 ## Linux/X11 Platform
 
@@ -5480,7 +5404,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `int ColorCount { get; }`
 - `int ShadeCount { get; }`
 - `Color GetColor(int colorIndex, int shadeIndex);`
-- `} }`
 
 ### `src/Avalonia.Controls.ColorPicker/ColorPalettes/MaterialColorPalette.cs`
 - `public class MaterialColorPalette : IColorPalette`
@@ -5858,18 +5781,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IntPtr Device { get; }`
 - `IntPtr CommandQueue { get; }`
 - `public interface IMetalPlatformSurface : IPlatformRenderSurface`
-- `} [PrivateApi] public interface IMetalPlatformSurface : IPlatformRenderSurface {`
 - `IMetalPlatformSurfaceRenderTarget CreateMetalRenderTarget(IMetalDevice device);`
 - `public interface IMetalPlatformSurfaceRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget`
-- `} [PrivateApi] public interface IMetalPlatformSurfaceRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget {`
 - `IMetalPlatformSurfaceRenderingSession BeginRendering();`
 - `public interface IMetalPlatformSurfaceRenderingSession : IDisposable`
-- `} [PrivateApi] public interface IMetalPlatformSurfaceRenderingSession : IDisposable {`
 - `IntPtr Texture { get; }`
 - `PixelSize Size { get; }`
 - `double Scaling { get; }`
 - `bool IsYFlipped { get; }`
-- `}`
 
 ### `src/Avalonia.Metal/IMetalExternalObjectsFeature.cs`
 - Namespace: `Avalonia.Metal`
@@ -5883,15 +5802,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void SubmitWait(IMetalSharedEvent @event, ulong waitForValue);`
 - `void SubmitSignal(IMetalSharedEvent @event, ulong signalValue);`
 - `public interface IMetalExternalTexture : IDisposable`
-- `} [PrivateApi] public interface IMetalExternalTexture : IDisposable {`
 - `int Width { get; }`
 - `int Height { get; }`
 - `int Samples { get; }`
 - `IntPtr Handle { get; }`
 - `public interface IMetalSharedEvent : IDisposable`
-- `} [PrivateApi] public interface IMetalSharedEvent : IDisposable {`
 - `IntPtr Handle { get; }`
-- `}`
 
 ### `src/Avalonia.MicroCom/CallbackBase.cs`
 - `public abstract class CallbackBase : IUnknown, IMicroComShadowContainer`
@@ -6043,9 +5959,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PixelSize Size { get; }`
 - `double Scaling { get; }`
 - `public interface IEglWindowGlPlatformSurfaceInfoWithWaitPolicy : IEglWindowGlPlatformSurfaceInfo`
-- `} [PrivateApi] public interface IEglWindowGlPlatformSurfaceInfoWithWaitPolicy : IEglWindowGlPlatformSurfaceInfo {`
 - `public bool SkipWaits { get; }`
-- `} private readonly IEglWindowGlPlatformSurfaceInfo _info;`
 - `public EglGlPlatformSurface(IEglWindowGlPlatformSurfaceInfo info) {`
 - `public override IGlPlatformSurfaceRenderTarget CreateGlRenderTarget(IGlContext context) {`
 
@@ -6330,10 +6244,8 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool CanCreateSharedContext { get; }`
 - `IGlContext? CreateSharedContext(IEnumerable<GlVersion>? preferredVersions = null);`
 - `public interface IGlPlatformSurfaceRenderTargetFactory`
-- `} public interface IGlPlatformSurfaceRenderTargetFactory {`
 - `bool CanRenderToSurface(IGlContext context, IPlatformRenderSurface surface);`
 - `IGlPlatformSurfaceRenderTarget CreateRenderTarget(IGlContext context, IPlatformRenderSurface surface);`
-- `} }`
 
 ### `src/Avalonia.OpenGL/IGlContextExternalObjectsFeature.cs`
 - Namespace: `Avalonia.OpenGL`
@@ -6351,16 +6263,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public byte[]? DeviceLuid { get; }`
 - `public byte[]? DeviceUuid { get; }`
 - `public interface IGlExternalSemaphore : IDisposable`
-- `} [PrivateApi] public interface IGlExternalSemaphore : IDisposable {`
 - `void WaitSemaphore(IGlExternalImageTexture texture);`
 - `void SignalSemaphore(IGlExternalImageTexture texture);`
 - `void WaitTimelineSemaphore(IGlExternalImageTexture texture, ulong value);`
 - `void SignalTimelineSemaphore(IGlExternalImageTexture texture, ulong value);`
 - `public interface IGlExportableExternalSemaphore : IGlExternalSemaphore`
-- `} [PrivateApi] public interface IGlExportableExternalSemaphore : IGlExternalSemaphore {`
 - `IPlatformHandle GetHandle();`
 - `public interface IGlExternalImageTexture : IDisposable`
-- `} [PrivateApi] public interface IGlExternalImageTexture : IDisposable {`
 - `void AcquireKeyedMutex(uint key);`
 - `void ReleaseKeyedMutex(uint key);`
 - `int TextureId { get; }`
@@ -6368,9 +6277,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public int TextureType { get; }`
 - `PlatformGraphicsExternalImageProperties Properties { get; }`
 - `public interface IGlExportableExternalImageTexture : IGlExternalImageTexture`
-- `} [PrivateApi] public interface IGlExportableExternalImageTexture : IGlExternalImageTexture {`
 - `IPlatformHandle GetHandle();`
-- `}`
 
 ### `src/Avalonia.OpenGL/IOpenGlTextureSharingRenderInterfaceContextFeature.cs`
 - `public interface IOpenGlTextureSharingRenderInterfaceContextFeature`
@@ -6378,17 +6285,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IGlContext? CreateSharedContext(IEnumerable<GlVersion>? preferredVersions = null);`
 - `ICompositionImportableOpenGlSharedTexture CreateSharedTextureForComposition(IGlContext context, PixelSize size);`
 - `public interface ICompositionImportableOpenGlSharedTexture : ICompositionImportableSharedGpuContextImage`
-- `} public interface ICompositionImportableOpenGlSharedTexture : ICompositionImportableSharedGpuContextImage {`
 - `int TextureId { get; }`
 - `int InternalFormat { get; }`
 - `PixelSize Size { get; }`
-- `} }`
 
 ### `src/Avalonia.OpenGL/IPlatformGraphicsOpenGlContextFactory.cs`
 - Namespace: `Avalonia.OpenGL`
 - `public interface IPlatformGraphicsOpenGlContextFactory`
 - `IGlContext CreateContext(IEnumerable<GlVersion>? versions);`
-- `}`
 
 ### `src/Avalonia.OpenGL/OpenGlException.cs`
 - `public class OpenGlException : Exception`
@@ -6402,13 +6306,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.OpenGL/Surfaces/IGlPlatformSurface.cs`
 - `public interface IGlPlatformSurface : IPlatformRenderSurface`
 - `IGlPlatformSurfaceRenderTarget CreateGlRenderTarget(IGlContext context);`
-- `} }`
 
 ### `src/Avalonia.OpenGL/Surfaces/IGlPlatformSurfaceRenderTarget.cs`
 - `public interface IGlPlatformSurfaceRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget`
 - `bool IsCorrupted { get; }`
 - `IGlPlatformSurfaceRenderingSession BeginDraw(IRenderTarget.RenderTargetSceneInfo sceneInfo);`
-- `} }`
 
 ### `src/Avalonia.OpenGL/Surfaces/IGlPlatformSurfaceRenderingSession.cs`
 - `public interface IGlPlatformSurfaceRenderingSession : IDisposable`
@@ -6416,7 +6318,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PixelSize Size { get; }`
 - `double Scaling { get; }`
 - `bool IsYFlipped { get; }`
-- `} }`
 
 ### `src/Avalonia.Remote.Protocol/AvaloniaRemoteMessageGuidAttribute.cs`
 - `public sealed class AvaloniaRemoteMessageGuidAttribute : Attribute`
@@ -6457,7 +6358,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IMessageTypeResolver`
 - `Type GetByGuid(Guid id);`
 - `Guid GetGuid(Type type);`
-- `} }`
 
 ### `src/Avalonia.Remote.Protocol/ITransport.cs`
 - `public interface IAvaloniaRemoteTransportConnection : IDisposable`
@@ -6465,7 +6365,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `event Action<IAvaloniaRemoteTransportConnection, object> OnMessage;`
 - `event Action<IAvaloniaRemoteTransportConnection, Exception> OnException;`
 - `void Start();`
-- `} }`
 
 ### `src/Avalonia.Remote.Protocol/InputMessages.cs`
 - `public enum InputModifiers`
@@ -6494,7 +6393,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Remote.Protocol/MetsysBson.cs`
 - `public interface IExpando`
 - `IDictionary<string, object> Expando { get; }`
-- `} } namespace Metsys.Bson {`
 - `public static class Helper`
 - `public static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);`
 - `public interface ITypeConfiguration<T>`
@@ -6502,7 +6400,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `ITypeConfiguration<T> Ignore(Expression<Func<T, object>> expression);`
 - `ITypeConfiguration<T> Ignore(string name);`
 - `ITypeConfiguration<T> IgnoreIfNull(Expression<Func<T, object>> expression);`
-- `} #if NET8_0_OR_GREATER [RequiresDynamicCode(TrimmingMessages.ExpressionNodeRequiresDynamicCodeMessage)] #endif internal class TypeConfiguration<T> : ITypeConfiguration<T> {`
 - `public static class ExpressionHelper`
 - `public static string GetName(this MemberExpression expression) {`
 - `public static MemberExpression GetMemberExpression<T, TValue>(this Expression<Func<T, TValue>> expression) {`
@@ -6619,14 +6516,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IVulkanExternalImage ImportImage(IPlatformHandle handle, PlatformGraphicsExternalImageProperties properties);`
 - `IVulkanExternalSemaphore ImportSemaphore(IPlatformHandle handle);`
 - `public interface IVulkanExternalSemaphore : IDisposable`
-- `} [Unstable] public interface IVulkanExternalSemaphore : IDisposable {`
 - `ulong Handle { get; }`
 - `void SubmitWaitSemaphore();`
 - `void SubmitSignalSemaphore();`
 - `public interface IVulkanExternalImage : IDisposable`
-- `} [Unstable] public interface IVulkanExternalImage : IDisposable {`
 - `VulkanImageInfo Info { get; }`
-- `}`
 
 ### `src/Avalonia.Vulkan/IVulkanDevice.cs`
 - Namespace: `Avalonia.Vulkan`
@@ -6640,17 +6534,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public IDisposable Lock();`
 - `public IEnumerable<string> EnabledExtensions { get; }`
 - `public interface IVulkanInstance`
-- `} public interface IVulkanInstance {`
 - `public IntPtr Handle { get; }`
 - `public IntPtr GetInstanceProcAddress(IntPtr instance, string name);`
 - `public IntPtr GetDeviceProcAddress(IntPtr device, string name);`
 - `public IEnumerable<string> EnabledExtensions { get; }`
 - `public interface IVulkanPlatformGraphicsContext : IPlatformGraphicsContext`
-- `} [NotClientImplementable] public interface IVulkanPlatformGraphicsContext : IPlatformGraphicsContext {`
 - `IVulkanDevice Device { get; }`
 - `IVulkanInstance Instance { get; }`
 - `IVulkanRenderTarget CreateRenderTarget(IEnumerable<IPlatformRenderSurface> surfaces);`
-- `}`
 
 ### `src/Avalonia.Vulkan/IVulkanPlatformSurface.cs`
 - Namespace: `Avalonia.Vulkan`
@@ -6659,23 +6550,19 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PixelSize Size { get; }`
 - `ulong CreateSurface(IVulkanPlatformGraphicsContext context);`
 - `public interface IVulkanKhrSurfacePlatformSurfaceFactory`
-- `} public interface IVulkanKhrSurfacePlatformSurfaceFactory {`
 - `bool CanRenderToSurface(IVulkanPlatformGraphicsContext context, IPlatformRenderSurface surface);`
 - `IVulkanKhrSurfacePlatformSurface CreateSurface(IVulkanPlatformGraphicsContext context, IPlatformRenderSurface surface);`
-- `}`
 
 ### `src/Avalonia.Vulkan/IVulkanRenderTarget.cs`
 - Namespace: `Avalonia.Vulkan`
 - `public interface IVulkanRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget`
 - `IVulkanRenderSession BeginDraw();`
 - `public interface IVulkanRenderSession : IDisposable`
-- `} [NotClientImplementable] public interface IVulkanRenderSession : IDisposable {`
 - `double Scaling { get; }`
 - `PixelSize Size { get; }`
 - `public bool IsYFlipped { get; }`
 - `VulkanImageInfo ImageInfo { get; }`
 - `bool IsRgba { get; }`
-- `}`
 
 ### `src/Avalonia.Vulkan/UnmanagedInterop/VulkanStructs.cs`
 - `public struct VkMemoryTypesBuffer`
@@ -6788,7 +6675,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool UsesShadedDevice { get; }`
 - `IVulkanDevice GetSharedDevice(VulkanPlatformSpecificOptions platformOptions);`
 - `IVulkanDevice CreateDevice(VulkanPlatformSpecificOptions platformOptions);`
-- `} class DefaultDeviceFactory : IVulkanDeviceFactory {`
 - `public static VulkanPlatformGraphics? TryCreate(VulkanOptions options, VulkanPlatformSpecificOptions platformOptions) {`
 
 ### `src/tools/Avalonia.Analyzers.CSharp/AvaloniaAnalysisException.cs`
@@ -6946,7 +6832,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - Namespace: `Avalonia.SourceGenerator.CompositionGenerator`
 - `public interface ICompositionGeneratorSink`
 - `void AddSource(string name, string code);`
-- `}`
 
 ### `src/tools/DevGenerators/EnumMemberDictionaryGenerator.cs`
 - Namespace: `DevGenerators`
@@ -7105,7 +6990,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Animation/Easings/IEasing.cs`
 - `public interface IEasing`
 - `double Ease(double progress);`
-- `} }`
 
 ### `src/Avalonia.Base/Animation/Easings/LinearEasing.cs`
 - `public class LinearEasing : Easing`
@@ -7185,30 +7069,25 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Animation/IAnimation.cs`
 - `public interface IAnimation`
-- `} }`
 
 ### `src/Avalonia.Base/Animation/IAnimationSetter.cs`
 - `public interface IAnimationSetter`
 - `AvaloniaProperty? Property { get; set; }`
 - `object? Value { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Base/Animation/ICustomAnimator.cs`
 - Namespace: `Avalonia.Animation`
 - `public interface ICustomAnimator`
 - `public abstract class InterpolatingAnimator<T> : ICustomAnimator`
-- `} public abstract class InterpolatingAnimator<T> : ICustomAnimator {`
 - `public abstract T Interpolate(double progress, T oldValue, T newValue);`
 
 ### `src/Avalonia.Base/Animation/IPageTransition.cs`
 - `public interface IPageTransition`
 - `Task Start(Visual? from, Visual? to, bool forward, CancellationToken cancellationToken);`
-- `} }`
 
 ### `src/Avalonia.Base/Animation/ITransition.cs`
 - `public interface ITransition`
 - `AvaloniaProperty Property { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Base/Animation/InterpolatingTransitionBase.cs`
 - Namespace: `Avalonia.Animation`
@@ -7381,7 +7260,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IAvaloniaDependencyResolver`
 - `object? GetService(Type t);`
 - `public static class LocatorExtensions`
-- `} [PrivateApi] public static class LocatorExtensions {`
 - `public static T? GetService<T>(this IAvaloniaDependencyResolver resolver) {`
 - `public static object GetRequiredService(this IAvaloniaDependencyResolver resolver, Type t) {`
 - `public static T GetRequiredService<T>(this IAvaloniaDependencyResolver resolver) {`
@@ -7602,7 +7480,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Collections/IAvaloniaDictionary.cs`
 - `public interface IAvaloniaDictionary<TKey, TValue>`
-- `} }`
 
 ### `src/Avalonia.Base/Collections/IAvaloniaList.cs`
 - `public interface IAvaloniaList<T> : IList<T>, IAvaloniaReadOnlyList<T>`
@@ -7614,15 +7491,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void MoveRange(int oldIndex, int count, int newIndex);`
 - `void RemoveAll(IEnumerable<T> items);`
 - `void RemoveRange(int index, int count);`
-- `} }`
 
 ### `src/Avalonia.Base/Collections/IAvaloniaReadOnlyDictionary.cs`
 - `public interface IAvaloniaReadOnlyDictionary<TKey, TValue>`
-- `} }`
 
 ### `src/Avalonia.Base/Collections/IAvaloniaReadOnlyList.cs`
 - `public interface IAvaloniaReadOnlyList<out T> : IReadOnlyList<T>, INotifyCollectionChanged, INotifyPropertyChanged`
-- `} }`
 
 ### `src/Avalonia.Base/Collections/NotifyCollectionChangedExtensions.cs`
 - `public static class NotifyCollectionChangedExtensions`
@@ -7667,7 +7541,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - Namespace: `Avalonia.Controls`
 - `public interface IDeferredContent`
 - `object? Build(IServiceProvider? serviceProvider);`
-- `}`
 
 ### `src/Avalonia.Base/Controls/INameScope.cs`
 - `public interface INameScope`
@@ -7676,32 +7549,27 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `object? Find(string name);`
 - `void Complete();`
 - `bool IsCompleted { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/IPseudoClasses.cs`
 - `public interface IPseudoClasses`
 - `void Add(string name);`
 - `bool Remove(string name);`
 - `bool Contains(string name);`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/IResourceDictionary.cs`
 - `public interface IResourceDictionary : IResourceProvider, IDictionary<object, object?>`
 - `IList<IResourceProvider> MergedDictionaries { get; }`
 - `IDictionary<ThemeVariant, IThemeVariantProvider> ThemeDictionaries { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/IResourceHost.cs`
 - `public interface IResourceHost : IResourceNode`
 - `event EventHandler<ResourcesChangedEventArgs>? ResourcesChanged;`
 - `void NotifyHostedResourcesChanged(ResourcesChangedEventArgs e);`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/IResourceNode.cs`
 - `public interface IResourceNode`
 - `bool HasResources { get; }`
 - `bool TryGetResource(object key, ThemeVariant? theme, out object? value);`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/IResourceProvider.cs`
 - `public interface IResourceProvider : IResourceNode`
@@ -7709,23 +7577,19 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `event EventHandler? OwnerChanged;`
 - `void AddOwner(IResourceHost owner);`
 - `void RemoveOwner(IResourceHost owner);`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/ISetInheritanceParent.cs`
 - `public interface ISetInheritanceParent`
 - `void SetParent(AvaloniaObject? parent);`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/ISetLogicalParent.cs`
 - `public interface ISetLogicalParent`
 - `void SetParent(ILogical? parent);`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/IThemeVariantProvider.cs`
 - Namespace: `Avalonia.Controls`
 - `public interface IThemeVariantProvider : IResourceProvider`
 - `ThemeVariant? Key { get; set; }`
-- `}`
 
 ### `src/Avalonia.Base/Controls/Metadata/PseudoClassesAttribute.cs`
 - `public sealed class PseudoClassesAttribute : Attribute`
@@ -7770,7 +7634,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Size Viewport { get; }`
 - `bool CanHorizontallyScroll { get; }`
 - `bool CanVerticallyScroll { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/PseudoClassesExtensions.cs`
 - `public static class PseudoClassesExtensions`
@@ -7830,7 +7693,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface ITemplateResult`
 - `public object? Result { get; }`
 - `public INameScope NameScope { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Controls/Templates/TemplateResult.cs`
 - `public class TemplateResult<T> : ITemplateResult`
@@ -8008,13 +7870,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Data/Converters/IMultiValueConverter.cs`
 - `public interface IMultiValueConverter`
 - `object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture);`
-- `} }`
 
 ### `src/Avalonia.Base/Data/Converters/IValueConverter.cs`
 - `public interface IValueConverter`
 - `object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture);`
 - `object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture);`
-- `} }`
 
 ### `src/Avalonia.Base/Data/Converters/ObjectConverters.cs`
 - `public static class ObjectConverters`
@@ -8063,7 +7923,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool CanSet { get; }`
 - `bool CanGet { get; }`
 - `Type PropertyType { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Data/Core/Plugins/DataAnnotationsValidationPlugin.cs`
 - `public class DataAnnotationsValidationPlugin : IDataValidationPlugin`
@@ -8077,7 +7936,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool SetValue(object? value, BindingPriority priority);`
 - `void Subscribe(Action<object?> listener);`
 - `void Unsubscribe();`
-- `} }`
 
 ### `src/Avalonia.Base/Data/Core/StreamBindingExtensions.cs`
 - `public static class StreamBindingExtensions`
@@ -8229,7 +8087,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool IsActive { get; }`
 - `BindingPriority Priority { get; }`
 - `IEnumerable<ValueEntryDiagnostic> Values { get; }`
-- `}`
 
 ### `src/Avalonia.Base/Diagnostics/ValueStoreDiagnostic.cs`
 - Namespace: `Avalonia.Diagnostics`
@@ -8262,37 +8119,31 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/IDataContextProvider.cs`
 - `public interface IDataContextProvider`
 - `object? DataContext { get; set; }`
-- `} }`
 
 ### `src/Avalonia.Base/IDescription.cs`
 - `public interface IDescription`
 - `string? Description { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/IDirectPropertyMetadata.cs`
 - `public interface IDirectPropertyMetadata`
 - `object? UnsetValue { get; }`
 - `bool? EnableDataValidation { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/INamed.cs`
 - `public interface INamed`
 - `string? Name { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/IOptionalFeatureProvider.cs`
 - Namespace: `Avalonia`
 - `public interface IOptionalFeatureProvider`
 - `public object? TryGetFeature(Type featureType);`
 - `public static class OptionalFeatureProviderExtensions`
-- `} public static class OptionalFeatureProviderExtensions {`
 - `public static T? TryGetFeature<T>(this IOptionalFeatureProvider provider) where T : class =>`
 - `public static bool TryGetFeature<T>(this IOptionalFeatureProvider provider, [MaybeNullWhen(false)] out T rv) where T : class {`
 
 ### `src/Avalonia.Base/IStyledPropertyMetadata.cs`
 - `public interface IStyledPropertyMetadata`
 - `object? DefaultValue { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Input/AsyncDataTransferExtensions.cs`
 - Namespace: `Avalonia.Input`
@@ -8546,19 +8397,16 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IAsyncDataTransfer : IDisposable`
 - `IReadOnlyList<DataFormat> Formats { get; }`
 - `IReadOnlyList<IAsyncDataTransferItem> Items { get; }`
-- `}`
 
 ### `src/Avalonia.Base/Input/IAsyncDataTransferItem.cs`
 - Namespace: `Avalonia.Input`
 - `public interface IAsyncDataTransferItem`
 - `IReadOnlyList<DataFormat> Formats { get; }`
 - `Task<object?> TryGetRawAsync(DataFormat format);`
-- `}`
 
 ### `src/Avalonia.Base/Input/ICloseable.cs`
 - `public interface ICloseable`
 - `event EventHandler? Closed;`
-- `} }`
 
 ### `src/Avalonia.Base/Input/ICommandSource.cs`
 - `public interface ICommandSource`
@@ -8566,41 +8414,33 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `object? CommandParameter { get; }`
 - `void CanExecuteChanged(object sender, System.EventArgs e);`
 - `bool IsEffectivelyEnabled { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Input/ICustomKeyboardNavigation.cs`
 - `public interface ICustomKeyboardNavigation`
-- `(bool handled, IInputElement? next) GetNext(IInputElement element, NavigationDirection direction);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IDataTransfer.cs`
 - Namespace: `Avalonia.Input`
 - `public interface IDataTransfer : IDisposable`
 - `IReadOnlyList<DataFormat> Formats { get; }`
 - `IReadOnlyList<IDataTransferItem> Items { get; }`
-- `}`
 
 ### `src/Avalonia.Base/Input/IDataTransferItem.cs`
 - Namespace: `Avalonia.Input`
 - `public interface IDataTransferItem`
 - `IReadOnlyList<DataFormat> Formats { get; }`
 - `object? TryGetRaw(DataFormat format);`
-- `}`
 
 ### `src/Avalonia.Base/Input/IFocusManager.cs`
 - `public interface IFocusManager`
 - `IInputElement? GetFocusedElement();`
 - `void ClearFocus();`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IFocusScope.cs`
 - `public interface IFocusScope`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IInputDevice.cs`
 - `public interface IInputDevice`
 - `void ProcessRawEvent(RawInputEventArgs ev);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IInputElement.cs`
 - `public interface IInputElement`
@@ -8629,7 +8469,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void AddHandler( RoutedEvent routedEvent, Delegate handler, RoutingStrategies routes = RoutingStrategies.Direct | RoutingStrategies.Bubble, bool handledEventsToo = false);`
 - `void RemoveHandler(RoutedEvent routedEvent, Delegate handler);`
 - `void RaiseEvent(RoutedEventArgs e);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IInputManager.cs`
 - `public interface IInputManager`
@@ -8637,39 +8476,32 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IObservable<RawInputEventArgs> Process { get; }`
 - `IObservable<RawInputEventArgs> PostProcess { get; }`
 - `void ProcessInput(RawInputEventArgs e);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IInputRoot.cs`
 - `public interface IInputRoot`
 - `public IFocusManager? FocusManager { get; }`
 - `public InputElement FocusRoot { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IKeyModifiersEventArgs.cs`
 - Namespace: `Avalonia.Input`
 - `public interface IKeyModifiersEventArgs`
 - `KeyModifiers KeyModifiers { get; }`
-- `}`
 
 ### `src/Avalonia.Base/Input/IKeyboardDevice.cs`
 - `public enum KeyModifiers`
 - `public enum KeyStates`
 - `public enum RawInputModifiers`
 - `public interface IKeyboardDevice : IInputDevice`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IMouseDevice.cs`
 - `public interface IMouseDevice : IPointerDevice`
-- `} }`
 
 ### `src/Avalonia.Base/Input/INavigableContainer.cs`
 - `public interface INavigableContainer`
 - `IInputElement? GetControl(NavigationDirection direction, IInputElement? from, bool wrap);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IPenDevice.cs`
 - `public interface IPenDevice : IPointerDevice`
-- `} }`
 
 ### `src/Avalonia.Base/Input/IPointer.cs`
 - `public interface IPointer`
@@ -8679,12 +8511,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PointerType Type { get; }`
 - `bool IsPrimary { get; }`
 - `public enum PointerType`
-- `} public enum PointerType {`
 
 ### `src/Avalonia.Base/Input/IPointerDevice.cs`
 - `public interface IPointerDevice : IInputDevice`
 - `IPointer? TryGetPointer(RawPointerEventArgs ev);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/InputElement.Gestures.cs`
 - `public partial class InputElement`
@@ -8992,7 +8822,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Task FlushAsync();`
 - `Task<IAsyncDataTransfer?> TryGetDataAsync();`
 - `Task<IAsyncDataTransfer?> TryGetInProcessDataAsync();`
-- `} }`
 
 ### `src/Avalonia.Base/Input/Platform/IClipboardImpl.cs`
 - Namespace: `Avalonia.Input.Platform`
@@ -9000,24 +8829,20 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Task<IAsyncDataTransfer?> TryGetDataAsync();`
 - `Task SetDataAsync(IAsyncDataTransfer dataTransfer);`
 - `Task ClearAsync();`
-- `}`
 
 ### `src/Avalonia.Base/Input/Platform/IFlushableClipboardImpl.cs`
 - Namespace: `Avalonia.Input.Platform`
 - `public interface IFlushableClipboardImpl : IClipboardImpl`
 - `Task FlushAsync();`
-- `}`
 
 ### `src/Avalonia.Base/Input/Platform/IOwnedClipboardImpl.cs`
 - Namespace: `Avalonia.Input.Platform`
 - `public interface IOwnedClipboardImpl : IClipboardImpl`
 - `Task<bool> IsCurrentOwnerAsync();`
-- `}`
 
 ### `src/Avalonia.Base/Input/Platform/IPlatformDragSource.cs`
 - `public interface IPlatformDragSource`
 - `Task<DragDropEffects> DoDragDropAsync( PointerEventArgs triggerEvent, IDataTransfer dataTransfer, DragDropEffects allowedEffects);`
-- `} }`
 
 ### `src/Avalonia.Base/Input/Platform/KeyGestureFormatInfo.cs`
 - `public sealed class KeyGestureFormatInfo(IReadOnlyDictionary<Key, string>? platformKeyOverrides = null,`
@@ -9146,7 +8971,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Input/Raw/IDragDropDevice.cs`
 - `public interface IDragDropDevice : IInputDevice`
-- `} }`
 
 ### `src/Avalonia.Base/Input/Raw/RawDragEvent.cs`
 - `public class RawDragEvent : RawInputEventArgs`
@@ -9262,7 +9086,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void SetCursorRect(Rect rect);`
 - `void SetOptions(TextInputOptions options);`
 - `void Reset();`
-- `} }`
 
 ### `src/Avalonia.Base/Input/TextInput/TextInputContentType.cs`
 - `public enum TextInputContentType`
@@ -9436,7 +9259,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void ExecuteInitialLayoutPass();`
 - `void RegisterEffectiveViewportListener(Layoutable control);`
 - `void UnregisterEffectiveViewportListener(Layoutable control);`
-- `} }`
 
 ### `src/Avalonia.Base/Layout/LayoutExtensions.cs`
 - `public static class LayoutExtensions`
@@ -9509,7 +9331,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool IsEnabled(LogEventLevel level, string area);`
 - `void Log( LogEventLevel level, string area, object? source, string messageTemplate);`
 - `void Log( LogEventLevel level, string area, object? source, string messageTemplate, params object?[] propertyValues);`
-- `} }`
 
 ### `src/Avalonia.Base/Logging/LogArea.cs`
 - `public static class LogArea`
@@ -9572,7 +9393,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `int GetChildIndex(ILogical child);`
 - `bool TryGetTotalCount(out int count);`
 - `event EventHandler<ChildIndexChangedEventArgs>? ChildIndexChanged;`
-- `} }`
 
 ### `src/Avalonia.Base/LogicalTree/ILogical.cs`
 - `public interface ILogical`
@@ -9584,11 +9404,9 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void NotifyAttachedToLogicalTree(LogicalTreeAttachmentEventArgs e);`
 - `void NotifyDetachedFromLogicalTree(LogicalTreeAttachmentEventArgs e);`
 - `void NotifyResourcesChanged(ResourcesChangedEventArgs e);`
-- `} }`
 
 ### `src/Avalonia.Base/LogicalTree/ILogicalRoot.cs`
 - `public interface ILogicalRoot : ILogical`
-- `} }`
 
 ### `src/Avalonia.Base/LogicalTree/LogicalExtensions.cs`
 - `public static class LogicalExtensions`
@@ -10190,7 +10008,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IBlurEffect : IEffect`
 - `double Radius { get; }`
 - `public class ImmutableBlurEffect : IBlurEffect, IImmutableEffect`
-- `} public class ImmutableBlurEffect : IBlurEffect, IImmutableEffect {`
 - `public ImmutableBlurEffect(double radius) {`
 - `public double Radius { get; }`
 - `public bool Equals(IEffect? other) =>`
@@ -10203,7 +10020,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double BlurRadius { get; }`
 - `Color Color { get; }`
 - `double Opacity { get; }`
-- `} internal interface IDirectionDropShadowEffect : IDropShadowEffect {`
 - `public class ImmutableDropShadowEffect : IDropShadowEffect, IImmutableEffect`
 - `public ImmutableDropShadowEffect(double offsetX, double offsetY, double blurRadius, Color color, double opacity) {`
 - `public double OffsetX { get; }`
@@ -10227,10 +10043,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - Namespace: `Avalonia.Media`
 - `public interface IEffect`
 - `public interface IMutableEffect : IEffect`
-- `} public interface IMutableEffect : IEffect {`
 - `public interface IImmutableEffect : IEffect, IEquatable<IEffect>`
-- `} public interface IImmutableEffect : IEffect, IEquatable<IEffect> {`
-- `}`
 
 ### `src/Avalonia.Base/Media/EllipseGeometry.cs`
 - `public class EllipseGeometry : Geometry`
@@ -10414,7 +10227,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool TryGetFamilyTypefaces(string familyName, [NotNullWhen(true)] out IReadOnlyList<Typeface>? familyTypefaces);`
 - `bool TryCreateSyntheticGlyphTypeface(GlyphTypeface glyphTypeface, FontStyle style, FontWeight weight, FontStretch stretch, [NotNullWhen(true)] out GlyphTypeface? syntheticGlyphTypeface);`
 - `bool TryGetNearestMatch(string familyName, FontStyle style, FontWeight weight, FontStretch stretch, [NotNullWhen(true)] out GlyphTypeface? glyphTypeface);`
-- `} }`
 
 ### `src/Avalonia.Base/Media/Fonts/OpenTypeTag.cs`
 - `public readonly record struct OpenTypeTag`
@@ -10648,19 +10460,16 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double Opacity { get; }`
 - `ITransform? Transform { get; }`
 - `RelativePoint TransformOrigin { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IConicGradientBrush.cs`
 - `public interface IConicGradientBrush : IGradientBrush`
 - `RelativePoint Center { get; }`
 - `double Angle { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IDashStyle.cs`
 - `public interface IDashStyle`
 - `IReadOnlyList<double>? Dashes { get; }`
 - `double Offset { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IExperimentalAcrylicMaterial.cs`
 - `public interface IExperimentalAcrylicMaterial`
@@ -10669,63 +10478,51 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `double TintOpacity { get; }`
 - `Color MaterialColor { get; }`
 - `Color FallbackColor { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IFontMemory.cs`
 - `public interface IFontMemory : IDisposable`
 - `bool TryGetTable(OpenTypeTag tag, out ReadOnlyMemory<byte> table);`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IGradientBrush.cs`
 - `public interface IGradientBrush : IBrush`
 - `IReadOnlyList<IGradientStop> GradientStops { get; }`
 - `GradientSpreadMethod SpreadMethod { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IGradientStop.cs`
 - `public interface IGradientStop`
 - `Color Color { get; }`
 - `double Offset { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IImage.cs`
 - `public interface IImage`
 - `Size Size { get; }`
 - `void Draw( DrawingContext context, Rect sourceRect, Rect destRect);`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IImageBrush.cs`
 - `public interface IImageBrush : ITileBrush`
 - `IImageBrushSource? Source { get; }`
 - `public interface IImageBrushSource`
-- `} [NotClientImplementable] public interface IImageBrushSource {`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IImmutableBrush.cs`
 - Namespace: `Avalonia.Media`
 - `public interface IImmutableBrush : IBrush`
-- `}`
 
 ### `src/Avalonia.Base/Media/IImmutableGlyphRunReference.cs`
 - Namespace: `Avalonia.Media`
 - `public interface IImmutableGlyphRunReference : IDisposable`
-- `} internal class ImmutableGlyphRunReference : IImmutableGlyphRunReference {`
 
 ### `src/Avalonia.Base/Media/ILinearGradientBrush.cs`
 - `public interface ILinearGradientBrush : IGradientBrush`
 - `RelativePoint StartPoint { get; }`
 - `RelativePoint EndPoint { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IMutableExperimentalAcrylicMaterial.cs`
 - `public interface IMutableExperimentalAcrylicMaterial : IExperimentalAcrylicMaterial`
 - `IExperimentalAcrylicMaterial ToImmutable();`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IMutableTransform.cs`
 - `public interface IMutableTransform : ITransform`
 - `event EventHandler Changed;`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IPen.cs`
 - `public interface IPen`
@@ -10735,7 +10532,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PenLineJoin LineJoin { get; }`
 - `double MiterLimit { get; }`
 - `double Thickness { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IPlatformTypeface.cs`
 - `public interface IPlatformTypeface : IFontMemory`
@@ -10745,7 +10541,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `FontStretch Stretch { get; }`
 - `FontSimulations FontSimulations { get; }`
 - `bool TryGetStream([NotNullWhen(true)] out Stream? stream);`
-- `} }`
 
 ### `src/Avalonia.Base/Media/IRadialGradientBrush.cs`
 - `public interface IRadialGradientBrush : IGradientBrush`
@@ -10753,28 +10548,22 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `RelativePoint GradientOrigin { get; }`
 - `RelativeScalar RadiusX { get; }`
 - `RelativeScalar RadiusY { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/ISceneBrush.cs`
 - `public interface ISceneBrush : ITileBrush`
 - `ISceneBrushContent? CreateContent();`
 - `public interface ISceneBrushContent : IImmutableBrush, IDisposable`
-- `} [NotClientImplementable] public interface ISceneBrushContent : IImmutableBrush, IDisposable {`
 - `ITileBrush Brush { get; }`
 - `Rect Rect { get; }`
 - `void Render(IDrawingContextImpl context, Matrix? transform);`
-- `} internal class ImmutableSceneBrush : ImmutableTileBrush {`
 
 ### `src/Avalonia.Base/Media/ISolidColorBrush.cs`
 - `public interface ISolidColorBrush : IBrush`
 - `Color Color { get; }`
 - `public interface IImmutableSolidColorBrush : ISolidColorBrush, IImmutableBrush`
-- `} [NotClientImplementable] public interface IImmutableSolidColorBrush : ISolidColorBrush, IImmutableBrush {`
-- `} }`
 
 ### `src/Avalonia.Base/Media/ITextShaperTypeface.cs`
 - `public interface ITextShaperTypeface : IDisposable`
-- `} }`
 
 ### `src/Avalonia.Base/Media/ITileBrush.cs`
 - `public interface ITileBrush : IBrush`
@@ -10784,12 +10573,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `RelativeRect SourceRect { get; }`
 - `Stretch Stretch { get; }`
 - `TileMode TileMode { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/ITransform.cs`
 - `public interface ITransform`
 - `Matrix Value { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Media/ImageBrush.cs`
 - `public sealed class ImageBrush : TileBrush, IImageBrush, IMutableBrush`
@@ -11386,7 +11173,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Media/TextFormatting/ITextSource.cs`
 - `public interface ITextSource`
 - `TextRun? GetTextRun(int textSourceIndex);`
-- `} }`
 
 ### `src/Avalonia.Base/Media/TextFormatting/JustificationProperties.cs`
 - `public abstract class JustificationProperties`
@@ -11976,9 +11762,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IAddChild`
 - `void AddChild(object child);`
 - `public interface IAddChild<T>`
-- `} public interface IAddChild<T> {`
 - `void AddChild(T child);`
-- `} }`
 
 ### `src/Avalonia.Base/Metadata/InheritDataTypeFromAttribute.cs`
 - Namespace: `Avalonia.Metadata`
@@ -12195,12 +11979,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void SetDefaultAssembly(Assembly assembly);`
 - `bool Exists(Uri uri, Uri? baseUri = null);`
 - `Stream Open(Uri uri, Uri? baseUri = null);`
-- `(Stream stream, Assembly assembly) OpenAndGetAssembly(Uri uri, Uri? baseUri = null);`
 - `Assembly? GetAssembly(Uri uri, Uri? baseUri = null);`
 - `IEnumerable<Uri> GetAssets(Uri uri, Uri? baseUri);`
 - `void InvalidateAssemblyCache(string name);`
 - `void InvalidateAssemblyCache();`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IBitmapImpl.cs`
 - `public interface IBitmapImpl : IDisposable`
@@ -12209,17 +11991,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `int Version { get; }`
 - `void Save(string fileName, int? quality = null);`
 - `void Save(Stream stream, int? quality = null);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/ICursorFactory.cs`
 - `public interface ICursorFactory`
 - `ICursorImpl GetCursor(StandardCursorType cursorType);`
 - `ICursorImpl CreateCursor(Bitmap cursor, PixelPoint hotSpot);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/ICursorImpl.cs`
 - `public interface ICursorImpl : IDisposable`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IDrawingContextImpl.cs`
 - `public interface IDrawingContextImpl : IDisposable`
@@ -12252,11 +12031,9 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void PopTextOptions();`
 - `object? GetFeature(Type t);`
 - `public interface IDrawingContextImplWithEffects : IDrawingContextImpl`
-- `} [PrivateApi] public interface IDrawingContextImplWithEffects : IDrawingContextImpl {`
 - `void PushEffect(Rect? clipRect, IEffect effect);`
 - `void PopEffect();`
 - `public static class DrawingContextImplExtensions`
-- `} public static class DrawingContextImplExtensions {`
 - `public static T? GetFeature<T>(this IDrawingContextImpl context) where T : class =>`
 - `public interface IDrawingContextLayerImpl : IBitmapImpl`
 - `void Blit(IDrawingContextImpl context);`
@@ -12264,15 +12041,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool IsCorrupted { get; }`
 - `IDrawingContextImpl CreateDrawingContext();`
 - `public interface IDrawingContextLayerWithRenderContextAffinityImpl : IDrawingContextLayerImpl`
-- `} public interface IDrawingContextLayerWithRenderContextAffinityImpl : IDrawingContextLayerImpl {`
 - `bool HasRenderContextAffinity { get; }`
 - `IBitmapImpl CreateNonAffinedSnapshot();`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IDrawingContextWithAcrylicLikeSupport.cs`
 - `public interface IDrawingContextWithAcrylicLikeSupport`
 - `void DrawRectangle(IExperimentalAcrylicMaterial material, RoundedRect rect);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IExternalObjectsRenderInterfaceContextFeature.cs`
 - Namespace: `Avalonia.Platform`
@@ -12286,22 +12060,16 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public byte[]? DeviceUuid { get; }`
 - `public byte[]? DeviceLuid { get; }`
 - `public interface IExternalObjectsHandleWrapRenderInterfaceContextFeature`
-- `} [Unstable, NotClientImplementable] public interface IExternalObjectsHandleWrapRenderInterfaceContextFeature {`
 - `IExternalObjectsWrappedGpuHandle? WrapImageHandleOnAnyThread(IPlatformHandle handle, PlatformGraphicsExternalImageProperties properties);`
 - `IExternalObjectsWrappedGpuHandle? WrapSemaphoreHandleOnAnyThread(IPlatformHandle handle);`
 - `public interface IExternalObjectsWrappedGpuHandle : IPlatformHandle, IDisposable`
-- `} [Unstable, NotClientImplementable] public interface IExternalObjectsWrappedGpuHandle : IPlatformHandle, IDisposable {`
 - `public interface IPlatformRenderInterfaceImportedObject : IDisposable`
-- `} [Unstable] public interface IPlatformRenderInterfaceImportedObject : IDisposable {`
 - `public interface IPlatformRenderInterfaceImportedImage : IPlatformRenderInterfaceImportedObject`
-- `} [Unstable] public interface IPlatformRenderInterfaceImportedImage : IPlatformRenderInterfaceImportedObject {`
 - `IBitmapImpl SnapshotWithKeyedMutex(uint acquireIndex, uint releaseIndex);`
 - `IBitmapImpl SnapshotWithSemaphores(IPlatformRenderInterfaceImportedSemaphore waitForSemaphore, IPlatformRenderInterfaceImportedSemaphore signalSemaphore);`
 - `IBitmapImpl SnapshotWithTimelineSemaphores( IPlatformRenderInterfaceImportedSemaphore waitForSemaphore, ulong waitForValue, IPlatformRenderInterfaceImportedSemaphore signalSemaphore, ulong signalValue);`
 - `IBitmapImpl SnapshotWithAutomaticSync();`
 - `public interface IPlatformRenderInterfaceImportedSemaphore : IPlatformRenderInterfaceImportedObject`
-- `} [Unstable] public interface IPlatformRenderInterfaceImportedSemaphore : IPlatformRenderInterfaceImportedObject {`
-- `}`
 
 ### `src/Avalonia.Base/Platform/IFontManagerImpl.cs`
 - `public interface IFontManagerImpl`
@@ -12311,7 +12079,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool TryCreateGlyphTypeface(string familyName, FontStyle style, FontWeight weight, FontStretch stretch, [NotNullWhen(returnValue: true)] out IPlatformTypeface? platformTypeface);`
 - `bool TryCreateGlyphTypeface(Stream stream, FontSimulations fontSimulations, [NotNullWhen(returnValue: true)] out IPlatformTypeface? platformTypeface);`
 - `bool TryGetFamilyTypefaces(string familyName, [NotNullWhen(true)] out IReadOnlyList<Typeface>? familyTypefaces);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IGeometryContext.cs`
 - `public interface IGeometryContext : IDisposable`
@@ -12322,7 +12089,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void LineTo(Point point, bool isStroked = true);`
 - `void EndFigure(bool isClosed);`
 - `void SetFillRule(FillRule fillRule);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IGeometryImpl.cs`
 - `public interface IGeometryImpl`
@@ -12337,7 +12103,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool TryGetPointAtDistance(double distance, out Point point);`
 - `bool TryGetPointAndTangentAtDistance(double distance, out Point point, out Point tangent);`
 - `bool TryGetSegment(double startDistance, double stopDistance, bool startOnBeginFigure, [NotNullWhen(true)] out IGeometryImpl? segmentGeometry);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IGlyphRunImpl.cs`
 - `public interface IGlyphRunImpl : IDisposable`
@@ -12345,7 +12110,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Point BaselineOrigin { get; }`
 - `Rect Bounds { get; }`
 - `IReadOnlyList<float> GetIntersections(float lowerLimit, float upperLimit);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/ILockedFramebuffer.cs`
 - `public interface ILockedFramebuffer : IDisposable`
@@ -12355,7 +12119,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Vector Dpi { get; }`
 - `PixelFormat Format { get; }`
 - `AlphaFormat AlphaFormat { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IMacOSTopLevelPlatformHandle.cs`
 - `public interface IMacOSTopLevelPlatformHandle`
@@ -12363,12 +12126,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IntPtr GetNSViewRetained();`
 - `IntPtr NSWindow { get; }`
 - `IntPtr GetNSWindowRetained();`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IPlatformBehaviorInhibition.cs`
 - `public interface IPlatformBehaviorInhibition`
 - `Task SetInhibitAppSleep(bool inhibitAppSleep, string reason);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IPlatformGpu.cs`
 - Namespace: `Avalonia.Platform`
@@ -12377,23 +12138,18 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IPlatformGraphicsContext CreateContext();`
 - `IPlatformGraphicsContext GetSharedContext();`
 - `public interface IPlatformGraphicsWithFeatures : IPlatformGraphics, IOptionalFeatureProvider`
-- `} [Unstable] public interface IPlatformGraphicsWithFeatures : IPlatformGraphics, IOptionalFeatureProvider {`
 - `public interface IPlatformGraphicsReadyStateFeature`
-- `} [Unstable] public interface IPlatformGraphicsReadyStateFeature {`
 - `bool IsReady { get; }`
 - `bool UsesContexts { get; }`
 - `public interface IPlatformGraphicsContext : IDisposable, IOptionalFeatureProvider`
-- `} [Unstable] public interface IPlatformGraphicsContext : IDisposable, IOptionalFeatureProvider {`
 - `bool IsLost { get; }`
 - `IDisposable EnsureCurrent();`
 - `public class PlatformGraphicsContextLostException : Exception`
-- `} public class PlatformGraphicsContextLostException : Exception {`
 
 ### `src/Avalonia.Base/Platform/IPlatformHandle.cs`
 - `public interface IPlatformHandle`
 - `IntPtr Handle { get; }`
 - `string? HandleDescriptor { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IPlatformRenderInterface.cs`
 - `public interface IPlatformRenderInterface`
@@ -12425,14 +12181,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool SupportsRegions { get; }`
 - `IPlatformRenderInterfaceRegion CreateRegion();`
 - `public interface IPlatformRenderInterfaceContext : IOptionalFeatureProvider, IDisposable`
-- `} [Unstable, PrivateApi] public interface IPlatformRenderInterfaceContext : IOptionalFeatureProvider, IDisposable {`
 - `IRenderTarget CreateRenderTarget(IEnumerable<IPlatformRenderSurface> surfaces);`
 - `IDrawingContextLayerImpl CreateOffscreenRenderTarget(PixelSize pixelSize, Vector scaling, bool enableTextAntialiasing);`
 - `bool IsLost { get; }`
 - `IReadOnlyDictionary<Type, object> PublicFeatures { get; }`
 - `public PixelSize? MaxOffscreenRenderTargetPixelSize { get; }`
 - `bool IsReadyToCreateRenderTarget(IEnumerable<IPlatformRenderSurface> surfaces) => true;`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IPlatformRenderInterfaceRegion.cs`
 - Namespace: `Avalonia.Platform`
@@ -12444,7 +12198,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IList<LtrbPixelRect> Rects { get; }`
 - `bool Intersects(LtrbRect rect);`
 - `bool Contains(Point pt);`
-- `}`
 
 ### `src/Avalonia.Base/Platform/IPlatformSettings.cs`
 - `public interface IPlatformSettings`
@@ -12455,7 +12208,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PlatformHotkeyConfiguration HotkeyConfiguration { get; }`
 - `PlatformColorValues GetColorValues();`
 - `event EventHandler<PlatformColorValues>? ColorValuesChanged;`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IPlatformThreadingInterface.cs`
 - `public interface IPlatformThreadingInterface`
@@ -12463,7 +12215,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `void Signal(DispatcherPriority priority);`
 - `bool CurrentThreadIsLoopThread { get; }`
 - `event Action<DispatcherPriority?>? Signaled;`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IReadableBitmapImpl.cs`
 - Namespace: `Avalonia.Platform`
@@ -12471,7 +12222,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `PixelFormat? Format { get; }`
 - `AlphaFormat? AlphaFormat { get; }`
 - `ILockedFramebuffer Lock();`
-- `}`
 
 ### `src/Avalonia.Base/Platform/IRenderTarget.cs`
 - `public interface IRenderTarget : IDisposable`
@@ -12480,18 +12230,15 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IDrawingContextImpl CreateDrawingContext(RenderTargetSceneInfo sceneInfo, out RenderTargetDrawingContextProperties properties);`
 - `bool IsReady => true;`
 - `public record struct RenderTargetSceneInfo(PixelSize Size, double Scaling);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IRenderTargetBitmapImpl.cs`
 - `public interface IRenderTargetBitmapImpl : IReadableBitmapImpl`
 - `IDrawingContextImpl CreateDrawingContext();`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IRuntimePlatform.cs`
 - `public interface IRuntimePlatform`
 - `RuntimePlatformInfo GetRuntimeInfo();`
 - `public record struct RuntimePlatformInfo`
-- `} [PrivateApi] public record struct RuntimePlatformInfo {`
 - `public FormFactorType FormFactor => IsDesktop ? FormFactorType.Desktop :`
 - `public bool IsDesktop { get; set; }`
 - `public bool IsMobile { get; set; }`
@@ -12503,36 +12250,30 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IScopedResource<T> : IDisposable`
 - `public T Value { get; }`
 - `public class ScopedResource<T> : IScopedResource<T>`
-- `} public class ScopedResource<T> : IScopedResource<T> {`
 - `public static IScopedResource<T> Create(T value, Action dispose) => new ScopedResource<T>(value, dispose);`
 - `public void Dispose() {`
 - `public T Value {`
 
 ### `src/Avalonia.Base/Platform/IStreamGeometryContextImpl.cs`
 - `public interface IStreamGeometryContextImpl : IGeometryContext`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IStreamGeometryImpl.cs`
 - `public interface IStreamGeometryImpl : IGeometryImpl`
 - `IStreamGeometryImpl Clone();`
 - `IStreamGeometryContextImpl Open();`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/ITextShaperImpl.cs`
 - `public interface ITextShaperImpl`
 - `ShapedBuffer ShapeText(ReadOnlyMemory<char> text, TextShaperOptions options);`
 - `ITextShaperTypeface CreateTypeface(GlyphTypeface glyphTypeface);`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/ITransformedGeometryImpl.cs`
 - `public interface ITransformedGeometryImpl : IGeometryImpl`
 - `IGeometryImpl SourceGeometry { get; }`
 - `Matrix Transform { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/IWriteableBitmapImpl.cs`
 - `public interface IWriteableBitmapImpl : IBitmapImpl, IReadableBitmapImpl`
-- `} }`
 
 ### `src/Avalonia.Base/Platform/LockedFramebuffer.cs`
 - `public class LockedFramebuffer : ILockedFramebuffer`
@@ -12575,7 +12316,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IManagedDispatcherInputProvider`
 - `bool HasInput { get; }`
 - `void DispatchNextInputEvent();`
-- `} public ManagedDispatcherImpl(IManagedDispatcherInputProvider? inputProvider) {`
+- `public ManagedDispatcherImpl(IManagedDispatcherInputProvider? inputProvider) {`
 - `public bool CurrentThreadIsLoopThread => _loopThread == Thread.CurrentThread;`
 - `public void Signal() {`
 - `public event Action? Signaled;`
@@ -12742,7 +12483,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface ILauncher`
 - `Task<bool> LaunchUriAsync(Uri uri);`
 - `Task<bool> LaunchFileAsync(IStorageItem storageItem);`
-- `} internal class NoopLauncher : ILauncher {`
 - `public static class LauncherExtensions`
 - `public static Task<bool> LaunchFileInfoAsync(this ILauncher launcher, FileInfo fileInfo) {`
 - `public static Task<bool> LaunchDirectoryInfoAsync(this ILauncher launcher, DirectoryInfo directoryInfo) {`
@@ -12752,17 +12492,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IStorageBookmarkItem : IStorageItem`
 - `Task ReleaseBookmarkAsync();`
 - `public interface IStorageBookmarkFile : IStorageFile, IStorageBookmarkItem`
-- `} [NotClientImplementable] public interface IStorageBookmarkFile : IStorageFile, IStorageBookmarkItem {`
 - `public interface IStorageBookmarkFolder : IStorageFolder, IStorageBookmarkItem`
-- `} [NotClientImplementable] public interface IStorageBookmarkFolder : IStorageFolder, IStorageBookmarkItem {`
-- `}`
 
 ### `src/Avalonia.Base/Platform/Storage/IStorageFile.cs`
 - Namespace: `Avalonia.Platform.Storage`
 - `public interface IStorageFile : IStorageItem`
 - `Task<Stream> OpenReadAsync();`
 - `Task<Stream> OpenWriteAsync();`
-- `}`
 
 ### `src/Avalonia.Base/Platform/Storage/IStorageFolder.cs`
 - Namespace: `Avalonia.Platform.Storage`
@@ -12772,7 +12508,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Task<IStorageFile?> GetFileAsync(string name);`
 - `Task<IStorageFile?> CreateFileAsync(string name);`
 - `Task<IStorageFolder?> CreateFolderAsync(string name);`
-- `}`
 
 ### `src/Avalonia.Base/Platform/Storage/IStorageItem.cs`
 - Namespace: `Avalonia.Platform.Storage`
@@ -12785,7 +12520,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Task<IStorageFolder?> GetParentAsync();`
 - `Task DeleteAsync();`
 - `Task<IStorageItem?> MoveAsync(IStorageFolder destination);`
-- `}`
 
 ### `src/Avalonia.Base/Platform/Storage/IStorageProvider.cs`
 - Namespace: `Avalonia.Platform.Storage`
@@ -12802,7 +12536,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Task<IStorageFile?> TryGetFileFromPathAsync(Uri filePath);`
 - `Task<IStorageFolder?> TryGetFolderFromPathAsync(Uri folderPath);`
 - `Task<IStorageFolder?> TryGetWellKnownFolderAsync(WellKnownFolder wellKnownFolder);`
-- `}`
 
 ### `src/Avalonia.Base/Platform/Storage/PickerOptions.cs`
 - Namespace: `Avalonia.Platform.Storage`
@@ -12843,11 +12576,9 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IFramebufferPlatformSurface : IPlatformRenderSurface`
 - `IFramebufferRenderTarget CreateFramebufferRenderTarget();`
 - `public interface IFramebufferRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget`
-- `} [PrivateApi] public interface IFramebufferRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget {`
 - `ILockedFramebuffer Lock(IRenderTarget.RenderTargetSceneInfo sceneInfo, out FramebufferLockProperties properties);`
 - `bool RetainsFrameContents => false;`
 - `public record struct FramebufferLockProperties(bool PreviousFrameIsRetained);`
-- `} [PrivateApi] public record struct FramebufferLockProperties(bool PreviousFrameIsRetained);`
 - `public class FuncFramebufferRenderTarget : IFramebufferRenderTarget`
 - `public delegate ILockedFramebuffer LockFramebufferDelegate(IRenderTarget.RenderTargetSceneInfo sceneInfo, out FramebufferLockProperties properties);`
 - `public FuncFramebufferRenderTarget(Func<ILockedFramebuffer> lockFramebuffer) : this((_, out properties) =>`
@@ -12861,14 +12592,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IPlatformRenderSurface`
 - `bool IsReady => true;`
 - `public interface IPlatformRenderSurfaceRenderTarget`
-- `} [PrivateApi] public interface IPlatformRenderSurfaceRenderTarget {`
 - `bool IsReady => true;`
-- `}`
 
 ### `src/Avalonia.Base/Platform/SystemNavigationManagerImpl.cs`
 - `public interface ISystemNavigationManagerImpl`
 - `public event EventHandler<RoutedEventArgs>? BackRequested;`
-- `} }`
 
 ### `src/Avalonia.Base/Points.cs`
 - Namespace: `Avalonia`
@@ -13018,7 +12746,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Rendering/Composition/Animations/ICompositionAnimationBase.cs`
 - `public interface ICompositionAnimationBase`
-- `} }`
 
 ### `src/Avalonia.Base/Rendering/Composition/Animations/ImplicitAnimationCollection.cs`
 - `public sealed class ImplicitAnimationCollection : CompositionObject, IDictionary<string, ICompositionAnimationBase>`
@@ -13086,21 +12813,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public byte[]? DeviceLuid { get; set; }`
 - `public byte[]? DeviceUuid { get; set; }`
 - `public enum CompositionGpuImportedImageSynchronizationCapabilities`
-- `} [Flags] public enum CompositionGpuImportedImageSynchronizationCapabilities {`
 - `public interface ICompositionGpuImportedObject : IAsyncDisposable`
 - `Task ImportCompleted { get; }`
 - `bool IsLost { get; }`
 - `public interface ICompositionImportedGpuImage : ICompositionGpuImportedObject`
-- `} [NotClientImplementable] public interface ICompositionImportedGpuImage : ICompositionGpuImportedObject {`
 - `public interface ICompositionImportedGpuSemaphore : ICompositionGpuImportedObject`
-- `} [NotClientImplementable] public interface ICompositionImportedGpuSemaphore : ICompositionGpuImportedObject {`
 - `public interface ICompositionImportableSharedGpuContextObject : IDisposable`
-- `} [NotClientImplementable] public interface ICompositionImportableSharedGpuContextObject : IDisposable {`
 - `public interface ICompositionImportableSharedGpuContextImage : IDisposable`
-- `} [NotClientImplementable] public interface ICompositionImportableSharedGpuContextImage : IDisposable {`
 - `public interface ICompositionImportableSharedGpuContextSemaphore : IDisposable`
-- `} [NotClientImplementable] public interface ICompositionImportableSharedGpuContextSemaphore : IDisposable {`
-- `}`
 
 ### `src/Avalonia.Base/Rendering/Composition/CompositionObject.cs`
 - `public abstract class CompositionObject : ICompositorSerializable`
@@ -13215,7 +12935,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Rendering/Composition/Transport/ServerListProxyHelper.cs`
 - `public interface IRegisterForSerialization`
 - `void RegisterForSerialization();`
-- `} public ServerListProxyHelper(IRegisterForSerialization parent) {`
 
 ### `src/Avalonia.Base/Rendering/Composition/Visual.cs`
 - `public abstract partial class CompositionVisual`
@@ -13240,20 +12959,17 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Rendering/ICustomHitTest.cs`
 - `public interface ICustomHitTest`
 - `bool HitTest(Point point);`
-- `} }`
 
 ### `src/Avalonia.Base/Rendering/IPresentationSource.cs`
 - Namespace: `Avalonia.Rendering`
 - `public interface IPresentationSource`
 - `public Visual? RootVisual { get; }`
 - `public double RenderScaling { get; }`
-- `}`
 
 ### `src/Avalonia.Base/Rendering/IRenderTimer.cs`
 - `public interface IRenderTimer`
 - `event Action<TimeSpan> Tick;`
 - `bool RunsInBackground { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Rendering/RendererDebugOverlays.cs`
 - Namespace: `Avalonia.Rendering`
@@ -13269,7 +12985,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `Rect Bounds { get; }`
 - `bool HitTest(Point p);`
 - `void Render(ImmediateDrawingContext context);`
-- `} }`
 
 ### `src/Avalonia.Base/Rendering/SceneInvalidatedEventArgs.cs`
 - `public class SceneInvalidatedEventArgs : EventArgs`
@@ -13432,21 +13147,17 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IGlobalStyles : IStyleHost`
 - `public event Action<IReadOnlyList<IStyle>>? GlobalStylesAdded;`
 - `public event Action<IReadOnlyList<IStyle>>? GlobalStylesRemoved;`
-- `} }`
 
 ### `src/Avalonia.Base/Styling/ISetterInstance.cs`
 - `public interface ISetterInstance`
-- `} }`
 
 ### `src/Avalonia.Base/Styling/ISetterValue.cs`
 - `public interface ISetterValue`
 - `void Initialize(SetterBase setter);`
-- `} }`
 
 ### `src/Avalonia.Base/Styling/IStyle.cs`
 - `public interface IStyle : IResourceNode`
 - `IReadOnlyList<IStyle> Children { get; }`
-- `} }`
 
 ### `src/Avalonia.Base/Styling/IStyleHost.cs`
 - `public interface IStyleHost`
@@ -13455,19 +13166,16 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `IStyleHost? StylingParent { get; }`
 - `void StylesAdded(IReadOnlyList<IStyle> styles);`
 - `void StylesRemoved(IReadOnlyList<IStyle> styles);`
-- `} }`
 
 ### `src/Avalonia.Base/Styling/ITemplate.cs`
 - `public interface ITemplate`
 - `object? Build();`
-- `} }`
 
 ### `src/Avalonia.Base/Styling/IThemeVariantHost.cs`
 - Namespace: `Avalonia.Styling`
 - `public interface IThemeVariantHost : IResourceHost`
 - `ThemeVariant ActualThemeVariant { get; }`
 - `event EventHandler? ActualThemeVariantChanged;`
-- `}`
 
 ### `src/Avalonia.Base/Styling/Selector.cs`
 - `public abstract class Selector`
@@ -13805,7 +13513,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `bool CheckAccess();`
 - `void VerifyAccess();`
 - `void Post(Action action, DispatcherPriority priority = default);`
-- `} }`
 
 ### `src/Avalonia.Base/Threading/IDispatcherImpl.cs`
 - Namespace: `Avalonia.Threading`
@@ -13817,24 +13524,19 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `long Now { get; }`
 - `void UpdateTimer(long? dueTimeInMs);`
 - `public interface IDispatcherImplWithPendingInput : IDispatcherImpl`
-- `} [PrivateApi] public interface IDispatcherImplWithPendingInput : IDispatcherImpl {`
 - `bool CanQueryPendingInput { get; }`
 - `bool HasPendingInput { get; }`
 - `public interface IDispatcherImplWithExplicitBackgroundProcessing : IDispatcherImpl`
-- `} [PrivateApi] public interface IDispatcherImplWithExplicitBackgroundProcessing : IDispatcherImpl {`
 - `event Action? ReadyForBackgroundProcessing;`
 - `void RequestBackgroundProcessing();`
 - `public interface IControlledDispatcherImpl : IDispatcherImplWithPendingInput`
-- `} [PrivateApi] public interface IControlledDispatcherImpl : IDispatcherImplWithPendingInput {`
 - `void RunLoop(CancellationToken token);`
-- `} internal class LegacyDispatcherImpl : IDispatcherImpl {`
 
 ### `src/Avalonia.Base/Utilities/IWeakEventSubscriber.cs`
 - Namespace: `Avalonia.Utilities`
 - `public interface IWeakEventSubscriber<in TEventArgs>`
 - `void OnEvent(object? sender, WeakEvent ev, TEventArgs e);`
 - `public sealed class WeakEventSubscriber<TEventArgs> : IWeakEventSubscriber<TEventArgs>`
-- `} public sealed class WeakEventSubscriber<TEventArgs> : IWeakEventSubscriber<TEventArgs> {`
 - `public event Action<object?, WeakEvent, TEventArgs>? Event;`
 - `public sealed class TargetWeakEventSubscriber<TTarget, TEventArgs> : IWeakEventSubscriber<TEventArgs>`
 - `public TargetWeakEventSubscriber(TTarget target, Action<TTarget, object?, WeakEvent, TEventArgs> dispatchFunc) {`
@@ -14055,7 +13757,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `SKSurface Surface { get; }`
 - `bool CanBlit { get; }`
 - `void Blit(SKCanvas canvas);`
-- `} }`
 
 ### `src/Skia/Avalonia.Skia/Gpu/ISkiaGpuRenderSession.cs`
 - `public interface ISkiaGpuRenderSession : IDisposable`
@@ -14063,20 +13764,17 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `SKSurface SkSurface { get; }`
 - `double ScaleFactor { get; }`
 - `GRSurfaceOrigin SurfaceOrigin { get; }`
-- `} }`
 
 ### `src/Skia/Avalonia.Skia/Gpu/ISkiaGpuRenderTarget.cs`
 - `public interface ISkiaGpuRenderTarget : IDisposable`
 - `ISkiaGpuRenderSession BeginRenderingSession(IRenderTarget.RenderTargetSceneInfo sceneInfo);`
 - `bool IsCorrupted { get; }`
 - `bool IsReady => true;`
-- `} }`
 
 ### `src/Skia/Avalonia.Skia/Gpu/OpenGl/IGlSkiaSpecificOptionsFeature.cs`
 - Namespace: `Avalonia.Skia`
 - `public interface IGlSkiaSpecificOptionsFeature`
 - `public bool UseNativeSkiaGrGlInterface { get; }`
-- `}`
 
 ### `src/Skia/Avalonia.Skia/Helpers/DrawingContextHelper.cs`
 - `public static class DrawingContextHelper`
@@ -14098,16 +13796,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface ISkiaSharpApiLeaseFeature`
 - `public ISkiaSharpApiLease Lease();`
 - `public interface ISkiaSharpApiLease : IDisposable`
-- `} [Unstable] public interface ISkiaSharpApiLease : IDisposable {`
 - `SKCanvas SkCanvas { get; }`
 - `GRContext? GrContext { get; }`
 - `SKSurface? SkSurface { get; }`
 - `double CurrentOpacity { get; }`
 - `ISkiaSharpPlatformGraphicsApiLease? TryLeasePlatformGraphicsApi();`
 - `public interface ISkiaSharpPlatformGraphicsApiLease : IDisposable`
-- `} [Unstable] public interface ISkiaSharpPlatformGraphicsApiLease : IDisposable {`
 - `IPlatformGraphicsContext Context { get; }`
-- `}`
 
 ### `src/Skia/Avalonia.Skia/SkiaApplicationExtensions.cs`
 - `public static class SkiaApplicationExtensions`
@@ -14179,16 +13874,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IDirect3D11TexturePlatformSurface : IPlatformRenderSurface`
 - `public IDirect3D11TextureRenderTarget CreateRenderTarget(IPlatformGraphicsContext graphicsContext, IntPtr d3dDevice);`
 - `public interface IDirect3D11TextureRenderTarget : IDisposable`
-- `} public interface IDirect3D11TextureRenderTarget : IDisposable {`
 - `bool IsCorrupted { get; }`
 - `IDirect3D11TextureRenderTargetRenderSession BeginDraw();`
 - `public interface IDirect3D11TextureRenderTargetRenderSession : IDisposable`
-- `} public interface IDirect3D11TextureRenderTargetRenderSession : IDisposable {`
 - `public IntPtr D3D11Texture2D { get; }`
 - `public PixelSize Size { get; }`
 - `public PixelPoint Offset { get; }`
 - `public double Scaling { get; }`
-- `}`
 
 ### `src/Windows/Avalonia.Win32/Input/KeyInterop.cs`
 - `public static class KeyInterop`
@@ -14502,22 +14194,18 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Markup/Avalonia.Markup.Xaml/XamlIl/Runtime/IAvaloniaXamlIlControlTemplateProvider.cs`
 - `public interface IAvaloniaXamlIlControlTemplateProvider`
-- `} }`
 
 ### `src/Markup/Avalonia.Markup.Xaml/XamlIl/Runtime/IAvaloniaXamlIlParentStackProvider.cs`
 - `public interface IAvaloniaXamlIlParentStackProvider`
 - `IEnumerable<object> Parents { get; }`
 - `public interface IAvaloniaXamlIlEagerParentStackProvider : IAvaloniaXamlIlParentStackProvider`
-- `} public interface IAvaloniaXamlIlEagerParentStackProvider : IAvaloniaXamlIlParentStackProvider {`
 - `IReadOnlyList<object> DirectParentsStack { get; }`
 - `IAvaloniaXamlIlEagerParentStackProvider? ParentProvider { get; }`
-- `} }`
 
 ### `src/Markup/Avalonia.Markup.Xaml/XamlIl/Runtime/IAvaloniaXamlIlXmlNamespaceInfoProviderV1.cs`
 - `public interface IAvaloniaXamlIlXmlNamespaceInfoProvider`
 - `IReadOnlyDictionary<string, IReadOnlyList<AvaloniaXamlIlXmlNamespaceInfo>> XmlNamespaces { get; }`
 - `public class AvaloniaXamlIlXmlNamespaceInfo`
-- `} public class AvaloniaXamlIlXmlNamespaceInfo {`
 - `public string ClrNamespace { get; set; } = string.Empty;`
 - `public string ClrAssemblyName { get; set; } = string.Empty;`
 
@@ -14541,16 +14229,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `object TargetObject { get; }`
 - `object TargetProperty { get; }`
 - `public interface IRootObjectProvider`
-- `} public interface IRootObjectProvider {`
 - `object RootObject { get; }`
 - `object IntermediateRootObject { get; }`
 - `public interface IUriContext`
-- `} public interface IUriContext {`
 - `Uri BaseUri { get; set; }`
 - `public interface IXamlTypeResolver`
-- `} public interface IXamlTypeResolver {`
 - `Type Resolve (string qualifiedTypeName);`
-- `} }`
 
 ### `src/Markup/Avalonia.Markup/Data/Binding.cs`
 - Namespace: `Avalonia.Data`
@@ -14564,7 +14248,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IAvaloniaAppDelegate`
 - `event EventHandler<ActivatedEventArgs> Activated;`
 - `event EventHandler<ActivatedEventArgs> Deactivated;`
-- `} internal interface IAvaloniaAppInternalDelegate {`
 - `public class AvaloniaAppDelegate<TApp> : UIResponder, IUIApplicationDelegate, IAvaloniaAppDelegate, IAvaloniaAppInternalDelegate`
 - `public AvaloniaAppDelegate() {`
 - `public UIWindow? Window { get; set; }`
@@ -14616,12 +14299,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/iOS/Avalonia.iOS/ViewController.cs`
 - Namespace: `Avalonia.iOS`
 - `public interface IAvaloniaViewController`
-- `#if !TVOS UIStatusBarStyle PreferredStatusBarStyle { get; set; }`
-- `#endif bool PrefersStatusBarHidden { get; set; }`
+- `UIStatusBarStyle PreferredStatusBarStyle { get; set; }`
+- `bool PrefersStatusBarHidden { get; set; }`
 - `Thickness SafeAreaPadding { get; }`
 - `event EventHandler? SafeAreaPaddingChanged;`
 - `public class DefaultAvaloniaViewController : UIViewController, IAvaloniaViewController`
-- `} public class DefaultAvaloniaViewController : UIViewController, IAvaloniaViewController {`
 - `public override void ViewDidLayoutSubviews() {`
 - `public override bool PrefersStatusBarHidden() {`
 - `public override UIStatusBarStyle PreferredStatusBarStyle() {`

@@ -1,6 +1,6 @@
 # Avalonia Migration Report (Generated)
 
-- Generated at (UTC): `2026-03-14 18:22:58Z`
+- Generated at (UTC): `2026-03-14 18:39:20Z`
 - Repository: `/Users/wieslawsoltes/GitHub/Avalonia`
 - From ref: `11.3.12`
 - To ref: `12.0.0-preview2`
@@ -672,22 +672,22 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ## Added Public APIs
 
-- Public signatures: `1051`
+- Public signatures: `1041`
 
 ### By Area
 
 - `Android Platform`: `2`
-- `Application Model and Controls`: `530`
+- `Application Model and Controls`: `529`
 - `Headless Platform`: `8`
 - `Linux Framebuffer`: `7`
 - `Linux/X11 Platform`: `2`
-- `Other`: `33`
-- `Property, Data, Styling, Threading`: `432`
-- `Rendering and Text`: `13`
+- `Other`: `27`
+- `Property, Data, Styling, Threading`: `431`
+- `Rendering and Text`: `12`
 - `Source Generator Integration`: `2`
 - `Windows Platform`: `2`
 - `XAML and Markup`: `15`
-- `iOS Platform`: `4`
+- `iOS Platform`: `3`
 - `macOS Native Platform`: `1`
 
 ### By Kind
@@ -695,8 +695,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `delegate`: `1`
 - `event`: `37`
 - `indexer`: `3`
-- `member`: `512`
-- `method`: `347`
+- `member`: `508`
+- `method`: `341`
 - `operator`: `4`
 - `type`: `147`
 
@@ -719,11 +719,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.Controls/Application.cs`
 
 - `public class Application : AvaloniaObject, IDataContextProvider, IGlobalDataTemplates, IGlobalStyles, IThemeVariantHost, IResourceHost, IOptionalFeatureProvider {`
-
-#### `src/Avalonia.Controls/ApplicationLifetimes/IActivatableApplicationLifetime.cs`
-
-- Namespace(s): `Avalonia.Controls.ApplicationLifetimes`
-- `IActivatableLifetime` -> `event EventHandler<ActivatedEventArgs>? Activated;`
 
 #### `src/Avalonia.Controls/ApplicationLifetimes/IActivityApplicationLifetime.cs`
 
@@ -1593,9 +1588,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.OpenGL/Egl/EglGlPlatformSurface.cs`
 
+- `EglGlPlatformSurface.IEglWindowGlPlatformSurfaceInfoWithWaitPolicy` -> `public bool SkipWaits { get; }`
 - `EglGlPlatformSurface` -> `public interface IEglWindowGlPlatformSurfaceInfoWithWaitPolicy : IEglWindowGlPlatformSurfaceInfo {`
-- `EglGlPlatformSurface.IEglWindowGlPlatformSurfaceInfo` -> `} [PrivateApi] public bool SkipWaits { get; }`
-- `EglGlPlatformSurface.IEglWindowGlPlatformSurfaceInfoWithWaitPolicy` -> `} private readonly IEglWindowGlPlatformSurfaceInfo _info;`
 
 #### `src/Avalonia.OpenGL/Egl/EglGlPlatformSurfaceBase.cs`
 
@@ -1614,15 +1608,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.OpenGL/IGlContext.cs`
 
 - `IGlPlatformSurfaceRenderTargetFactory` -> `IGlPlatformSurfaceRenderTarget CreateRenderTarget(IGlContext context, IPlatformRenderSurface surface);`
-- `IGlContext` -> `} bool CanRenderToSurface(IGlContext context, IPlatformRenderSurface surface);`
-
-#### `src/Avalonia.OpenGL/IGlContextExternalObjectsFeature.cs`
-
-- Namespace(s): `Avalonia.OpenGL`
-- `IGlExternalSemaphore` -> `} [PrivateApi] IPlatformHandle GetHandle();`
-- `IGlExternalImageTexture` -> `} [PrivateApi] IPlatformHandle GetHandle();`
-- `IGlExportableExternalSemaphore` -> `} [PrivateApi] void AcquireKeyedMutex(uint key);`
-- `IGlContextExternalObjectsFeature` -> `} [PrivateApi] void WaitSemaphore(IGlExternalImageTexture texture);`
+- `IGlPlatformSurfaceRenderTargetFactory` -> `bool CanRenderToSurface(IGlContext context, IPlatformRenderSurface surface);`
 
 #### `src/Avalonia.OpenGL/Surfaces/IGlPlatformSurface.cs`
 
@@ -1634,10 +1620,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `IGlPlatformSurfaceRenderTarget` -> `bool IsCorrupted { get; }`
 - `public interface IGlPlatformSurfaceRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget {`
 
-#### `src/Avalonia.Remote.Protocol/MetsysBson.cs`
-
-- `ITypeConfiguration` -> `} #if NET8_0_OR_GREATER [RequiresDynamicCode(TrimmingMessages.ExpressionNodeRequiresDynamicCodeMessage)] #endif private readonly BsonConfiguration _configuration;`
-
 #### `src/Avalonia.Vulkan/IVulkanDevice.cs`
 
 - Namespace(s): `Avalonia.Vulkan`
@@ -1647,8 +1629,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - Namespace(s): `Avalonia.Vulkan`
 - `IVulkanKhrSurfacePlatformSurfaceFactory` -> `IVulkanKhrSurfacePlatformSurface CreateSurface(IVulkanPlatformGraphicsContext context, IPlatformRenderSurface surface);`
+- `IVulkanKhrSurfacePlatformSurfaceFactory` -> `bool CanRenderToSurface(IVulkanPlatformGraphicsContext context, IPlatformRenderSurface surface);`
 - `public interface IVulkanKhrSurfacePlatformSurface : IDisposable, IPlatformRenderSurface {`
-- `IVulkanKhrSurfacePlatformSurface` -> `} bool CanRenderToSurface(IVulkanPlatformGraphicsContext context, IPlatformRenderSurface surface);`
 
 #### `src/Avalonia.Vulkan/IVulkanRenderTarget.cs`
 
@@ -1789,9 +1771,9 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - Namespace(s): `Avalonia`
 - `public interface IOptionalFeatureProvider {`
 - `IOptionalFeatureProvider` -> `public object? TryGetFeature(Type featureType);`
+- `OptionalFeatureProviderExtensions` -> `public static T? TryGetFeature<T>(this IOptionalFeatureProvider provider) where T : class =>`
 - `OptionalFeatureProviderExtensions` -> `public static bool TryGetFeature<T>(this IOptionalFeatureProvider provider, [MaybeNullWhen(false)] out T rv) where T : class {`
 - `public static class OptionalFeatureProviderExtensions {`
-- `IOptionalFeatureProvider` -> `} public static T? TryGetFeature<T>(this IOptionalFeatureProvider provider) where T : class =>`
 
 #### `src/Avalonia.Base/Input/ContextRequestedEventArgs.cs`
 
@@ -2272,9 +2254,9 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `IPlatformRenderInterfaceContext` -> `IDrawingContextLayerImpl CreateOffscreenRenderTarget(PixelSize pixelSize, Vector scaling, bool enableTextAntialiasing);`
 - `IPlatformRenderInterface` -> `IGlyphRunImpl CreateGlyphRun(GlyphTypeface glyphTypeface, double fontRenderingEmSize, IReadOnlyList<GlyphInfo> glyphInfos, Point baselineOrigin);`
+- `IPlatformRenderInterfaceContext` -> `IRenderTarget CreateRenderTarget(IEnumerable<IPlatformRenderSurface> surfaces);`
 - `IPlatformRenderInterfaceContext` -> `bool IsReadyToCreateRenderTarget(IEnumerable<IPlatformRenderSurface> surfaces) => true;`
 - `IPlatformRenderInterfaceContext` -> `public PixelSize? MaxOffscreenRenderTargetPixelSize { get; }`
-- `IPlatformRenderInterface` -> `} [Unstable, PrivateApi] IRenderTarget CreateRenderTarget(IEnumerable<IPlatformRenderSurface> surfaces);`
 
 #### `src/Avalonia.Base/Platform/IReadableBitmapImpl.cs`
 
@@ -2337,6 +2319,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Platform/Surfaces/IFramebufferPlatformSurface.cs`
 
+- `IFramebufferRenderTarget` -> `ILockedFramebuffer Lock(IRenderTarget.RenderTargetSceneInfo sceneInfo, out FramebufferLockProperties properties);`
 - `IFramebufferRenderTarget` -> `bool RetainsFrameContents => false;`
 - `FuncFramebufferRenderTarget` -> `public FuncFramebufferRenderTarget(Func<ILockedFramebuffer> lockFramebuffer) : this((_, out properties) =>`
 - `FuncFramebufferRenderTarget` -> `public FuncFramebufferRenderTarget(LockFramebufferDelegate lockFramebuffer, bool retainsFrameContents = false) {`
@@ -2345,16 +2328,14 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `FuncFramebufferRenderTarget` -> `public delegate ILockedFramebuffer LockFramebufferDelegate(IRenderTarget.RenderTargetSceneInfo sceneInfo, out FramebufferLockProperties properties);`
 - `public interface IFramebufferPlatformSurface : IPlatformRenderSurface {`
 - `public interface IFramebufferRenderTarget : IDisposable, IPlatformRenderSurfaceRenderTarget {`
-- `IFramebufferPlatformSurface` -> `} [PrivateApi] ILockedFramebuffer Lock(IRenderTarget.RenderTargetSceneInfo sceneInfo, out FramebufferLockProperties properties);`
-- `IFramebufferRenderTarget` -> `} [PrivateApi] private readonly LockFramebufferDelegate _lockFramebuffer;`
 
 #### `src/Avalonia.Base/Platform/Surfaces/IPlatformRenderSurface.cs`
 
 - Namespace(s): `Avalonia.Platform.Surfaces`
 - `IPlatformRenderSurface` -> `bool IsReady => true;`
+- `IPlatformRenderSurfaceRenderTarget` -> `bool IsReady => true;`
 - `public interface IPlatformRenderSurface {`
 - `public interface IPlatformRenderSurfaceRenderTarget {`
-- `IPlatformRenderSurface` -> `} [PrivateApi] bool IsReady => true;`
 
 #### `src/Avalonia.Base/Rendering/Composition/CompositionOptions.cs`
 
@@ -2482,10 +2463,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `HarfBuzzTextShaper` -> `public ShapedBuffer ShapeText(ReadOnlyMemory<char> text, TextShaperOptions options) {`
 - `public class HarfBuzzTextShaper : ITextShaperImpl {`
 
-#### `src/Skia/Avalonia.Skia/Gpu/ISkiaGpu.cs`
-
-- `ISkiaSurface` -> `SKSurface Surface { get; }`
-
 #### `src/Skia/Avalonia.Skia/Gpu/ISkiaGpuRenderTarget.cs`
 
 - `ISkiaGpuRenderTarget` -> `ISkiaGpuRenderSession BeginRenderingSession(IRenderTarget.RenderTargetSceneInfo sceneInfo);`
@@ -2569,7 +2546,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `AvaloniaAppDelegate` -> `public UISceneConfiguration GetConfiguration(UIApplication application, UISceneSession connectingSceneSession, UISceneConnectionOptions options) {`
 - `AvaloniaAppDelegate` -> `public bool FinishedLaunching(UIApplication application, NSDictionary? launchOptions) {`
 - `public class AvaloniaAppDelegate<TApp> : UIResponder, IUIApplicationDelegate, IAvaloniaAppDelegate, IAvaloniaAppInternalDelegate where TApp : Application, new() {`
-- `IAvaloniaAppDelegate` -> `} bool ContinueUserActivity(NSUserActivity userActivity);`
 
 ### macOS Native Platform
 
@@ -2579,23 +2555,23 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ## Removed Public Signatures (Parser View)
 
-- Public signatures: `827`
+- Public signatures: `812`
 
 ### By Area
 
 - `Android Platform`: `3`
-- `Application Model and Controls`: `203`
+- `Application Model and Controls`: `201`
 - `Browser Platform`: `6`
 - `Headless Platform`: `14`
 - `Linux Framebuffer`: `5`
 - `Linux/X11 Platform`: `1`
-- `Other`: `91`
-- `Property, Data, Styling, Threading`: `417`
-- `Rendering and Text`: `13`
+- `Other`: `85`
+- `Property, Data, Styling, Threading`: `412`
+- `Rendering and Text`: `12`
 - `Source Generator Integration`: `3`
 - `Windows Platform`: `8`
 - `XAML and Markup`: `59`
-- `iOS Platform`: `3`
+- `iOS Platform`: `2`
 - `macOS Native Platform`: `1`
 
 ### By Kind
@@ -2603,8 +2579,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `delegate`: `1`
 - `event`: `6`
 - `indexer`: `3`
-- `member`: `272`
-- `method`: `382`
+- `member`: `265`
+- `method`: `374`
 - `type`: `163`
 
 ### Android Platform
@@ -2638,7 +2614,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - Namespace(s): `Avalonia.Controls.ApplicationLifetimes`
 - `public interface IActivatableApplicationLifetime : IActivatableLifetime {`
-- `IActivatableApplicationLifetime` -> `} [NotClientImplementable] event EventHandler<ActivatedEventArgs>? Activated;`
 
 #### `src/Avalonia.Controls/AutoCompleteBox/AutoCompleteBox.Properties.cs`
 
@@ -2802,6 +2777,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Controls/Platform/Surfaces/IFramebufferPlatformSurface.cs`
 
+- `IFramebufferRenderTarget` -> `ILockedFramebuffer Lock();`
+- `IFramebufferRenderTargetWithProperties` -> `ILockedFramebuffer Lock(out FramebufferLockProperties properties);`
 - `IFramebufferRenderTargetWithProperties` -> `bool RetainsFrameContents { get; }`
 - `FuncFramebufferRenderTarget` -> `public FuncFramebufferRenderTarget(Func<ILockedFramebuffer> lockFramebuffer) {`
 - `FuncFramebufferRenderTarget` -> `public ILockedFramebuffer Lock() => _lockFramebuffer();`
@@ -2809,9 +2786,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `public interface IFramebufferPlatformSurface {`
 - `public interface IFramebufferRenderTarget : IDisposable {`
 - `public interface IFramebufferRenderTargetWithProperties : IFramebufferRenderTarget {`
-- `IFramebufferRenderTarget` -> `} [PrivateApi] ILockedFramebuffer Lock(out FramebufferLockProperties properties);`
-- `IFramebufferRenderTargetWithProperties` -> `} [PrivateApi] private readonly Func<ILockedFramebuffer> _lockFramebuffer;`
-- `IFramebufferPlatformSurface` -> `} [Unstable] ILockedFramebuffer Lock();`
 
 #### `src/Avalonia.Controls/Presenters/TextPresenter.cs`
 
@@ -3161,10 +3135,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `public interface IMetalPlatformSurface {`
 - `public interface IMetalPlatformSurfaceRenderTarget : IDisposable {`
 
-#### `src/Avalonia.OpenGL/Egl/EglGlPlatformSurface.cs`
-
-- `EglGlPlatformSurface.IEglWindowGlPlatformSurfaceInfo` -> `} private readonly IEglWindowGlPlatformSurfaceInfo _info;`
-
 #### `src/Avalonia.OpenGL/Egl/EglGlPlatformSurfaceBase.cs`
 
 - `EglPlatformSurfaceRenderTargetBase` -> `public IGlPlatformSurfaceRenderingSession BeginDraw() {`
@@ -3174,15 +3144,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.OpenGL/IGlContext.cs`
 
 - `IGlPlatformSurfaceRenderTargetFactory` -> `IGlPlatformSurfaceRenderTarget CreateRenderTarget(IGlContext context, object surface);`
-- `IGlContext` -> `} bool CanRenderToSurface(IGlContext context, object surface);`
-
-#### `src/Avalonia.OpenGL/IGlContextExternalObjectsFeature.cs`
-
-- Namespace(s): `Avalonia.OpenGL`
-- `IGlExternalSemaphore` -> `} IPlatformHandle GetHandle();`
-- `IGlExternalImageTexture` -> `} IPlatformHandle GetHandle();`
-- `IGlExportableExternalSemaphore` -> `} [NotClientImplementable] void AcquireKeyedMutex(uint key);`
-- `IGlContextExternalObjectsFeature` -> `} [NotClientImplementable] void WaitSemaphore(IGlExternalImageTexture texture);`
+- `IGlPlatformSurfaceRenderTargetFactory` -> `bool CanRenderToSurface(IGlContext context, object surface);`
 
 #### `src/Avalonia.OpenGL/Surfaces/IGlPlatformSurface.cs`
 
@@ -3191,15 +3153,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.OpenGL/Surfaces/IGlPlatformSurfaceRenderTarget.cs`
 
 - `IGlPlatformSurfaceRenderTarget` -> `IGlPlatformSurfaceRenderingSession BeginDraw();`
+- `IGlPlatformSurfaceRenderTarget2` -> `IGlPlatformSurfaceRenderingSession BeginDraw(PixelSize expectedPixelSize);`
+- `IGlPlatformSurfaceRenderTargetWithCorruptionInfo` -> `bool IsCorrupted { get; }`
 - `public interface IGlPlatformSurfaceRenderTarget : IDisposable {`
 - `public interface IGlPlatformSurfaceRenderTarget2 : IGlPlatformSurfaceRenderTargetWithCorruptionInfo {`
 - `public interface IGlPlatformSurfaceRenderTargetWithCorruptionInfo : IGlPlatformSurfaceRenderTarget {`
-- `IGlPlatformSurfaceRenderTargetWithCorruptionInfo` -> `} [PrivateApi] IGlPlatformSurfaceRenderingSession BeginDraw(PixelSize expectedPixelSize);`
-- `IGlPlatformSurfaceRenderTarget` -> `} bool IsCorrupted { get; }`
-
-#### `src/Avalonia.Remote.Protocol/MetsysBson.cs`
-
-- `ITypeConfiguration` -> `} private readonly BsonConfiguration _configuration;`
 
 #### `src/Avalonia.Vulkan/IVulkanDevice.cs`
 
@@ -3210,8 +3168,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - Namespace(s): `Avalonia.Vulkan`
 - `IVulkanKhrSurfacePlatformSurfaceFactory` -> `IVulkanKhrSurfacePlatformSurface CreateSurface(IVulkanPlatformGraphicsContext context, object surface);`
+- `IVulkanKhrSurfacePlatformSurfaceFactory` -> `bool CanRenderToSurface(IVulkanPlatformGraphicsContext context, object surface);`
 - `public interface IVulkanKhrSurfacePlatformSurface : IDisposable {`
-- `IVulkanKhrSurfacePlatformSurface` -> `} bool CanRenderToSurface(IVulkanPlatformGraphicsContext context, object surface);`
 
 #### `src/Avalonia.Vulkan/IVulkanRenderTarget.cs`
 
@@ -3311,10 +3269,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `AvaloniaObjectExtensions` -> `public static IBinding ToBinding<T>(this IObservable<T> source) {`
 - `AvaloniaObjectExtensions` -> `public static IDisposable Bind( this AvaloniaObject target, AvaloniaProperty property, IBinding binding, object? anchor = null) {`
 
-#### `src/Avalonia.Base/Controls/IResourceHost.cs`
-
-- `IResourceHost` -> `} event EventHandler<ResourcesChangedToken> ResourcesChanged2;`
-
 #### `src/Avalonia.Base/Controls/NameScope.cs`
 
 - `NameScope` -> `public static INameScope GetNameScope(StyledElement styled) {`
@@ -3409,6 +3363,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `CastTypePropertyPathElement` -> `public CastTypePropertyPathElement(Type type) {`
 - `EnsureTypePropertyPathElement` -> `public EnsureTypePropertyPathElement(Type type) {`
+- `PropertyPropertyPathElement` -> `public IPropertyInfo Property { get; }`
 - `PropertyPath` -> `public IReadOnlyList<IPropertyPathElement> Elements { get; }`
 - `PropertyPathBuilder` -> `public PropertyPath Build() {`
 - `PropertyPath` -> `public PropertyPath(IEnumerable<IPropertyPathElement> elements) {`
@@ -3426,7 +3381,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `public class PropertyPathBuilder {`
 - `public class PropertyPropertyPathElement : IPropertyPathElement {`
 - `public interface IPropertyPathElement {`
-- `IPropertyPathElement` -> `} public IPropertyInfo Property { get; }`
 
 #### `src/Avalonia.Base/Data/IBinding.cs`
 
@@ -3670,8 +3624,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Input/TextInput/ITextInputMethodImpl.cs`
 
+- `ITextInputMethodRoot` -> `ITextInputMethodImpl? InputMethod { get; }`
 - `public interface ITextInputMethodRoot : IInputRoot {`
-- `ITextInputMethodImpl` -> `} [NotClientImplementable] ITextInputMethodImpl? InputMethod { get; }`
 
 #### `src/Avalonia.Base/Input/TextInput/TextInputMethodClient.cs`
 
@@ -3756,7 +3710,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `IFontCollection` -> `bool TryGetGlyphTypeface(string familyName, FontStyle style, FontWeight weight, FontStretch stretch, [NotNullWhen(true)] out IGlyphTypeface? glyphTypeface);`
 - `IFontCollection` -> `void Initialize(IFontManagerImpl fontManager);`
-- `IFontCollection` -> `} bool TryGetFamilyTypefaces(string familyName, [NotNullWhen(true)] out IReadOnlyList<Typeface>? familyTypefaces);`
 
 #### `src/Avalonia.Base/Media/GlyphMetrics.cs`
 
@@ -3862,7 +3815,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `IFontManagerImpl` -> `bool TryCreateGlyphTypeface(Stream stream, FontSimulations fontSimulations, [NotNullWhen(returnValue: true)] out IGlyphTypeface? glyphTypeface);`
 - `IFontManagerImpl` -> `bool TryCreateGlyphTypeface(string familyName, FontStyle style, FontWeight weight, FontStretch stretch, [NotNullWhen(returnValue: true)] out IGlyphTypeface? glyphTypeface);`
 - `IFontManagerImpl` -> `bool TryMatchCharacter(int codepoint, FontStyle fontStyle, FontWeight fontWeight, FontStretch fontStretch, CultureInfo? culture, out Typeface typeface);`
-- `IFontManagerImpl` -> `} bool TryMatchCharacter(int codepoint, FontStyle fontStyle, FontWeight fontWeight, FontStretch fontStretch, CultureInfo? culture, [NotNullWhen(true)] out IGlyphTypeface? typeface);`
 
 #### `src/Avalonia.Base/Platform/IGeometryContext.cs`
 
@@ -3888,33 +3840,32 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - Namespace(s): `Avalonia.Platform`
 - `public interface IOptionalFeatureProvider {`
 - `IOptionalFeatureProvider` -> `public object? TryGetFeature(Type featureType);`
+- `OptionalFeatureProviderExtensions` -> `public static T? TryGetFeature<T>(this IOptionalFeatureProvider provider) where T : class =>`
 - `OptionalFeatureProviderExtensions` -> `public static bool TryGetFeature<T>(this IOptionalFeatureProvider provider, [MaybeNullWhen(false)] out T rv) where T : class {`
 - `public static class OptionalFeatureProviderExtensions {`
-- `IOptionalFeatureProvider` -> `} public static T? TryGetFeature<T>(this IOptionalFeatureProvider provider) where T : class =>`
 
 #### `src/Avalonia.Base/Platform/IPlatformRenderInterface.cs`
 
 - `IPlatformRenderInterfaceContext` -> `IDrawingContextLayerImpl CreateOffscreenRenderTarget(PixelSize pixelSize, double scaling);`
 - `IPlatformRenderInterface` -> `IGlyphRunImpl CreateGlyphRun(IGlyphTypeface glyphTypeface, double fontRenderingEmSize, IReadOnlyList<GlyphInfo> glyphInfos, Point baselineOrigin);`
-- `IPlatformRenderInterface` -> `} [Unstable, PrivateApi] IRenderTarget CreateRenderTarget(IEnumerable<object> surfaces);`
+- `IPlatformRenderInterfaceContext` -> `IRenderTarget CreateRenderTarget(IEnumerable<object> surfaces);`
 
 #### `src/Avalonia.Base/Platform/IReadableBitmapImpl.cs`
 
 - Namespace(s): `Avalonia.Platform`
+- `IReadableBitmapWithAlphaImpl` -> `AlphaFormat? AlphaFormat { get; }`
 - `public interface IReadableBitmapImpl {`
 - `public interface IReadableBitmapWithAlphaImpl : IReadableBitmapImpl {`
-- `IReadableBitmapImpl` -> `} [Unstable] AlphaFormat? AlphaFormat { get; }`
 
 #### `src/Avalonia.Base/Platform/IRenderTarget.cs`
 
 - `IRenderTarget2` -> `IDrawingContextImpl CreateDrawingContext(PixelSize expectedPixelSize, out RenderTargetDrawingContextProperties properties);`
 - `IRenderTarget` -> `IDrawingContextImpl CreateDrawingContext(bool useScaledDrawing);`
+- `IRenderTargetWithProperties` -> `RenderTargetProperties Properties { get; }`
+- `IRenderTarget2` -> `RenderTargetProperties Properties { get; }`
 - `IRenderTarget` -> `public bool IsCorrupted { get; }`
 - `public interface IRenderTarget2 : IRenderTarget {`
 - `public interface IRenderTargetWithProperties : IRenderTarget {`
-- `IRenderTarget` -> `} [PrivateApi, Obsolete("Use IRenderTarget2", true)] RenderTargetProperties Properties { get; }`
-- `IRenderTargetWithProperties` -> `} [PrivateApi] RenderTargetProperties Properties { get; }`
-- `IRenderTarget2` -> `} public static IDrawingContextImpl CreateDrawingContextWithProperties( this IRenderTarget renderTarget, PixelSize expectedPixelSize, out RenderTargetDrawingContextProperties properties) {`
 
 #### `src/Avalonia.Base/Platform/IRenderTargetBitmapImpl.cs`
 
@@ -3986,7 +3937,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `IRenderer` -> `void Resized(Size size);`
 - `IRenderer` -> `void Start();`
 - `IRenderer` -> `void Stop();`
-- `IRenderer` -> `} Compositor Compositor { get; }`
 
 #### `src/Avalonia.Base/Rendering/SceneInvalidatedEventArgs.cs`
 
@@ -4048,19 +3998,18 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Skia/Avalonia.Skia/Gpu/ISkiaGpu.cs`
 
+- `ISkiaGpuWithPlatformGraphicsContext` -> `IPlatformGraphicsContext? PlatformGraphicsContext { get; }`
 - `ISkiaGpuWithPlatformGraphicsContext` -> `IScopedResource<GRContext>? TryGetGrContext();`
 - `ISkiaGpu` -> `ISkiaGpuRenderTarget? TryCreateRenderTarget(IEnumerable<object> surfaces);`
 - `ISkiaGpu` -> `ISkiaSurface? TryCreateSurface(PixelSize size, ISkiaGpuRenderSession? session);`
 - `public interface ISkiaGpu : IPlatformGraphicsContext {`
 - `public interface ISkiaGpuWithPlatformGraphicsContext : ISkiaGpu {`
-- `ISkiaGpuWithPlatformGraphicsContext` -> `} SKSurface Surface { get; }`
-- `ISkiaGpu` -> `} [Unstable] IPlatformGraphicsContext? PlatformGraphicsContext { get; }`
 
 #### `src/Skia/Avalonia.Skia/Gpu/ISkiaGpuRenderTarget.cs`
 
 - `ISkiaGpuRenderTarget` -> `ISkiaGpuRenderSession BeginRenderingSession();`
+- `ISkiaGpuRenderTarget2` -> `ISkiaGpuRenderSession BeginRenderingSession(PixelSize pixelSize);`
 - `public interface ISkiaGpuRenderTarget2 : ISkiaGpuRenderTarget {`
-- `ISkiaGpuRenderTarget` -> `} [PrivateApi] ISkiaGpuRenderSession BeginRenderingSession(PixelSize pixelSize);`
 
 #### `src/Skia/Avalonia.Skia/Gpu/Metal/SkiaMetalGpu.cs`
 
@@ -4152,8 +4101,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Markup/Avalonia.Markup.Xaml/XamlTypes.cs`
 
+- `ConstructorArgumentAttribute` -> `public ConstructorArgumentAttribute(string name) {`
 - `public sealed class ConstructorArgumentAttribute : Attribute {`
-- `IXamlTypeResolver` -> `} [AttributeUsage(AttributeTargets.Property)] public ConstructorArgumentAttribute(string name) {`
 
 #### `src/Markup/Avalonia.Markup/Data/Binding.cs`
 
@@ -4198,7 +4147,6 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `AvaloniaAppDelegate` -> `public bool FinishedLaunching(UIApplication application, NSDictionary launchOptions) {`
 - `public class AvaloniaAppDelegate<TApp> : UIResponder, IUIApplicationDelegate, IAvaloniaAppDelegate where TApp : Application, new() {`
-- `IAvaloniaAppDelegate` -> `} private EventHandler<ActivatedEventArgs>? _onActivated, _onDeactivated;`
 
 ### macOS Native Platform
 
