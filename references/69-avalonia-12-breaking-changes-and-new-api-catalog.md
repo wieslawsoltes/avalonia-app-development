@@ -1,9 +1,9 @@
 # Avalonia Migration Report (Generated)
 
-- Generated at (UTC): `2026-03-14 18:39:20Z`
+- Generated at (UTC): `2026-03-19 21:27:30Z`
 - Repository: `/Users/wieslawsoltes/GitHub/Avalonia`
 - From ref: `11.3.12`
-- To ref: `12.0.0-preview2`
+- To ref: `12.0.0-rc1`
 
 ## Coverage Contract
 
@@ -15,11 +15,11 @@
 
 Official breaking-change source: Avalonia `api/*.xml` package-validation suppressions.
 
-- Unique approved compatibility suppressions: `536`
+- Unique approved compatibility suppressions: `591`
 
 ### By Package
 
-- `Avalonia`: `499`
+- `Avalonia`: `554`
 - `Avalonia.Android`: `6`
 - `Avalonia.Headless`: `3`
 - `Avalonia.Headless.XUnit`: `6`
@@ -30,11 +30,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ### By Diagnostic
 
-- `CP0001` (missing public type): `102`
-- `CP0002` (missing public member): `303`
+- `CP0001` (missing public type): `105`
+- `CP0002` (missing public member): `346`
 - `CP0003` (other compatibility change): `1`
 - `CP0005` (other compatibility change): `4`
-- `CP0006` (new interface member without default implementation): `59`
+- `CP0006` (new interface member without default implementation): `68`
 - `CP0007` (removed base type): `5`
 - `CP0008` (removed base interface): `43`
 - `CP0009` (type became sealed): `13`
@@ -74,6 +74,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.Primitives.IScrollable` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Controls.Primitives.LightDismissOverlayLayer` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.OverlayLayer` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.SelectionHandleType` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.PseudolassesExtensions` (type; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
 - `Avalonia.Controls.Remote.RemoteServer` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Remote.RemoteWidget` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -106,6 +107,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Diagnostics.StyledElementExtensions` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.DataObjectExtensions` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.Gestures` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GotFocusEventArgs` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.IDataObject` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.IKeyboardNavigationHandler` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.KeyboardNavigationHandler` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
@@ -118,6 +120,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Markup.Xaml.MarkupExtensions.CompiledBindings.CompiledBindingPathBuilder` (type; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Markup.Xaml.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Markup.Xaml.dll`)
 - `Avalonia.Media.Fonts.FontFamilyLoader` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.IGlyphTypeface` (type; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
+- `Avalonia.Media.TextFormatting.TextRange` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.OpenGL.Surfaces.IGlPlatformSurfaceRenderTarget2` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.OpenGL.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.OpenGL.dll`)
 - `Avalonia.OpenGL.Surfaces.IGlPlatformSurfaceRenderTargetWithCorruptionInfo` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.OpenGL.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.OpenGL.dll`)
 - `Avalonia.Platform.ExtendClientAreaChromeHints` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -145,9 +148,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.ContextMenu.PlacementModeProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Control.ContextRequestedEvent` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Documents.Inline.TextDecorationsProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.DrawerPage.DrawerBreakpointWidthProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.ItemsControl.DisplayMemberBindingProperty` (field; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.NativeMenuBar.EnableMenuItemClickForwardingProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.NativeMenuItem.ToggleTypeProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.FlyoutBase.IsOpenProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.Popup.PlacementModeProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.SelectingItemsControl.SelectedValueBindingProperty` (field; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.TextSearch.TextBindingProperty` (field; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
@@ -156,6 +161,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.Primitives.ToggleButton.UncheckedEvent` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager.ChromeOverlayLayerProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.ResourcesChangedEventArgs.Empty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Controls.TabItem.IconProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.TextBlock.LetterSpacingProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.TextBox.LetterSpacingProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.TopLevel.PointerOverElementProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -165,7 +171,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Input.DataFormats.FileNames` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.DataFormats.Files` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.DataFormats.Text` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GestureRecognizers.SwipeGestureRecognizer.CrossAxisCancelThresholdProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GestureRecognizers.SwipeGestureRecognizer.EdgeSizeProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.HoldingState.Cancelled` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.InputElement.GotFocusEvent` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.InputElement.LostFocusEvent` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.DrawingImage.ViewboxProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.Fonts.FontCollectionBase._glyphTypefaceCache` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.RadialGradientBrush.RadiusProperty` (field; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
@@ -194,6 +204,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.Design.SetPreviewWith(Avalonia.Controls.Templates.IDataTemplate,Avalonia.Controls.ITemplate{Avalonia.Controls.Control})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Design.SetPreviewWith(Avalonia.Styling.IStyle,Avalonia.Controls.Control)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Design.SetPreviewWith(Avalonia.Styling.IStyle,Avalonia.Controls.ITemplate{Avalonia.Controls.Control})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.DrawerPage.get_DrawerBreakpointWidth` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.DrawerPage.set_DrawerBreakpointWidth(System.Double)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Embedding.Offscreen.OffscreenTopLevelImplBase.get_Surfaces` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Generators.ItemContainerGenerator.ContainerFromIndex(System.Int32)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Generators.ItemContainerGenerator.IndexFromContainer(Avalonia.Controls.Control)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -201,13 +213,15 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.ItemsControl.get_DisplayMemberBinding` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.NativeMenuBar.SetEnableMenuItemClickForwarding(Avalonia.Controls.MenuItem,System.Boolean)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.NativeMenuItem.get_ToggleType` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.PageSelectionChangedEventArgs.#ctor(Avalonia.Controls.Page,Avalonia.Controls.Page)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Platform.DefaultMenuInteractionHandler.GotFocus(System.Object,Avalonia.Input.GotFocusEventArgs)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Platform.IInsetsManager.get_DisplayEdgeToEdge` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Platform.IInsetsManager.set_DisplayEdgeToEdge(System.Boolean)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Platform.InsetsManagerBase.get_DisplayEdgeToEdge` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Platform.InsetsManagerBase.set_DisplayEdgeToEdge(System.Boolean)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.AccessText.get_AccessKey` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.AdornerLayer.#ctor` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
-- `Avalonia.Controls.Primitives.OverlayLayer.#ctor` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.OverlayLayer.#ctor` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.OverlayPopupHost.#ctor(Avalonia.Controls.Primitives.OverlayLayer)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.OverlayPopupHost.ConfigurePosition(Avalonia.Visual,Avalonia.Controls.PlacementMode,Avalonia.Point,Avalonia.Controls.Primitives.PopupPositioning.PopupAnchor,Avalonia.Controls.Primitives.PopupPositioning.PopupGravity,Avalonia.Controls.Primitives.PopupPositioning.PopupPositionerConstraintAdjustment,System.Nullable{Avalonia.Rect})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.OverlayPopupHost.CreatePopupHost(Avalonia.Visual,Avalonia.IAvaloniaDependencyResolver)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -220,8 +234,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.Primitives.PopupRoot.ConfigurePosition(Avalonia.Visual,Avalonia.Controls.PlacementMode,Avalonia.Point,Avalonia.Controls.Primitives.PopupPositioning.PopupAnchor,Avalonia.Controls.Primitives.PopupPositioning.PopupGravity,Avalonia.Controls.Primitives.PopupPositioning.PopupPositionerConstraintAdjustment,System.Nullable{Avalonia.Rect})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.SelectingItemsControl.get_SelectedValueBinding` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.TextSearch.GetText(Avalonia.Controls.Control)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
-- `Avalonia.Controls.Primitives.TextSearch.GetTextBinding(Avalonia.Interactivity.Interactive)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.TextSearch.GetText(Avalonia.Interactivity.Interactive)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.TextSearch.GetTextBinding(Avalonia.Interactivity.Interactive)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.TextSearch.SetText(Avalonia.Controls.Control,System.String)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.TextSearch.SetText(Avalonia.Interactivity.Interactive,System.String)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.TextSearch.SetTextBinding(Avalonia.Interactivity.Interactive,Avalonia.Data.BindingBase)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.TextSearch.SetTextBinding(Avalonia.Interactivity.Interactive,Avalonia.Data.IBinding)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.ToggleButton.OnChecked(Avalonia.Interactivity.RoutedEventArgs)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.ToggleButton.OnIndeterminate(Avalonia.Interactivity.RoutedEventArgs)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -234,12 +251,16 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Controls.Primitives.ToggleButton.remove_Unchecked(System.EventHandler{Avalonia.Interactivity.RoutedEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager.get_AdornerLayer` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager.get_ChromeOverlayLayer` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.VisualLayerManager.get_IsPopup` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager.get_LightDismissOverlayLayer` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager.get_OverlayLayer` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager.get_TextSelectorLayer` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.VisualLayerManager.set_IsPopup(System.Boolean)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.ResourcesChangedEventArgs.#ctor` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Controls.Screens.ScreenFromWindow(Avalonia.Platform.IWindowBaseImpl)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.TabItem.SubscribeToOwnerProperties(Avalonia.AvaloniaObject)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.TabItem.get_Icon` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.TabbedPage.FindNextEnabledTab(System.Int32,System.Int32)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Templates.FuncTreeDataTemplate.ItemsSelector(System.Object)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Templates.ITreeDataTemplate.ItemsSelector(System.Object)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.TopLevel.#ctor(Avalonia.Platform.ITopLevelImpl,Avalonia.IAvaloniaDependencyResolver)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
@@ -275,7 +296,17 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Input.DragDrop.DoDragDrop(Avalonia.Input.PointerEventArgs,Avalonia.Input.IDataObject,Avalonia.Input.DragDropEffects)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.DragEventArgs.#ctor(Avalonia.Interactivity.RoutedEvent{Avalonia.Input.DragEventArgs},Avalonia.Input.IDataObject,Avalonia.Interactivity.Interactive,Avalonia.Point,Avalonia.Input.KeyModifiers)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.DragEventArgs.get_Data` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.FocusManager.#ctor(Avalonia.Input.IInputElement)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.FocusManager.ClearFocus` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.FocusManager.ClearFocusOnElementRemoved(Avalonia.Input.IInputElement,Avalonia.Visual)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.FocusManager.FindNextElement(Avalonia.Input.NavigationDirection)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.FocusManager.TryMoveFocus(Avalonia.Input.NavigationDirection)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GestureRecognizers.SwipeGestureRecognizer.get_CrossAxisCancelThreshold` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GestureRecognizers.SwipeGestureRecognizer.get_EdgeSize` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GestureRecognizers.SwipeGestureRecognizer.set_CrossAxisCancelThreshold(System.Double)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.GestureRecognizers.SwipeGestureRecognizer.set_EdgeSize(System.Double)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.HoldingRoutedEventArgs.#ctor(Avalonia.Input.HoldingState,Avalonia.Point,Avalonia.Input.PointerType)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.IFocusManager.ClearFocus` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.IInputRoot.get_KeyboardNavigationHandler` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.IInputRoot.get_PlatformSettings` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.IInputRoot.get_PointerOverElement` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
@@ -293,6 +324,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Input.InputElement.AddScrollGestureEndedHandler(Avalonia.Interactivity.Interactive,System.EventHandler{Avalonia.Input.ScrollGestureEndedEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.InputElement.AddScrollGestureHandler(Avalonia.Interactivity.Interactive,System.EventHandler{Avalonia.Input.ScrollGestureEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.InputElement.AddScrollGestureInertiaStartingHandler(Avalonia.Interactivity.Interactive,System.EventHandler{Avalonia.Input.ScrollGestureInertiaStartingEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.InputElement.OnGotFocus(Avalonia.Input.GotFocusEventArgs)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.InputElement.OnLostFocus(Avalonia.Interactivity.RoutedEventArgs)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.InputElement.RemovePinchEndedHandler(Avalonia.Interactivity.Interactive,System.EventHandler{Avalonia.Input.PinchEndedEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.InputElement.RemovePinchHandler(Avalonia.Interactivity.Interactive,System.EventHandler{Avalonia.Input.PinchEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.InputElement.RemovePointerTouchPadGestureMagnifyHandler(Avalonia.Interactivity.Interactive,System.EventHandler{Avalonia.Input.PointerDeltaEventArgs})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
@@ -316,6 +349,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Input.Raw.RawKeyEventArgs.#ctor(Avalonia.Input.IInputDevice,System.UInt64,Avalonia.Input.IInputRoot,Avalonia.Input.Raw.RawKeyEventType,Avalonia.Input.Key,Avalonia.Input.RawInputModifiers,Avalonia.Input.PhysicalKey,Avalonia.Input.KeyDeviceType,System.String)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.Raw.RawKeyEventArgs.#ctor(Avalonia.Input.IInputDevice,System.UInt64,Avalonia.Input.IInputRoot,Avalonia.Input.Raw.RawKeyEventType,Avalonia.Input.Key,Avalonia.Input.RawInputModifiers,Avalonia.Input.PhysicalKey,System.String)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.Raw.RawKeyEventArgs.#ctor(Avalonia.Input.IKeyboardDevice,System.UInt64,Avalonia.Input.IInputRoot,Avalonia.Input.Raw.RawKeyEventType,Avalonia.Input.Key,Avalonia.Input.RawInputModifiers)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.SwipeGestureEventArgs.#ctor(System.Int32,Avalonia.Input.SwipeDirection,Avalonia.Vector,Avalonia.Point)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.SwipeGestureEventArgs.get_StartPoint` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.TextInput.TextInputMethodClient.ShowInputPanel` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Layout.LayoutHelper.RoundLayoutSizeUp(Avalonia.Size,System.Double,System.Double)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Layout.LayoutHelper.RoundLayoutThickness(Avalonia.Thickness,System.Double,System.Double)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
@@ -338,6 +373,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Media.Fonts.FontCollectionBase.Initialize(Avalonia.Platform.IFontManagerImpl)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.Fonts.FontCollectionBase.TryCreateSyntheticGlyphTypeface(Avalonia.Media.IGlyphTypeface,Avalonia.Media.FontStyle,Avalonia.Media.FontWeight,Avalonia.Media.FontStretch,Avalonia.Media.IGlyphTypeface@)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
 - `Avalonia.Media.Fonts.FontCollectionBase.TryGetGlyphTypeface(System.String,Avalonia.Media.FontStyle,Avalonia.Media.FontWeight,Avalonia.Media.FontStretch,Avalonia.Media.IGlyphTypeface@)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
+- `Avalonia.Media.Fonts.FontCollectionBase.TryGetGlyphTypeface(System.String,Avalonia.Media.Fonts.FontCollectionKey,Avalonia.Media.GlyphTypeface@)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.Fonts.IFontCollection.Initialize(Avalonia.Platform.IFontManagerImpl)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Media.Fonts.IFontCollection.TryGetGlyphTypeface(System.String,Avalonia.Media.FontStyle,Avalonia.Media.FontWeight,Avalonia.Media.FontStretch,Avalonia.Media.IGlyphTypeface@)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
 - `Avalonia.Media.GlyphMetrics.get_Height` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
@@ -407,8 +443,18 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Platform.Screen.set_Scaling(System.Double)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Platform.Screen.set_WorkingArea(Avalonia.PixelRect)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Rendering.Composition.ICompositionGpuImportedObject.get_ImportCompeted` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.DefaultRenderTimer.Start` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.DefaultRenderTimer.Stop` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.DefaultRenderTimer.add_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.DefaultRenderTimer.remove_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.IRenderTimer.add_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.IRenderTimer.remove_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Rendering.SceneInvalidatedEventArgs.#ctor(Avalonia.Rendering.IRenderRoot,Avalonia.Rect)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Rendering.SceneInvalidatedEventArgs.get_RenderRoot` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.SleepLoopRenderTimer.add_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.SleepLoopRenderTimer.remove_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.ThreadProxyRenderTimer.add_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.ThreadProxyRenderTimer.remove_Tick(System.Action{System.TimeSpan})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.StyledElementExtensions.BindClass(Avalonia.StyledElement,System.String,Avalonia.Data.IBinding,System.Object)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
 - `Avalonia.Threading.DispatcherPriorityAwaitable.GetAwaiter` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
 - `Avalonia.Threading.DispatcherPriorityAwaitable.GetResult` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Base.dll`)
@@ -442,7 +488,14 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ### `CP0006`: new interface member without default implementation
 
+- `Avalonia.Input.IInputElement.GotFocus` (event; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.IInputElement.LostFocus` (event; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Controls.Templates.ITreeDataTemplate.BindChildren(Avalonia.AvaloniaObject,Avalonia.AvaloniaProperty,System.Object)` (method/member; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
+- `Avalonia.Input.IFocusManager.FindFirstFocusableElement` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.IFocusManager.FindLastFocusableElement` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.IFocusManager.FindNextElement(Avalonia.Input.NavigationDirection,Avalonia.Input.FindNextElementOptions)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.IFocusManager.Focus(Avalonia.Input.IInputElement,Avalonia.Input.NavigationMethod,Avalonia.Input.KeyModifiers)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Input.IFocusManager.TryMoveFocus(Avalonia.Input.NavigationDirection,Avalonia.Input.FindNextElementOptions)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.IKeyboardNavigationHandler.Move(Avalonia.Input.IInputElement,Avalonia.Input.NavigationDirection,Avalonia.Input.KeyModifiers,System.Nullable{Avalonia.Input.KeyDeviceType})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Input.Platform.IClipboard.SetDataAsync(Avalonia.Input.IAsyncDataTransfer)` (method/member; baseline `baseline/Avalonia/lib/net6.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net6.0/Avalonia.Base.dll`)
 - `Avalonia.Input.Platform.IClipboard.TryGetDataAsync` (method/member; baseline `baseline/Avalonia/lib/net6.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net6.0/Avalonia.Base.dll`)
@@ -483,6 +536,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Avalonia.Platform.IWindowImpl.SetWindowDecorations(Avalonia.Controls.WindowDecorations)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Platform.IWindowingPlatform.GetWindowsZOrder(System.ReadOnlySpan{Avalonia.Platform.IWindowImpl},System.Span{System.Int64})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Platform.Storage.IStorageProvider.SaveFilePickerWithResultAsync(Avalonia.Platform.Storage.FilePickerSaveOptions)` (method/member; baseline `baseline/Avalonia/lib/net6.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net6.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.IRenderTimer.Start` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
+- `Avalonia.Rendering.IRenderTimer.Stop` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
 - `Avalonia.Vulkan.IVulkanKhrSurfacePlatformSurfaceFactory.CanRenderToSurface(Avalonia.Vulkan.IVulkanPlatformGraphicsContext,Avalonia.Platform.Surfaces.IPlatformRenderSurface)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Vulkan.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Vulkan.dll`)
 - `Avalonia.Vulkan.IVulkanKhrSurfacePlatformSurfaceFactory.CreateSurface(Avalonia.Vulkan.IVulkanPlatformGraphicsContext,Avalonia.Platform.Surfaces.IPlatformRenderSurface)` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Vulkan.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Vulkan.dll`)
 - `Avalonia.Vulkan.IVulkanPlatformGraphicsContext.CreateRenderTarget(System.Collections.Generic.IEnumerable{Avalonia.Platform.Surfaces.IPlatformRenderSurface})` (method/member; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Vulkan.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Vulkan.dll`)
@@ -546,7 +601,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 ### `CP0009`: type became sealed
 
 - `Avalonia.Controls.Primitives.AdornerLayer` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
-- `Avalonia.Controls.Primitives.OverlayLayer` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
+- `Avalonia.Controls.Primitives.OverlayLayer` (type; baseline `baseline/Avalonia/lib/net8.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net8.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.OverlayPopupHost` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.Primitives.VisualLayerManager` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Controls.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Controls.dll`)
 - `Avalonia.Controls.ResourcesChangedEventArgs` (type; baseline `baseline/Avalonia/lib/net10.0/Avalonia.Base.dll` -> current `current/Avalonia/lib/net10.0/Avalonia.Base.dll`)
@@ -672,20 +727,20 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ## Added Public APIs
 
-- Public signatures: `1041`
+- Public signatures: `1175`
 
 ### By Area
 
 - `Android Platform`: `2`
-- `Application Model and Controls`: `529`
-- `Headless Platform`: `8`
+- `Application Model and Controls`: `609`
+- `Headless Platform`: `9`
 - `Linux Framebuffer`: `7`
 - `Linux/X11 Platform`: `2`
 - `Other`: `27`
-- `Property, Data, Styling, Threading`: `431`
+- `Property, Data, Styling, Threading`: `482`
 - `Rendering and Text`: `12`
 - `Source Generator Integration`: `2`
-- `Windows Platform`: `2`
+- `Windows Platform`: `4`
 - `XAML and Markup`: `15`
 - `iOS Platform`: `3`
 - `macOS Native Platform`: `1`
@@ -693,12 +748,12 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 ### By Kind
 
 - `delegate`: `1`
-- `event`: `37`
+- `event`: `41`
 - `indexer`: `3`
-- `member`: `508`
-- `method`: `341`
+- `member`: `590`
+- `method`: `372`
 - `operator`: `4`
-- `type`: `147`
+- `type`: `164`
 
 ### Android Platform
 
@@ -752,6 +807,13 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `AutomationPeer` -> `public string GetClassName() => GetClassNameOverrideCore() ?? string.Empty;`
 - `AutomationPeer` -> `public string GetPlaceholderText() => GetPlaceholderTextCore() ?? string.Empty;`
 
+#### `src/Avalonia.Controls/Automation/Peers/CarouselPageAutomationPeer.cs`
+
+- Namespace(s): `Avalonia.Automation.Peers`
+- `CarouselPageAutomationPeer` -> `public CarouselPageAutomationPeer(CarouselPage owner) : base(owner) {`
+- `public class CarouselPageAutomationPeer : ControlAutomationPeer {`
+- `CarouselPageAutomationPeer` -> `public new CarouselPage Owner => (CarouselPage)base.Owner;`
+
 #### `src/Avalonia.Controls/Automation/Peers/ContentPageAutomationPeer.cs`
 
 - Namespace(s): `Avalonia.Automation.Peers`
@@ -763,8 +825,12 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - Namespace(s): `Avalonia.Automation.Peers`
 - `DrawerPageAutomationPeer` -> `public DrawerPageAutomationPeer(DrawerPage owner) : base(owner) {`
-- `public class DrawerPageAutomationPeer : ControlAutomationPeer {`
+- `DrawerPageAutomationPeer` -> `public ExpandCollapseState ExpandCollapseState => ToState(Owner.IsOpen);`
+- `DrawerPageAutomationPeer` -> `public bool ShowsMenu => false;`
+- `public class DrawerPageAutomationPeer : ControlAutomationPeer, IExpandCollapseProvider {`
 - `DrawerPageAutomationPeer` -> `public new DrawerPage Owner => (DrawerPage)base.Owner;`
+- `DrawerPageAutomationPeer` -> `public void Collapse() => Owner.IsOpen = false;`
+- `DrawerPageAutomationPeer` -> `public void Expand() => Owner.IsOpen = true;`
 
 #### `src/Avalonia.Controls/Automation/Peers/NavigationPageAutomationPeer.cs`
 
@@ -773,12 +839,24 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `public class NavigationPageAutomationPeer : ControlAutomationPeer {`
 - `NavigationPageAutomationPeer` -> `public new NavigationPage Owner => (NavigationPage)base.Owner;`
 
+#### `src/Avalonia.Controls/Automation/Peers/PipsPagerAutomationPeer.cs`
+
+- `PipsPagerAutomationPeer` -> `public IReadOnlyList<AutomationPeer> GetSelection() {`
+- `PipsPagerAutomationPeer` -> `public PipsPagerAutomationPeer(PipsPager owner) : base(owner) {`
+- `PipsPagerAutomationPeer` -> `public bool CanSelectMultiple => false;`
+- `PipsPagerAutomationPeer` -> `public bool IsSelectionRequired => true;`
+- `public class PipsPagerAutomationPeer : ControlAutomationPeer, ISelectionProvider {`
+
 #### `src/Avalonia.Controls/Automation/Peers/TabbedPageAutomationPeer.cs`
 
 - Namespace(s): `Avalonia.Automation.Peers`
 - `TabbedPageAutomationPeer` -> `public TabbedPageAutomationPeer(TabbedPage owner) : base(owner) {`
 - `public class TabbedPageAutomationPeer : ControlAutomationPeer {`
 - `TabbedPageAutomationPeer` -> `public new TabbedPage Owner => (TabbedPage)base.Owner;`
+
+#### `src/Avalonia.Controls/Border.cs`
+
+- `Border` -> `public static readonly StyledProperty<Thickness> BorderThicknessProperty = AvaloniaProperty.Register<Border, Thickness>(nameof(BorderThickness), validate: MarginProperty.ValidateValue);`
 
 #### `src/Avalonia.Controls/CalendarDatePicker/CalendarDatePicker.Properties.cs`
 
@@ -792,6 +870,15 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `CalendarDatePicker` -> `public static readonly StyledProperty<string?> PlaceholderTextProperty = TextBox.PlaceholderTextProperty.AddOwner<CalendarDatePicker>();`
 - `CalendarDatePicker` -> `public static readonly StyledProperty<string?> WatermarkProperty = PlaceholderTextProperty;`
 - `CalendarDatePicker` -> `public string? PlaceholderText {`
+
+#### `src/Avalonia.Controls/Carousel.cs`
+
+- `Carousel` -> `public bool IsSwipeEnabled {`
+- `Carousel` -> `public bool IsSwiping {`
+- `Carousel` -> `public double ViewportFraction {`
+- `Carousel` -> `public static readonly DirectProperty<Carousel, bool> IsSwipingProperty = AvaloniaProperty.RegisterDirect<Carousel, bool>(nameof(IsSwiping), o => o.IsSwiping);`
+- `Carousel` -> `public static readonly StyledProperty<bool> IsSwipeEnabledProperty = AvaloniaProperty.Register<Carousel, bool>(nameof(IsSwipeEnabled), defaultValue: false);`
+- `Carousel` -> `public static readonly StyledProperty<double> ViewportFractionProperty = AvaloniaProperty.Register<Carousel, double>( nameof(ViewportFraction), defaultValue: 1d, coerce: (_, value) => double.IsFinite(value) && value > 0 ? value : 1d);`
 
 #### `src/Avalonia.Controls/Chrome/IWindowDrawnDecorationsTemplate.cs`
 
@@ -829,8 +916,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `WindowDrawnDecorations` -> `public static readonly DirectProperty<WindowDrawnDecorations, bool> HasTitleBarProperty = AvaloniaProperty.RegisterDirect<WindowDrawnDecorations, bool>( nameof(HasTitleBar), o => o.HasTitleBar);`
 - `WindowDrawnDecorations` -> `public static readonly DirectProperty<WindowDrawnDecorations, double> TitleBarHeightProperty = AvaloniaProperty.RegisterDirect<WindowDrawnDecorations, double>( nameof(TitleBarHeight), o => o.TitleBarHeight);`
 - `WindowDrawnDecorations` -> `public static readonly StyledProperty<IWindowDrawnDecorationsTemplate?> TemplateProperty = AvaloniaProperty.Register<WindowDrawnDecorations, IWindowDrawnDecorationsTemplate?>(nameof(Template));`
-- `WindowDrawnDecorations` -> `public static readonly StyledProperty<Thickness> DefaultFrameThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultFrameThickness));`
-- `WindowDrawnDecorations` -> `public static readonly StyledProperty<Thickness> DefaultShadowThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultShadowThickness));`
+- `WindowDrawnDecorations` -> `public static readonly StyledProperty<Thickness> DefaultFrameThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultFrameThickness), validate: Border.BorderThicknessProperty.ValidateValue);`
+- `WindowDrawnDecorations` -> `public static readonly StyledProperty<Thickness> DefaultShadowThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultShadowThickness), validate: Border.BorderThicknessProperty.ValidateValue);`
 - `WindowDrawnDecorations` -> `public static readonly StyledProperty<double> DefaultTitleBarHeightProperty = AvaloniaProperty.Register<WindowDrawnDecorations, double>(nameof(DefaultTitleBarHeight));`
 - `WindowDrawnDecorations` -> `public static readonly StyledProperty<string?> TitleProperty = AvaloniaProperty.Register<WindowDrawnDecorations, string?>(nameof(Title));`
 - `WindowDrawnDecorations` -> `public string? Title {`
@@ -846,6 +933,8 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.Controls/ComboBox.cs`
 
 - `ComboBox` -> `public override bool UpdateSelectionFromEvent(Control container, RoutedEventArgs eventArgs) {`
+- `ComboBox` -> `public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty = TextBox.PlaceholderForegroundProperty.AddOwner<ComboBox>();`
+- `ComboBox` -> `public static readonly StyledProperty<string?> PlaceholderTextProperty = TextBox.PlaceholderTextProperty.AddOwner<ComboBox>();`
 
 #### `src/Avalonia.Controls/CommandBar/AppBarButton.cs`
 
@@ -942,12 +1031,21 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `ICommandBarElement` -> `bool IsInOverflow { get; set; }`
 - `public interface ICommandBarElement {`
 
+#### `src/Avalonia.Controls/Converters/BorderGapMaskConverter.cs`
+
+- `public class BorderGapMaskConverter : IMultiValueConverter {`
+- `BorderGapMaskConverter` -> `public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {`
+
 #### `src/Avalonia.Controls/Converters/TreeViewItemIndentConverter.cs`
 
 - Namespace(s): `Avalonia.Controls.Converters`
 - `public class TreeViewItemIndentConverter : IMultiValueConverter {`
 - `TreeViewItemIndentConverter` -> `public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {`
 - `TreeViewItemIndentConverter` -> `public static readonly TreeViewItemIndentConverter Instance = new();`
+
+#### `src/Avalonia.Controls/Decorator.cs`
+
+- `Decorator` -> `public static readonly StyledProperty<Thickness> PaddingProperty = AvaloniaProperty.Register<Decorator, Thickness>(nameof(Padding), validate: MarginProperty.ValidateValue);`
 
 #### `src/Avalonia.Controls/Design.cs`
 
@@ -986,6 +1084,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `ExperimentalAcrylicBorder` -> `public ExperimentalAcrylicMaterial? Material {`
 - `ExperimentalAcrylicBorder` -> `public static readonly StyledProperty<ExperimentalAcrylicMaterial?> MaterialProperty = AvaloniaProperty.Register<ExperimentalAcrylicBorder, ExperimentalAcrylicMaterial?>(nameof(Material));`
 
+#### `src/Avalonia.Controls/Flyouts/FlyoutBase.cs`
+
+- `FlyoutBase` -> `public static readonly StyledProperty<bool> IsOpenProperty = AvaloniaProperty.Register<FlyoutBase, bool>(nameof(IsOpen));`
+
 #### `src/Avalonia.Controls/Flyouts/PopupFlyoutBase.cs`
 
 - `PopupFlyoutBase` -> `public Popup Popup => _popupLazy.Value;`
@@ -1023,13 +1125,26 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `NumericUpDown` -> `public Media.IBrush? WatermarkForeground {`
 - `NumericUpDown` -> `public static readonly StyledProperty<Media.IBrush?> PlaceholderForegroundProperty = TextBox.PlaceholderForegroundProperty.AddOwner<NumericUpDown>();`
 - `NumericUpDown` -> `public static readonly StyledProperty<Media.IBrush?> WatermarkForegroundProperty = PlaceholderForegroundProperty;`
-- `NumericUpDown` -> `public static readonly StyledProperty<string?> PlaceholderTextProperty = AvaloniaProperty.Register<NumericUpDown, string?>(nameof(PlaceholderText));`
+- `NumericUpDown` -> `public static readonly StyledProperty<string?> PlaceholderTextProperty = #pragma warning disable AVP1013 TextBox.PlaceholderTextProperty.AddOwner<NumericUpDown>();`
 - `NumericUpDown` -> `public static readonly StyledProperty<string?> WatermarkProperty = PlaceholderTextProperty;`
 - `NumericUpDown` -> `public string? PlaceholderText {`
 
 #### `src/Avalonia.Controls/Page/BarLayoutBehavior.cs`
 
 - `public enum BarLayoutBehavior {`
+
+#### `src/Avalonia.Controls/Page/CarouselPage.cs`
+
+- `CarouselPage` -> `public CarouselPage() {`
+- `CarouselPage` -> `public IPageTransition? PageTransition {`
+- `CarouselPage` -> `public ITemplate<Panel?> ItemsPanel {`
+- `CarouselPage` -> `public bool IsGestureEnabled {`
+- `CarouselPage` -> `public bool IsKeyboardNavigationEnabled {`
+- `public class CarouselPage : SelectingMultiPage {`
+- `CarouselPage` -> `public static readonly StyledProperty<IPageTransition?> PageTransitionProperty = AvaloniaProperty.Register<CarouselPage, IPageTransition?>(nameof(PageTransition));`
+- `CarouselPage` -> `public static readonly StyledProperty<ITemplate<Panel?>> ItemsPanelProperty = ItemsControl.ItemsPanelProperty.AddOwner<CarouselPage>();`
+- `CarouselPage` -> `public static readonly StyledProperty<bool> IsGestureEnabledProperty = AvaloniaProperty.Register<CarouselPage, bool>(nameof(IsGestureEnabled), true);`
+- `CarouselPage` -> `public static readonly StyledProperty<bool> IsKeyboardNavigationEnabledProperty = AvaloniaProperty.Register<CarouselPage, bool>(nameof(IsKeyboardNavigationEnabled), true);`
 
 #### `src/Avalonia.Controls/Page/ContentPage.cs`
 
@@ -1046,7 +1161,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `ContentPage` -> `public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty = ContentControl.VerticalContentAlignmentProperty.AddOwner<ContentPage>();`
 - `ContentPage` -> `public static readonly StyledProperty<bool> AutomaticallyApplySafeAreaPaddingProperty = AvaloniaProperty.Register<ContentPage, bool>(nameof(AutomaticallyApplySafeAreaPadding), defaultValue: true);`
 - `ContentPage` -> `public static readonly StyledProperty<object?> BottomCommandBarProperty = AvaloniaProperty.Register<ContentPage, object?>(nameof(BottomCommandBar));`
-- `ContentPage` -> `public static readonly StyledProperty<object?> ContentProperty = ContentControl.ContentProperty.AddOwner<ContentPage>();`
+- `ContentPage` -> `public static readonly StyledProperty<object?> ContentProperty = ContentControl.ContentProperty.AddOwner<ContentPage>(new StyledPropertyMetadata<object?>( coerce: (_, val) =>`
 - `ContentPage` -> `public static readonly StyledProperty<object?> TopCommandBarProperty = AvaloniaProperty.Register<ContentPage, object?>(nameof(TopCommandBar));`
 
 #### `src/Avalonia.Controls/Page/DrawerBehavior.cs`
@@ -1055,6 +1170,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Controls/Page/DrawerClosingEventArgs.cs`
 
+- `DrawerClosingEventArgs` -> `public DrawerClosingEventArgs(RoutedEvent routedEvent) : base(routedEvent) { }`
 - `DrawerClosingEventArgs` -> `public bool Cancel { get; set; }`
 - `public class DrawerClosingEventArgs : RoutedEventArgs {`
 
@@ -1076,6 +1192,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `DrawerPage` -> `public IBrush? DrawerHeaderBackground {`
 - `DrawerPage` -> `public IBrush? DrawerHeaderForeground {`
 - `DrawerPage` -> `public IDataTemplate? ContentTemplate {`
+- `DrawerPage` -> `public IDataTemplate? DrawerIconTemplate {`
 - `DrawerPage` -> `public IDataTemplate? DrawerTemplate {`
 - `DrawerPage` -> `public SplitViewDisplayMode DisplayMode {`
 - `DrawerPage` -> `public VerticalAlignment VerticalContentAlignment {`
@@ -1083,7 +1200,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `DrawerPage` -> `public bool IsOpen {`
 - `public class DrawerPage : Page {`
 - `DrawerPage` -> `public double CompactDrawerLength {`
-- `DrawerPage` -> `public double DrawerBreakpointWidth {`
+- `DrawerPage` -> `public double DrawerBreakpointLength {`
 - `DrawerPage` -> `public double DrawerLength {`
 - `DrawerPage` -> `public event EventHandler<DrawerClosingEventArgs>? Closing {`
 - `DrawerPage` -> `public event EventHandler<RoutedEventArgs>? Closed {`
@@ -1107,13 +1224,14 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `DrawerPage` -> `public static readonly StyledProperty<IBrush?> DrawerHeaderBackgroundProperty = AvaloniaProperty.Register<DrawerPage, IBrush?>(nameof(DrawerHeaderBackground));`
 - `DrawerPage` -> `public static readonly StyledProperty<IBrush?> DrawerHeaderForegroundProperty = AvaloniaProperty.Register<DrawerPage, IBrush?>(nameof(DrawerHeaderForeground));`
 - `DrawerPage` -> `public static readonly StyledProperty<IDataTemplate?> ContentTemplateProperty = AvaloniaProperty.Register<DrawerPage, IDataTemplate?>(nameof(ContentTemplate), s_defaultPageDataTemplate);`
+- `DrawerPage` -> `public static readonly StyledProperty<IDataTemplate?> DrawerIconTemplateProperty = AvaloniaProperty.Register<DrawerPage, IDataTemplate?>(nameof(DrawerIconTemplate));`
 - `DrawerPage` -> `public static readonly StyledProperty<IDataTemplate?> DrawerTemplateProperty = AvaloniaProperty.Register<DrawerPage, IDataTemplate?>(nameof(DrawerTemplate));`
 - `DrawerPage` -> `public static readonly StyledProperty<SplitViewDisplayMode> DisplayModeProperty = SplitView.DisplayModeProperty.AddOwner<DrawerPage>();`
 - `DrawerPage` -> `public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty = ContentControl.VerticalContentAlignmentProperty.AddOwner<DrawerPage>();`
 - `DrawerPage` -> `public static readonly StyledProperty<bool> IsGestureEnabledProperty = AvaloniaProperty.Register<DrawerPage, bool>(nameof(IsGestureEnabled), true);`
 - `DrawerPage` -> `public static readonly StyledProperty<bool> IsOpenProperty = AvaloniaProperty.Register<DrawerPage, bool>(nameof(IsOpen), coerce: CoerceIsOpen);`
 - `DrawerPage` -> `public static readonly StyledProperty<double> CompactDrawerLengthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(CompactDrawerLength), 48, validate: ValidateLength);`
-- `DrawerPage` -> `public static readonly StyledProperty<double> DrawerBreakpointWidthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(DrawerBreakpointWidth), 0d);`
+- `DrawerPage` -> `public static readonly StyledProperty<double> DrawerBreakpointLengthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(DrawerBreakpointLength), 0d);`
 - `DrawerPage` -> `public static readonly StyledProperty<double> DrawerLengthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(DrawerLength), 320, validate: ValidateLength);`
 - `DrawerPage` -> `public static readonly StyledProperty<object?> ContentProperty = AvaloniaProperty.Register<DrawerPage, object?>(nameof(Content));`
 - `DrawerPage` -> `public static readonly StyledProperty<object?> DrawerFooterProperty = AvaloniaProperty.Register<DrawerPage, object?>(nameof(DrawerFooter));`
@@ -1167,11 +1285,13 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `MultiPage` -> `public IDataTemplate? PageTemplate {`
 - `MultiPage` -> `public IEnumerable<Page>? Pages {`
+- `MultiPage` -> `public IEnumerable? ItemsSource {`
 - `public abstract class MultiPage : Page {`
 - `MultiPage` -> `public event EventHandler<NotifyCollectionChangedEventArgs>? PagesChanged;`
 - `MultiPage` -> `public event EventHandler? CurrentPageChanged;`
 - `MultiPage` -> `public static readonly StyledProperty<IDataTemplate?> PageTemplateProperty = AvaloniaProperty.Register<MultiPage, IDataTemplate?>(nameof(PageTemplate), new DefaultPageDataTemplate());`
 - `MultiPage` -> `public static readonly StyledProperty<IEnumerable<Page>?> PagesProperty = AvaloniaProperty.Register<MultiPage, IEnumerable<Page>?>(nameof(Pages));`
+- `MultiPage` -> `public static readonly StyledProperty<IEnumerable?> ItemsSourceProperty = AvaloniaProperty.Register<MultiPage, IEnumerable?>(nameof(ItemsSource));`
 
 #### `src/Avalonia.Controls/Page/NavigatedFromEventArgs.cs`
 
@@ -1229,6 +1349,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `NavigationPage` -> `public bool HasShadow {`
 - `NavigationPage` -> `public bool IsBackButtonVisible {`
 - `NavigationPage` -> `public bool IsGestureEnabled {`
+- `NavigationPage` -> `public bool IsNavigating => _isNavigating;`
 - `NavigationPage` -> `public bool? IsBackButtonEffectivelyVisible {`
 - `public class NavigationPage : MultiPage, INavigation {`
 - `NavigationPage` -> `public double BarHeight {`
@@ -1240,7 +1361,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `NavigationPage` -> `public event EventHandler<NavigationEventArgs>? Pushed;`
 - `NavigationPage` -> `public event EventHandler<PageInsertedEventArgs>? PageInserted;`
 - `NavigationPage` -> `public event EventHandler<PageRemovedEventArgs>? PageRemoved;`
-- `NavigationPage` -> `public int StackDepth {`
+- `NavigationPage` -> `public int StackDepth => _navigationStack.Count;`
 - `NavigationPage` -> `public object? Content {`
 - `NavigationPage` -> `public static BarLayoutBehavior? GetBarLayoutBehavior(Page page) =>`
 - `NavigationPage` -> `public static Control? GetBottomCommandBar(Page page) =>`
@@ -1260,6 +1381,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `NavigationPage` -> `public static readonly AttachedProperty<double?> BarHeightOverrideProperty = AvaloniaProperty.RegisterAttached<NavigationPage, Page, double?>("BarHeightOverride");`
 - `NavigationPage` -> `public static readonly AttachedProperty<object?> BackButtonContentProperty = AvaloniaProperty.RegisterAttached<NavigationPage, Page, object?>("BackButtonContent");`
 - `NavigationPage` -> `public static readonly DirectProperty<NavigationPage, bool> CanGoBackProperty = AvaloniaProperty.RegisterDirect<NavigationPage, bool>(nameof(CanGoBack), o => o.CanGoBack);`
+- `NavigationPage` -> `public static readonly DirectProperty<NavigationPage, bool> IsNavigatingProperty = AvaloniaProperty.RegisterDirect<NavigationPage, bool>(nameof(IsNavigating), o => o._isNavigating);`
 - `NavigationPage` -> `public static readonly DirectProperty<NavigationPage, bool?> IsBackButtonEffectivelyVisibleProperty = AvaloniaProperty.RegisterDirect<NavigationPage, bool?>(nameof(IsBackButtonEffectivelyVisible), o => o.IsBackButtonEffectivelyVisible);`
 - `NavigationPage` -> `public static readonly DirectProperty<NavigationPage, double> EffectiveBarHeightProperty = AvaloniaProperty.RegisterDirect<NavigationPage, double>(nameof(EffectiveBarHeight), o => o.EffectiveBarHeight);`
 - `NavigationPage` -> `public static readonly StyledProperty<IPageTransition?> ModalTransitionProperty = AvaloniaProperty.Register<NavigationPage, IPageTransition?>(nameof(ModalTransition));`
@@ -1287,6 +1409,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Controls/Page/Page.cs`
 
+- `Page` -> `public IDataTemplate? IconTemplate {`
 - `Page` -> `public INavigation? Navigation {`
 - `Page` -> `public Page? CurrentPage {`
 - `Page` -> `public Thickness SafeAreaPadding {`
@@ -1300,8 +1423,9 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `Page` -> `public object? Icon {`
 - `Page` -> `public static readonly DirectProperty<Page, INavigation?> NavigationProperty = AvaloniaProperty.RegisterDirect<Page, INavigation?>( nameof(Navigation), o => o.Navigation,`
 - `Page` -> `public static readonly RoutedEvent<RoutedEventArgs> PageNavigationSystemBackButtonPressedEvent = RoutedEvent.Register<Page, RoutedEventArgs>( nameof(PageNavigationSystemBackButtonPressed), RoutingStrategies.Bubble);`
+- `Page` -> `public static readonly StyledProperty<IDataTemplate?> IconTemplateProperty = AvaloniaProperty.Register<Page, IDataTemplate?>(nameof(IconTemplate));`
 - `Page` -> `public static readonly StyledProperty<Page?> CurrentPageProperty = AvaloniaProperty.Register<Page, Page?>(nameof(CurrentPage));`
-- `Page` -> `public static readonly StyledProperty<Thickness> SafeAreaPaddingProperty = AvaloniaProperty.Register<Page, Thickness>(nameof(SafeAreaPadding));`
+- `Page` -> `public static readonly StyledProperty<Thickness> SafeAreaPaddingProperty = AvaloniaProperty.Register<Page, Thickness>(nameof(SafeAreaPadding), validate: PaddingProperty.ValidateValue);`
 - `Page` -> `public static readonly StyledProperty<bool> IsInNavigationPageProperty = AvaloniaProperty.Register<Page, bool>(nameof(IsInNavigationPage));`
 - `Page` -> `public static readonly StyledProperty<object?> HeaderProperty = AvaloniaProperty.Register<Page, object?>(nameof(Header));`
 - `Page` -> `public static readonly StyledProperty<object?> IconProperty = AvaloniaProperty.Register<Page, object?>(nameof(Icon));`
@@ -1329,17 +1453,18 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `PageSelectionChangedEventArgs` -> `public Page? CurrentPage { get; }`
 - `PageSelectionChangedEventArgs` -> `public Page? PreviousPage { get; }`
-- `PageSelectionChangedEventArgs` -> `public PageSelectionChangedEventArgs(Page? previousPage, Page? currentPage) {`
-- `public class PageSelectionChangedEventArgs : EventArgs {`
+- `PageSelectionChangedEventArgs` -> `public PageSelectionChangedEventArgs(RoutedEvent routedEvent, Page? previousPage, Page? currentPage) : base(routedEvent) {`
+- `public class PageSelectionChangedEventArgs : RoutedEventArgs {`
 
 #### `src/Avalonia.Controls/Page/SelectingMultiPage.cs`
 
 - `SelectingMultiPage` -> `public Page? SelectedPage => _selectedPage;`
 - `public abstract class SelectingMultiPage : MultiPage {`
-- `SelectingMultiPage` -> `public event EventHandler<PageSelectionChangedEventArgs>? SelectionChanged;`
+- `SelectingMultiPage` -> `public event EventHandler<PageSelectionChangedEventArgs>? SelectionChanged {`
 - `SelectingMultiPage` -> `public int SelectedIndex {`
 - `SelectingMultiPage` -> `public static readonly DirectProperty<SelectingMultiPage, Page?> SelectedPageProperty = AvaloniaProperty.RegisterDirect<SelectingMultiPage, Page?>( nameof(SelectedPage), o => o._selectedPage);`
 - `SelectingMultiPage` -> `public static readonly DirectProperty<SelectingMultiPage, int> SelectedIndexProperty = AvaloniaProperty.RegisterDirect<SelectingMultiPage, int>( nameof(SelectedIndex), o => o._selectedIndex,`
+- `SelectingMultiPage` -> `public static readonly RoutedEvent<PageSelectionChangedEventArgs> SelectionChangedEvent = RoutedEvent.Register<SelectingMultiPage, PageSelectionChangedEventArgs>( nameof(SelectionChanged), RoutingStrategies.Bubble);`
 
 #### `src/Avalonia.Controls/Page/TabPlacement.cs`
 
@@ -1362,6 +1487,44 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `TabbedPage` -> `public static readonly StyledProperty<bool> IsGestureEnabledProperty = AvaloniaProperty.Register<TabbedPage, bool>(nameof(IsGestureEnabled), defaultValue: false);`
 - `TabbedPage` -> `public static readonly StyledProperty<bool> IsKeyboardNavigationEnabledProperty = AvaloniaProperty.Register<TabbedPage, bool>(nameof(IsKeyboardNavigationEnabled), true);`
 - `TabbedPage` -> `public static void SetIsTabEnabled(Page page, bool value) =>`
+
+#### `src/Avalonia.Controls/PipsPager/PipsPager.cs`
+
+- `PipsPager` -> `public ControlTheme? NextButtonStyle {`
+- `PipsPager` -> `public ControlTheme? PreviousButtonStyle {`
+- `PipsPager` -> `public Orientation Orientation {`
+- `PipsPager` -> `public PipsPager() {`
+- `PipsPager` -> `public PipsPagerTemplateSettings TemplateSettings {`
+- `PipsPager` -> `public bool IsNextButtonVisible {`
+- `PipsPager` -> `public bool IsPreviousButtonVisible {`
+- `public class PipsPager : TemplatedControl {`
+- `PipsPager` -> `public event EventHandler<PipsPagerSelectedIndexChangedEventArgs>? SelectedIndexChanged {`
+- `PipsPager` -> `public int MaxVisiblePips {`
+- `PipsPager` -> `public int NumberOfPages {`
+- `PipsPager` -> `public int SelectedPageIndex {`
+- `PipsPager` -> `public static readonly DirectProperty<PipsPager, PipsPagerTemplateSettings> TemplateSettingsProperty = AvaloniaProperty.RegisterDirect<PipsPager, PipsPagerTemplateSettings>(nameof(TemplateSettings), x => x.TemplateSettings);`
+- `PipsPager` -> `public static readonly RoutedEvent<PipsPagerSelectedIndexChangedEventArgs> SelectedIndexChangedEvent = RoutedEvent.Register<PipsPager, PipsPagerSelectedIndexChangedEventArgs>(nameof(SelectedIndexChanged), RoutingStrategies.Bubble);`
+- `PipsPager` -> `public static readonly StyledProperty<ControlTheme?> NextButtonStyleProperty = AvaloniaProperty.Register<PipsPager, ControlTheme?>(nameof(NextButtonStyle));`
+- `PipsPager` -> `public static readonly StyledProperty<ControlTheme?> PreviousButtonStyleProperty = AvaloniaProperty.Register<PipsPager, ControlTheme?>(nameof(PreviousButtonStyle));`
+- `PipsPager` -> `public static readonly StyledProperty<Orientation> OrientationProperty = AvaloniaProperty.Register<PipsPager, Orientation>(nameof(Orientation), Orientation.Horizontal);`
+- `PipsPager` -> `public static readonly StyledProperty<bool> IsNextButtonVisibleProperty = AvaloniaProperty.Register<PipsPager, bool>(nameof(IsNextButtonVisible), true);`
+- `PipsPager` -> `public static readonly StyledProperty<bool> IsPreviousButtonVisibleProperty = AvaloniaProperty.Register<PipsPager, bool>(nameof(IsPreviousButtonVisible), true);`
+- `PipsPager` -> `public static readonly StyledProperty<int> MaxVisiblePipsProperty = AvaloniaProperty.Register<PipsPager, int>(nameof(MaxVisiblePips), 5);`
+- `PipsPager` -> `public static readonly StyledProperty<int> NumberOfPagesProperty = AvaloniaProperty.Register<PipsPager, int>(nameof(NumberOfPages));`
+- `PipsPager` -> `public static readonly StyledProperty<int> SelectedPageIndexProperty = AvaloniaProperty.Register<PipsPager, int>(nameof(SelectedPageIndex), defaultBindingMode: BindingMode.TwoWay);`
+
+#### `src/Avalonia.Controls/PipsPager/PipsPagerSelectedIndexChangedEventArgs.cs`
+
+- `PipsPagerSelectedIndexChangedEventArgs` -> `public PipsPagerSelectedIndexChangedEventArgs(int oldIndex, int newIndex) : base(PipsPager.SelectedIndexChangedEvent) {`
+- `public class PipsPagerSelectedIndexChangedEventArgs : RoutedEventArgs {`
+- `PipsPagerSelectedIndexChangedEventArgs` -> `public int NewIndex { get; }`
+- `PipsPagerSelectedIndexChangedEventArgs` -> `public int OldIndex { get; }`
+
+#### `src/Avalonia.Controls/PipsPager/PipsPagerTemplateSettings.cs`
+
+- `PipsPagerTemplateSettings` -> `public AvaloniaList<int> Pips {`
+- `public class PipsPagerTemplateSettings : AvaloniaObject {`
+- `PipsPagerTemplateSettings` -> `public static readonly DirectProperty<PipsPagerTemplateSettings, AvaloniaList<int>> PipsProperty = AvaloniaProperty.RegisterDirect<PipsPagerTemplateSettings, AvaloniaList<int>>( nameof(Pips), o => o.Pips);`
 
 #### `src/Avalonia.Controls/Platform/IPlatformNativeSurfaceHandle.cs`
 
@@ -1441,14 +1604,18 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Controls/Primitives/TextSearch.cs`
 
-- `TextSearch` -> `public static BindingBase? GetTextBinding(Interactive interactive) => interactive.GetValue(TextBindingProperty);`
-- `TextSearch` -> `public static readonly AttachedProperty<BindingBase?> TextBindingProperty = AvaloniaProperty.RegisterAttached<Interactive, BindingBase?>("TextBinding", typeof(TextSearch));`
-- `TextSearch` -> `public static string? GetText(Interactive control) => control.GetValue(TextProperty);`
-- `TextSearch` -> `public static void SetText(Interactive control, string? text) => control.SetValue(TextProperty, text);`
-- `TextSearch` -> `public static void SetTextBinding(Interactive interactive, BindingBase? value) => interactive.SetValue(TextBindingProperty, value);`
+- `TextSearch` -> `public static BindingBase? GetTextBinding(AvaloniaObject element) => element.GetValue(TextBindingProperty);`
+- `TextSearch` -> `public static readonly AttachedProperty<BindingBase?> TextBindingProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, BindingBase?>("TextBinding", typeof(TextSearch));`
+- `TextSearch` -> `public static readonly AttachedProperty<string?> TextProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, string?>("Text", typeof(TextSearch));`
+- `TextSearch` -> `public static string? GetText(AvaloniaObject element) => element.GetValue(TextProperty);`
+- `TextSearch` -> `public static void SetText(AvaloniaObject element, string? text) => element.SetValue(TextProperty, text);`
+- `TextSearch` -> `public static void SetTextBinding(AvaloniaObject element, BindingBase? value) => element.SetValue(TextBindingProperty, value);`
 
 #### `src/Avalonia.Controls/Primitives/VisualLayerManager.cs`
 
+- `VisualLayerManager` -> `public bool EnableAdornerLayer { get; set; } = true;`
+- `VisualLayerManager` -> `public bool EnableOverlayLayer { get; set; }`
+- `VisualLayerManager` -> `public bool EnableTextSelectorLayer { get; set; }`
 - `public sealed class VisualLayerManager : Decorator {`
 
 #### `src/Avalonia.Controls/Remote/RemoteWidget.cs`
@@ -1469,10 +1636,12 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Controls/TabItem.cs`
 
-- `TabItem` -> `public Control? Icon {`
+- `TabItem` -> `public IDataTemplate? IconTemplate {`
 - `TabItem` -> `public IDataTemplate? IndicatorTemplate {`
-- `TabItem` -> `public static readonly StyledProperty<Control?> IconProperty = AvaloniaProperty.Register<TabItem, Control?>(nameof(Icon));`
+- `TabItem` -> `public object? Icon {`
+- `TabItem` -> `public static readonly StyledProperty<IDataTemplate?> IconTemplateProperty = AvaloniaProperty.Register<TabItem, IDataTemplate?>(nameof(IconTemplate));`
 - `TabItem` -> `public static readonly StyledProperty<IDataTemplate?> IndicatorTemplateProperty = AvaloniaProperty.Register<TabItem, IDataTemplate?>(nameof(IndicatorTemplate));`
+- `TabItem` -> `public static readonly StyledProperty<object?> IconProperty = AvaloniaProperty.Register<TabItem, object?>(nameof(Icon));`
 
 #### `src/Avalonia.Controls/Templates/FuncTreeDataTemplate.cs`
 
@@ -1549,6 +1718,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - Namespace(s): `Avalonia.Headless`
 - `HeadlessUnitTestSession` -> `public async ValueTask DisposeAsync() {`
 - `public sealed class HeadlessUnitTestSession : IDisposable, IAsyncDisposable {`
+
+#### `src/Headless/Avalonia.Headless/HeadlessWindowExtensions.cs`
+
+- Namespace(s): `Avalonia.Headless`
+- `HeadlessWindowExtensions` -> `public static void SetRenderScaling(this TopLevel topLevel, double scaling) =>`
 
 ### Linux Framebuffer
 
@@ -1653,13 +1827,43 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ### Property, Data, Styling, Threading
 
+#### `src/Avalonia.Base/Animation/CompositePageTransition.cs`
+
+- `public class CompositePageTransition : IPageTransition, IProgressPageTransition {`
+- `CompositePageTransition` -> `public void Reset(Visual visual) {`
+- `CompositePageTransition` -> `public void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+
 #### `src/Avalonia.Base/Animation/CrossFade.cs`
 
 - `CrossFade` -> `public FillMode FillMode {`
+- `public class CrossFade : IPageTransition, IProgressPageTransition {`
+- `CrossFade` -> `public void Reset(Visual visual) {`
+- `CrossFade` -> `public void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+
+#### `src/Avalonia.Base/Animation/IProgressPageTransition.cs`
+
+- `public interface IProgressPageTransition : IPageTransition {`
+- `IProgressPageTransition` -> `void Reset(Visual visual);`
+- `IProgressPageTransition` -> `void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems);`
 
 #### `src/Avalonia.Base/Animation/PageSlide.cs`
 
 - `PageSlide` -> `public FillMode FillMode { get; set; } = FillMode.Forward;`
+- `public class PageSlide : IPageTransition, IProgressPageTransition {`
+- `PageSlide` -> `public virtual void Reset(Visual visual) {`
+- `PageSlide` -> `public virtual void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+
+#### `src/Avalonia.Base/Animation/PageTransitionItem.cs`
+
+- `public readonly record struct PageTransitionItem( int Index, Visual Visual, double ViewportCenterOffset);`
+
+#### `src/Avalonia.Base/Animation/Transitions/Rotate3DTransition.cs`
+
+- Namespace(s): `Avalonia.Animation`
+- `public class Rotate3DTransition : PageSlide {`
+- `Rotate3DTransition` -> `public override async Task Start(Visual? from, Visual? to, bool forward, CancellationToken cancellationToken) {`
+- `Rotate3DTransition` -> `public override void Reset(Visual visual) {`
+- `Rotate3DTransition` -> `public override void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
 
 #### `src/Avalonia.Base/AvaloniaObject.cs`
 
@@ -1800,12 +2004,22 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Input/FindNextElementOptions.cs`
 
+- `FindNextElementOptions` -> `public IInputElement? FocusedElement { get; init; }`
 - `FindNextElementOptions` -> `public InputElement? SearchRoot { get; init; }`
 - `FindNextElementOptions` -> `public Rect ExclusionRect { get; init; }`
 - `FindNextElementOptions` -> `public Rect? FocusHintRectangle { get; init; }`
 - `FindNextElementOptions` -> `public XYFocusNavigationStrategy? NavigationStrategyOverride { get; init; }`
 - `FindNextElementOptions` -> `public bool IgnoreOcclusivity { get; init; }`
 - `public sealed class FindNextElementOptions {`
+
+#### `src/Avalonia.Base/Input/FocusChangedEventArgs.cs`
+
+- `FocusChangedEventArgs` -> `public FocusChangedEventArgs(RoutedEvent routedEvent) : base(routedEvent) {`
+- `FocusChangedEventArgs` -> `public IInputElement? NewFocusedElement { get; init; }`
+- `FocusChangedEventArgs` -> `public IInputElement? OldFocusedElement { get; init; }`
+- `FocusChangedEventArgs` -> `public KeyModifiers KeyModifiers { get; init; }`
+- `FocusChangedEventArgs` -> `public NavigationMethod NavigationMethod { get; init; }`
+- `public class FocusChangedEventArgs : RoutedEventArgs, IKeyModifiersEventArgs {`
 
 #### `src/Avalonia.Base/Input/FocusChangingEventArgs.cs`
 
@@ -1821,15 +2035,18 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.Base/Input/FocusManager.cs`
 
 - `FocusManager` -> `public FocusManager() {`
-- `FocusManager` -> `public FocusManager(IInputElement contentRoot) {`
+- `FocusManager` -> `public IInputElement? ContentRoot {`
 - `FocusManager` -> `public IInputElement? FindFirstFocusableElement() {`
 - `FocusManager` -> `public IInputElement? FindLastFocusableElement() {`
-- `FocusManager` -> `public IInputElement? FindNextElement(NavigationDirection direction) {`
-- `FocusManager` -> `public IInputElement? FindNextElement(NavigationDirection direction, FindNextElementOptions options) {`
-- `FocusManager` -> `public bool TryMoveFocus(NavigationDirection direction) {`
-- `FocusManager` -> `public bool TryMoveFocus(NavigationDirection direction, FindNextElementOptions options) {`
+- `FocusManager` -> `public IInputElement? FindNextElement(NavigationDirection direction, FindNextElementOptions? options = null) {`
+- `FocusManager` -> `public bool Focus( IInputElement? element, NavigationMethod method = NavigationMethod.Unspecified, KeyModifiers keyModifiers = KeyModifiers.None) {`
+- `FocusManager` -> `public bool TryMoveFocus(NavigationDirection direction, FindNextElementOptions? options = null) {`
 - `FocusManager` -> `public static IInputElement? FindFirstFocusableElement(IInputElement searchScope) {`
 - `FocusManager` -> `public static IInputElement? FindLastFocusableElement(IInputElement searchScope) {`
+
+#### `src/Avalonia.Base/Input/GestureRecognizers/GestureRecognizerCollection.cs`
+
+- `GestureRecognizerCollection` -> `public bool Remove(GestureRecognizer recognizer) {`
 
 #### `src/Avalonia.Base/Input/GestureRecognizers/ScrollGestureRecognizer.cs`
 
@@ -1837,19 +2054,30 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Input/GestureRecognizers/SwipeGestureRecognizer.cs`
 
+- `SwipeGestureRecognizer` -> `public bool CanHorizontallySwipe {`
+- `SwipeGestureRecognizer` -> `public bool CanVerticallySwipe {`
 - `SwipeGestureRecognizer` -> `public bool IsEnabled {`
+- `SwipeGestureRecognizer` -> `public bool IsMouseEnabled {`
 - `public class SwipeGestureRecognizer : GestureRecognizer {`
-- `SwipeGestureRecognizer` -> `public double CrossAxisCancelThreshold {`
-- `SwipeGestureRecognizer` -> `public double EdgeSize {`
 - `SwipeGestureRecognizer` -> `public double Threshold {`
-- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<bool> IsEnabledProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(IsEnabled), true);`
-- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<double> CrossAxisCancelThresholdProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>( nameof(CrossAxisCancelThreshold), 8d);`
-- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<double> EdgeSizeProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>(nameof(EdgeSize), 0d);`
-- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<double> ThresholdProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>(nameof(Threshold), 30d);`
+- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<bool> CanHorizontallySwipeProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(CanHorizontallySwipe));`
+- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<bool> CanVerticallySwipeProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(CanVerticallySwipe));`
+- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<bool> IsEnabledProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(IsEnabled), defaultValue: true);`
+- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<bool> IsMouseEnabledProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(IsMouseEnabled), defaultValue: false);`
+- `SwipeGestureRecognizer` -> `public static readonly StyledProperty<double> ThresholdProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>(nameof(Threshold), defaultValue: 0d);`
 
-#### `src/Avalonia.Base/Input/GotFocusEventArgs.cs`
+#### `src/Avalonia.Base/Input/IFocusManager.cs`
 
-- `public class GotFocusEventArgs : RoutedEventArgs, IKeyModifiersEventArgs {`
+- `IFocusManager` -> `IInputElement? FindFirstFocusableElement();`
+- `IFocusManager` -> `IInputElement? FindLastFocusableElement();`
+- `IFocusManager` -> `IInputElement? FindNextElement(NavigationDirection direction, FindNextElementOptions? options = null);`
+- `IFocusManager` -> `bool Focus( IInputElement? element, NavigationMethod method = NavigationMethod.Unspecified, KeyModifiers keyModifiers = KeyModifiers.None);`
+- `IFocusManager` -> `bool TryMoveFocus(NavigationDirection direction, FindNextElementOptions? options = null);`
+
+#### `src/Avalonia.Base/Input/IInputElement.cs`
+
+- `IInputElement` -> `event EventHandler<FocusChangedEventArgs>? GotFocus;`
+- `IInputElement` -> `event EventHandler<FocusChangedEventArgs>? LostFocus;`
 
 #### `src/Avalonia.Base/Input/IInputRoot.cs`
 
@@ -1875,6 +2103,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `InputElement` -> `public event EventHandler<ScrollGestureEndedEventArgs>? ScrollGestureEnded {`
 - `InputElement` -> `public event EventHandler<ScrollGestureEventArgs>? ScrollGesture {`
 - `InputElement` -> `public event EventHandler<ScrollGestureInertiaStartingEventArgs>? ScrollGestureInertiaStarting {`
+- `InputElement` -> `public event EventHandler<SwipeGestureEndedEventArgs>? SwipeGestureEnded {`
 - `InputElement` -> `public event EventHandler<SwipeGestureEventArgs>? SwipeGesture {`
 - `InputElement` -> `public event EventHandler<TappedEventArgs>? RightTapped {`
 - `public partial class InputElement {`
@@ -1893,6 +2122,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `InputElement` -> `public static readonly RoutedEvent<ScrollGestureEndedEventArgs> ScrollGestureEndedEvent = RoutedEvent.Register<InputElement, ScrollGestureEndedEventArgs>( nameof(ScrollGestureEnded), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<ScrollGestureEventArgs> ScrollGestureEvent = RoutedEvent.Register<InputElement, ScrollGestureEventArgs>( nameof(ScrollGesture), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<ScrollGestureInertiaStartingEventArgs> ScrollGestureInertiaStartingEvent = RoutedEvent.Register<InputElement, ScrollGestureInertiaStartingEventArgs>( nameof(ScrollGestureInertiaStarting), RoutingStrategies.Bubble);`
+- `InputElement` -> `public static readonly RoutedEvent<SwipeGestureEndedEventArgs> SwipeGestureEndedEvent = RoutedEvent.Register<InputElement, SwipeGestureEndedEventArgs>( nameof(SwipeGestureEnded), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<SwipeGestureEventArgs> SwipeGestureEvent = RoutedEvent.Register<InputElement, SwipeGestureEventArgs>( nameof(SwipeGesture), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<TappedEventArgs> DoubleTappedEvent = RoutedEvent.Register<InputElement, TappedEventArgs>( nameof(DoubleTapped), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<TappedEventArgs> RightTappedEvent = RoutedEvent.Register<InputElement, TappedEventArgs>( nameof(RightTapped), RoutingStrategies.Bubble);`
@@ -1903,11 +2133,15 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.Base/Input/InputElement.cs`
 
 - `InputElement` -> `public event EventHandler<ContextRequestedEventArgs>? ContextRequested {`
+- `InputElement` -> `public event EventHandler<FocusChangedEventArgs>? GotFocus {`
+- `InputElement` -> `public event EventHandler<FocusChangedEventArgs>? LostFocus {`
 - `InputElement` -> `public event EventHandler<FocusChangingEventArgs>? GettingFocus {`
 - `InputElement` -> `public event EventHandler<FocusChangingEventArgs>? LosingFocus {`
 - `InputElement` -> `public event EventHandler<RoutedEventArgs>? ContextCanceled {`
 - `public partial class InputElement : Interactive, IInputElement {`
 - `InputElement` -> `public static readonly RoutedEvent<ContextRequestedEventArgs> ContextRequestedEvent = RoutedEvent.Register<InputElement, ContextRequestedEventArgs>( nameof(ContextRequested), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
+- `InputElement` -> `public static readonly RoutedEvent<FocusChangedEventArgs> GotFocusEvent = RoutedEvent.Register<InputElement, FocusChangedEventArgs>(nameof(GotFocus), RoutingStrategies.Bubble);`
+- `InputElement` -> `public static readonly RoutedEvent<FocusChangedEventArgs> LostFocusEvent = RoutedEvent.Register<InputElement, FocusChangedEventArgs>(nameof(LostFocus), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<FocusChangingEventArgs> GettingFocusEvent = RoutedEvent.Register<InputElement, FocusChangingEventArgs>(nameof(GettingFocus), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<FocusChangingEventArgs> LosingFocusEvent = RoutedEvent.Register<InputElement, FocusChangingEventArgs>(nameof(LosingFocus), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<RoutedEventArgs> ContextCanceledEvent = RoutedEvent.Register<InputElement, RoutedEventArgs>( nameof(ContextCanceled), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
@@ -1945,15 +2179,22 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `ScrollGestureEndedEventArgs` -> `public ScrollGestureEndedEventArgs(int id) : base(InputElement.ScrollGestureEndedEvent) {`
 - `ScrollGestureEventArgs` -> `public ScrollGestureEventArgs(int id, Vector delta) : base(InputElement.ScrollGestureEvent) {`
 
+#### `src/Avalonia.Base/Input/SwipeDirection.cs`
+
+- `public enum SwipeDirection {`
+
 #### `src/Avalonia.Base/Input/SwipeGestureEventArgs.cs`
 
-- `SwipeGestureEventArgs` -> `public Point StartPoint { get; }`
 - `SwipeGestureEventArgs` -> `public SwipeDirection SwipeDirection { get; }`
-- `SwipeGestureEventArgs` -> `public SwipeGestureEventArgs(int id, SwipeDirection direction, Vector delta, Point startPoint) : base(InputElement.SwipeGestureEvent) {`
+- `SwipeGestureEndedEventArgs` -> `public SwipeGestureEndedEventArgs(int id, Vector velocity) : base(InputElement.SwipeGestureEndedEvent) {`
+- `SwipeGestureEventArgs` -> `public SwipeGestureEventArgs(int id, Vector delta, Vector velocity) : base(InputElement.SwipeGestureEvent) {`
 - `SwipeGestureEventArgs` -> `public Vector Delta { get; }`
+- `SwipeGestureEventArgs` -> `public Vector Velocity { get; }`
+- `SwipeGestureEndedEventArgs` -> `public Vector Velocity { get; }`
+- `public class SwipeGestureEndedEventArgs : RoutedEventArgs {`
 - `public class SwipeGestureEventArgs : RoutedEventArgs {`
-- `public enum SwipeDirection { Left, Right, Up, Down }`
 - `SwipeGestureEventArgs` -> `public int Id { get; }`
+- `SwipeGestureEndedEventArgs` -> `public int Id { get; }`
 
 #### `src/Avalonia.Base/Input/TappedEventArgs.cs`
 
@@ -1973,6 +2214,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Layout/Layoutable.cs`
 
+- `Layoutable` -> `public static readonly StyledProperty<Thickness> MarginProperty = AvaloniaProperty.Register<Layoutable, Thickness>(nameof(Margin), validate: ValidateThickness);`
 - `Layoutable` -> `public void UpdateLayout() => this.GetLayoutManager()?.ExecuteLayoutPass();`
 
 #### `src/Avalonia.Base/Logging/LogArea.cs`
@@ -2343,6 +2585,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `CompositionOptions` -> `public double? DirtyRectMergeEagerness { get; set; }`
 - `CompositionOptions` -> `public int? MaxDirtyRects { get; set; }`
 
+#### `src/Avalonia.Base/Rendering/Composition/Compositor.cs`
+
+- `Compositor` -> `public Compositor(IPlatformGraphics? gpu, bool useUiThreadForSynchronousCommits = false) : this(AvaloniaLocator.Current.GetRequiredService<IRenderLoop>(), gpu, useUiThreadForSynchronousCommits) {`
+
 #### `src/Avalonia.Base/Rendering/Composition/Server/CompositorPools.cs`
 
 - Namespace(s): `Avalonia.Rendering.Composition.Server`
@@ -2370,6 +2616,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `CompositionVisual` -> `public bool DisableSubTreeBoundsHitTestOptimization => CustomHitTestCountInSubTree != 0;`
 
+#### `src/Avalonia.Base/Rendering/DefaultRenderTimer.cs`
+
+- `DefaultRenderTimer` -> `public Action<TimeSpan>? Tick {`
+
 #### `src/Avalonia.Base/Rendering/IPresentationSource.cs`
 
 - Namespace(s): `Avalonia.Rendering`
@@ -2377,9 +2627,31 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `IPresentationSource` -> `public double RenderScaling { get; }`
 - `public interface IPresentationSource {`
 
+#### `src/Avalonia.Base/Rendering/IRenderLoop.cs`
+
+- `public interface IRenderLoop {`
+
+#### `src/Avalonia.Base/Rendering/IRenderTimer.cs`
+
+- `IRenderTimer` -> `Action<TimeSpan>? Tick { get; set; }`
+
+#### `src/Avalonia.Base/Rendering/RenderLoop.cs`
+
+- `RenderLoop` -> `public static IRenderLoop FromTimer(IRenderTimer timer) => new DefaultRenderLoop(timer);`
+- `public static class RenderLoop {`
+
 #### `src/Avalonia.Base/Rendering/SceneInvalidatedEventArgs.cs`
 
 - `SceneInvalidatedEventArgs` -> `public SceneInvalidatedEventArgs(Rect dirtyRect) {`
+
+#### `src/Avalonia.Base/Rendering/SleepLoopRenderTimer.cs`
+
+- `SleepLoopRenderTimer` -> `public Action<TimeSpan>? Tick {`
+
+#### `src/Avalonia.Base/Rendering/ThreadProxyRenderTimer.cs`
+
+- Namespace(s): `Avalonia.Rendering`
+- `ThreadProxyRenderTimer` -> `public Action<TimeSpan>? Tick {`
 
 #### `src/Avalonia.Base/StyledElement.cs`
 
@@ -2493,6 +2765,12 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ### Windows Platform
 
+#### `src/Windows/Avalonia.Win32.Interoperability/WinForms/WinFormsAvaloniaMessageFilter.cs`
+
+- Namespace(s): `Avalonia.Win32.Interoperability`
+- `WinFormsAvaloniaMessageFilter` -> `public bool PreFilterMessage(ref Message m) {`
+- `public class WinFormsAvaloniaMessageFilter : IMessageFilter {`
+
 #### `src/Windows/Avalonia.Win32/DirectX/IDirect3D11TexturePlatformSurface.cs`
 
 - Namespace(s): `Avalonia.Win32.DirectX`
@@ -2555,18 +2833,18 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ## Removed Public Signatures (Parser View)
 
-- Public signatures: `812`
+- Public signatures: `851`
 
 ### By Area
 
 - `Android Platform`: `3`
-- `Application Model and Controls`: `201`
+- `Application Model and Controls`: `209`
 - `Browser Platform`: `6`
 - `Headless Platform`: `14`
 - `Linux Framebuffer`: `5`
 - `Linux/X11 Platform`: `1`
 - `Other`: `85`
-- `Property, Data, Styling, Threading`: `412`
+- `Property, Data, Styling, Threading`: `443`
 - `Rendering and Text`: `12`
 - `Source Generator Integration`: `3`
 - `Windows Platform`: `8`
@@ -2577,11 +2855,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 ### By Kind
 
 - `delegate`: `1`
-- `event`: `6`
+- `event`: `11`
 - `indexer`: `3`
-- `member`: `265`
-- `method`: `374`
-- `type`: `163`
+- `member`: `283`
+- `method`: `384`
+- `type`: `169`
 
 ### Android Platform
 
@@ -2636,6 +2914,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `AutomationPeer` -> `public string GetClassName() => GetClassNameCore() ?? string.Empty;`
 
+#### `src/Avalonia.Controls/Border.cs`
+
+- `Border` -> `public static readonly StyledProperty<Thickness> BorderThicknessProperty = AvaloniaProperty.Register<Border, Thickness>(nameof(BorderThickness));`
+
 #### `src/Avalonia.Controls/CalendarDatePicker/CalendarDatePicker.Properties.cs`
 
 - `CalendarDatePicker` -> `public static readonly StyledProperty<bool> UseFloatingWatermarkProperty = TextBox.UseFloatingWatermarkProperty.AddOwner<CalendarDatePicker>();`
@@ -2651,6 +2933,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `public class TitleBar : TemplatedControl {`
 
+#### `src/Avalonia.Controls/ComboBox.cs`
+
+- `ComboBox` -> `public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty = AvaloniaProperty.Register<ComboBox, IBrush?>(nameof(PlaceholderForeground));`
+- `ComboBox` -> `public static readonly StyledProperty<string?> PlaceholderTextProperty = AvaloniaProperty.Register<ComboBox, string?>(nameof(PlaceholderText));`
+
 #### `src/Avalonia.Controls/ContextMenu.cs`
 
 - `ContextMenu` -> `public PlacementMode PlacementMode {`
@@ -2665,6 +2952,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `Control` -> `public event EventHandler<ContextRequestedEventArgs>? ContextRequested {`
 - `Control` -> `public static readonly RoutedEvent<ContextRequestedEventArgs> ContextRequestedEvent = RoutedEvent.Register<Control, ContextRequestedEventArgs>( nameof(ContextRequested), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
+
+#### `src/Avalonia.Controls/Decorator.cs`
+
+- `Decorator` -> `public static readonly StyledProperty<Thickness> PaddingProperty = AvaloniaProperty.Register<Decorator, Thickness>(nameof(Padding));`
 
 #### `src/Avalonia.Controls/Design.cs`
 
@@ -2691,6 +2982,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `ExperimentalAcrylicBorder` -> `public ExperimentalAcrylicMaterial Material {`
 - `ExperimentalAcrylicBorder` -> `public static readonly StyledProperty<ExperimentalAcrylicMaterial> MaterialProperty = AvaloniaProperty.Register<ExperimentalAcrylicBorder, ExperimentalAcrylicMaterial>(nameof(Material));`
+
+#### `src/Avalonia.Controls/Flyouts/FlyoutBase.cs`
+
+- `FlyoutBase` -> `public static readonly DirectProperty<FlyoutBase, bool> IsOpenProperty = AvaloniaProperty.RegisterDirect<FlyoutBase, bool>(nameof(IsOpen), x => x.IsOpen);`
 
 #### `src/Avalonia.Controls/Generators/ItemContainerGenerator.cs`
 
@@ -2862,10 +3157,15 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `SelectingItemsControl` -> `public IBinding? SelectedValueBinding {`
 - `SelectingItemsControl` -> `public static readonly StyledProperty<IBinding?> SelectedValueBindingProperty = AvaloniaProperty.Register<SelectingItemsControl, IBinding?>(nameof(SelectedValueBinding));`
 
+#### `src/Avalonia.Controls/Primitives/SelectionHandleType.cs`
+
+- `public enum SelectionHandleType {`
+
 #### `src/Avalonia.Controls/Primitives/TextSearch.cs`
 
 - `TextSearch` -> `public static IBinding? GetTextBinding(Interactive interactive) => interactive.GetValue(TextBindingProperty);`
 - `TextSearch` -> `public static readonly AttachedProperty<IBinding?> TextBindingProperty = AvaloniaProperty.RegisterAttached<Interactive, IBinding?>("TextBinding", typeof(TextSearch));`
+- `TextSearch` -> `public static readonly AttachedProperty<string?> TextProperty = AvaloniaProperty.RegisterAttached<Interactive, string?>("Text", typeof(TextSearch));`
 - `TextSearch` -> `public static string? GetText(Control control) => control.GetValue(TextProperty);`
 - `TextSearch` -> `public static void SetText(Control control, string? text) => control.SetValue(TextProperty, text);`
 - `TextSearch` -> `public static void SetTextBinding(Interactive interactive, IBinding? value) => interactive.SetValue(TextBindingProperty, value);`
@@ -2886,6 +3186,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `VisualLayerManager` -> `public LightDismissOverlayLayer LightDismissOverlayLayer {`
 - `VisualLayerManager` -> `public OverlayLayer? OverlayLayer {`
 - `VisualLayerManager` -> `public TextSelectorLayer? TextSelectorLayer {`
+- `VisualLayerManager` -> `public bool IsPopup { get; set; }`
 - `public class VisualLayerManager : Decorator {`
 - `VisualLayerManager` -> `public static readonly StyledProperty<ChromeOverlayLayer?> ChromeOverlayLayerProperty = AvaloniaProperty.Register<VisualLayerManager, ChromeOverlayLayer?>(nameof(ChromeOverlayLayer));`
 
@@ -3243,6 +3544,14 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 ### Property, Data, Styling, Threading
 
+#### `src/Avalonia.Base/Animation/CompositePageTransition.cs`
+
+- `public class CompositePageTransition : IPageTransition {`
+
+#### `src/Avalonia.Base/Animation/CrossFade.cs`
+
+- `public class CrossFade : IPageTransition {`
+
 #### `src/Avalonia.Base/Animation/Easings/CubicBezierEasing.cs`
 
 - Namespace(s): `Avalonia.Animation.Easings`
@@ -3256,6 +3565,16 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `CustomAnimatorBase` -> `public abstract T Interpolate(double progress, T oldValue, T newValue);`
 - `public abstract class CustomAnimatorBase {`
 - `public abstract class CustomAnimatorBase<T> : CustomAnimatorBase {`
+
+#### `src/Avalonia.Base/Animation/PageSlide.cs`
+
+- `public class PageSlide : IPageTransition {`
+
+#### `src/Avalonia.Base/Animation/Transitions/Rotate3DTransition.cs`
+
+- Namespace(s): `Avalonia.Animation`
+- `public class Rotate3DTransition: PageSlide {`
+- `Rotate3DTransition` -> `public override async Task Start(Visual? @from, Visual? to, bool forward, CancellationToken cancellationToken) {`
 
 #### `src/Avalonia.Base/AvaloniaObject.cs`
 
@@ -3469,6 +3788,12 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `DragEventArgs` -> `public IDataObject Data => _legacyDataObject ??= DataTransfer.ToLegacyDataObject();`
 - `public class DragEventArgs : RoutedEventArgs {`
 
+#### `src/Avalonia.Base/Input/FocusManager.cs`
+
+- `FocusManager` -> `public bool Focus( IInputElement? control, NavigationMethod method = NavigationMethod.Unspecified, KeyModifiers keyModifiers = KeyModifiers.None) {`
+- `FocusManager` -> `public void ClearFocus() {`
+- `FocusManager` -> `public void ClearFocusOnElementRemoved(IInputElement removedElement, Visual oldParent) {`
+
 #### `src/Avalonia.Base/Input/GestureRecognizers/ScrollGestureRecognizer.cs`
 
 - `ScrollGestureRecognizer` -> `public static readonly DirectProperty<ScrollGestureRecognizer, bool> IsScrollInertiaEnabledProperty = AvaloniaProperty.RegisterDirect<ScrollGestureRecognizer, bool>(nameof(IsScrollInertiaEnabled), o => o.IsScrollInertiaEnabled, (o,v) => o.IsScrollInertiaEnabled = v);`
@@ -3527,6 +3852,9 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Input/GotFocusEventArgs.cs`
 
+- `GotFocusEventArgs` -> `public GotFocusEventArgs() : base(InputElement.GotFocusEvent) {`
+- `GotFocusEventArgs` -> `public KeyModifiers KeyModifiers { get; init; }`
+- `GotFocusEventArgs` -> `public NavigationMethod NavigationMethod { get; init; }`
 - `public class GotFocusEventArgs : RoutedEventArgs {`
 
 #### `src/Avalonia.Base/Input/HoldingRoutedEventArgs.cs`
@@ -3539,6 +3867,15 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `IDataObject` -> `bool Contains(string dataFormat);`
 - `IDataObject` -> `object? Get(string dataFormat);`
 - `public interface IDataObject {`
+
+#### `src/Avalonia.Base/Input/IFocusManager.cs`
+
+- `IFocusManager` -> `void ClearFocus();`
+
+#### `src/Avalonia.Base/Input/IInputElement.cs`
+
+- `IInputElement` -> `event EventHandler<GotFocusEventArgs>? GotFocus;`
+- `IInputElement` -> `event EventHandler<RoutedEventArgs>? LostFocus;`
 
 #### `src/Avalonia.Base/Input/IInputRoot.cs`
 
@@ -3558,7 +3895,11 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 #### `src/Avalonia.Base/Input/InputElement.cs`
 
 - `public class InputElement : Interactive, IInputElement {`
+- `InputElement` -> `public event EventHandler<GotFocusEventArgs>? GotFocus {`
+- `InputElement` -> `public event EventHandler<RoutedEventArgs>? LostFocus {`
+- `InputElement` -> `public static readonly RoutedEvent<GotFocusEventArgs> GotFocusEvent = RoutedEvent.Register<InputElement, GotFocusEventArgs>(nameof(GotFocus), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<HoldingRoutedEventArgs> HoldingEvent = Gestures.HoldingEvent;`
+- `InputElement` -> `public static readonly RoutedEvent<RoutedEventArgs> LostFocusEvent = RoutedEvent.Register<InputElement, RoutedEventArgs>(nameof(LostFocus), RoutingStrategies.Bubble);`
 - `InputElement` -> `public static readonly RoutedEvent<TappedEventArgs> DoubleTappedEvent = Gestures.DoubleTappedEvent;`
 - `InputElement` -> `public static readonly RoutedEvent<TappedEventArgs> TappedEvent = Gestures.TappedEvent;`
 
@@ -3661,6 +4002,7 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 #### `src/Avalonia.Base/Layout/Layoutable.cs`
 
+- `Layoutable` -> `public static readonly StyledProperty<Thickness> MarginProperty = AvaloniaProperty.Register<Layoutable, Thickness>(nameof(Margin));`
 - `Layoutable` -> `public void UpdateLayout() => (this.GetVisualRoot() as ILayoutRoot)?.LayoutManager?.ExecuteLayoutPass();`
 
 #### `src/Avalonia.Base/Media/DrawingContext.cs`
@@ -3792,6 +4134,16 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `TextMetrics` -> `public TextMetrics(IGlyphTypeface glyphTypeface, double fontRenderingEmSize) {`
 
+#### `src/Avalonia.Base/Media/TextFormatting/TextRange.cs`
+
+- `TextRange` -> `public TextRange Skip(int length) {`
+- `TextRange` -> `public TextRange Take(int length) {`
+- `TextRange` -> `public TextRange(int start, int length) {`
+- `TextRange` -> `public int End => Start + Length - 1;`
+- `TextRange` -> `public int Length { get; }`
+- `TextRange` -> `public int Start { get; }`
+- `public readonly record struct TextRange {`
+
 #### `src/Avalonia.Base/Media/TextFormatting/TextShaperOptions.cs`
 
 - `TextShaperOptions` -> `public IGlyphTypeface Typeface { get; }`
@@ -3896,6 +4248,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - Namespace(s): `Avalonia.Rendering.Composition`
 - `ICompositionGpuImportedObject` -> `Task ImportCompeted { get; }`
 
+#### `src/Avalonia.Base/Rendering/Composition/Compositor.cs`
+
+- `Compositor` -> `public Compositor(IPlatformGraphics? gpu, bool useUiThreadForSynchronousCommits = false) : this(RenderLoop.LocatorAutoInstance, gpu, useUiThreadForSynchronousCommits) {`
+
 #### `src/Avalonia.Base/Rendering/Composition/Server/ServerCompositionVisual.cs`
 
 - `ReadbackData` -> `public Matrix Matrix;`
@@ -3912,6 +4268,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `public struct RestoreTransform(ServerVisualRenderContext? parent) : IDisposable {`
 - `RestoreTransform` -> `public void Dispose() {`
 
+#### `src/Avalonia.Base/Rendering/DefaultRenderTimer.cs`
+
+- `DefaultRenderTimer` -> `public event Action<TimeSpan> Tick {`
+
 #### `src/Avalonia.Base/Rendering/IRenderRoot.cs`
 
 - `IRenderRoot` -> `PixelPoint PointToScreen(Point point);`
@@ -3921,6 +4281,10 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 - `IRenderRoot` -> `public IHitTester HitTester { get; }`
 - `IRenderRoot` -> `public IRenderer Renderer { get; }`
 - `public interface IRenderRoot {`
+
+#### `src/Avalonia.Base/Rendering/IRenderTimer.cs`
+
+- `IRenderTimer` -> `event Action<TimeSpan> Tick;`
 
 #### `src/Avalonia.Base/Rendering/IRenderer.cs`
 
@@ -3942,6 +4306,15 @@ Official breaking-change source: Avalonia `api/*.xml` package-validation suppres
 
 - `SceneInvalidatedEventArgs` -> `public IRenderRoot RenderRoot { get; }`
 - `SceneInvalidatedEventArgs` -> `public SceneInvalidatedEventArgs( IRenderRoot root, Rect dirtyRect) {`
+
+#### `src/Avalonia.Base/Rendering/SleepLoopRenderTimer.cs`
+
+- `SleepLoopRenderTimer` -> `public event Action<TimeSpan> Tick {`
+
+#### `src/Avalonia.Base/Rendering/ThreadProxyRenderTimer.cs`
+
+- Namespace(s): `Avalonia.Rendering`
+- `ThreadProxyRenderTimer` -> `public event Action<TimeSpan> Tick {`
 
 #### `src/Avalonia.Base/StyledElement.cs`
 

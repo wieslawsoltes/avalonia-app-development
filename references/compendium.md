@@ -72,11 +72,11 @@ Use this as the entry page for the full skill reference set.
 65. WinUI to Avalonia modern UI conversion index: [`65-winui-to-avalonia-modern-ui-conversion-index.md`](65-winui-to-avalonia-modern-ui-conversion-index)
 66. Professional UI design tokens and themes: [`66-professional-ui-design-tokens-and-themes.md`](66-professional-ui-design-tokens-and-themes)
 67. Microsoft Fluent design and FluentTheme: [`67-microsoft-fluent-design-and-fluenttheme.md`](67-microsoft-fluent-design-and-fluenttheme)
-68. Avalonia 12 preview2 migration guide: [`68-avalonia-12-preview2-migration-guide.md`](68-avalonia-12-preview2-migration-guide)
-69. Avalonia 12 preview2 breaking changes and new API catalog: [`69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md`](69-avalonia-12-preview2-breaking-changes-and-new-api-catalog)
+68. Avalonia 12 migration guide: [`68-avalonia-12-migration-guide.md`](68-avalonia-12-migration-guide)
+69. Avalonia 12 breaking changes and new API catalog: [`69-avalonia-12-breaking-changes-and-new-api-catalog.md`](69-avalonia-12-breaking-changes-and-new-api-catalog)
 API indexes:
 - stable: [`api-index-generated.md`](api-index-generated)
-- preview2: [`api-index-12.0.0-preview2-generated.md`](api-index-12.0.0-preview2-generated)
+- Avalonia 12 RC1: [`api-index-12.0.0-rc1-generated.md`](api-index-12.0.0-rc1-generated)
 
 ## Fast Navigation by Task
 
@@ -195,13 +195,13 @@ API indexes:
 
 - API lookup by file/signature:
   - [`api-index-generated.md`](api-index-generated)
-  - [`api-index-12.0.0-preview2-generated.md`](api-index-12.0.0-preview2-generated)
+  - [`api-index-12.0.0-rc1-generated.md`](api-index-12.0.0-rc1-generated)
 
-- Avalonia 12 preview migration:
-  - [`68-avalonia-12-preview2-migration-guide.md`](68-avalonia-12-preview2-migration-guide)
-  - [`69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md`](69-avalonia-12-preview2-breaking-changes-and-new-api-catalog)
-  - [`api-index-12.0.0-preview2-generated.md`](api-index-12.0.0-preview2-generated)
-  - official upstream breaking-change docs are linked from the migration guide
+- Avalonia 12 migration:
+  - [`68-avalonia-12-migration-guide.md`](68-avalonia-12-migration-guide)
+  - [`69-avalonia-12-breaking-changes-and-new-api-catalog.md`](69-avalonia-12-breaking-changes-and-new-api-catalog)
+  - [`api-index-12.0.0-rc1-generated.md`](api-index-12.0.0-rc1-generated)
+  - official upstream release and breaking-change docs are linked from the migration guide
 
 - Professional UI design systems:
   - Index: [`66-professional-ui-design-tokens-and-themes.md`](66-professional-ui-design-tokens-and-themes)

@@ -21,17 +21,17 @@ This skill is currently pinned to Avalonia **11.3.12**.
 - Generated API indexing is expected to use `--git-ref 11.3.12`.
 - Guidance should avoid relying on `master`-only APIs unless a document explicitly states that exception.
 
-This repository also now carries a dedicated preview migration lane for Avalonia 12:
+This repository also now carries a dedicated Avalonia 12 migration lane:
 
-- latest verified preview tag: **`12.0.0-preview2`**
-- release date of that preview: **March 5, 2026**
-- verification date for this lane: **March 14, 2026**
-- curated migration chapter: [`references/68-avalonia-12-preview2-migration-guide.md`](references/68-avalonia-12-preview2-migration-guide)
-- generated break/new API catalog: [`references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md`](references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog)
-- generated preview API index: [`references/api-index-12.0.0-preview2-generated.md`](references/api-index-12.0.0-preview2-generated)
-- official upstream Avalonia breaking-change docs are referenced from the migration guide, including the `v12 Breaking Changes` wiki page
+- latest verified Avalonia 12 tag on origin matching `12.0.0*`: **`12.0.0-rc1`**
+- GitHub release date of that tag: **March 19, 2026**
+- verification date for this lane: **March 19, 2026**
+- curated migration chapter: [`references/68-avalonia-12-migration-guide.md`](references/68-avalonia-12-migration-guide)
+- generated break/new API catalog: [`references/69-avalonia-12-breaking-changes-and-new-api-catalog.md`](references/69-avalonia-12-breaking-changes-and-new-api-catalog)
+- generated RC1 API index: [`references/api-index-12.0.0-rc1-generated.md`](references/api-index-12.0.0-rc1-generated)
+- official upstream Avalonia release and breaking-change docs are referenced from the migration guide, including the `v12 Breaking Changes` wiki page
 
-As of **February 15, 2026**, this repository is maintained against the 11.3.12 release line.
+As of **March 19, 2026**, this repository is maintained against the 11.3.12 release line plus the Avalonia 12 RC1 migration lane.
 
 ## Scope
 
@@ -46,7 +46,7 @@ This skill covers app-development-facing Avalonia topics, including:
 - Controls, templates, input/focus, layout, rendering, and animation
 - Platform services (storage provider, clipboard, launcher, drag/drop, screens)
 - Diagnostics, performance, testing, accessibility, and troubleshooting
-- Avalonia 12 preview migration planning and execution, while keeping stable defaults on 11.3.12
+- Avalonia 12 RC1 migration planning and execution, while keeping stable defaults on 11.3.12
 
 It includes both curated guidance and a generated API index for signature lookup.
 
@@ -70,12 +70,12 @@ When internals are mentioned, it is usually for diagnostics, constraints, or beh
   - Top-level table of contents and task-oriented navigation
 - [`references/api-index-generated.md`](references/api-index-generated)
   - Broad generated API signature index
-- [`references/api-index-12.0.0-preview2-generated.md`](references/api-index-12.0.0-preview2-generated)
-  - Preview-specific generated API signature index
+- [`references/api-index-12.0.0-rc1-generated.md`](references/api-index-12.0.0-rc1-generated)
+  - Avalonia 12 RC1 generated API signature index
 - `scripts/generate_api_index.py`
   - API index generator script
 - `scripts/generate_api_migration_report.py`
-  - Preview migration break/new API report generator
+  - Avalonia 12 migration break/new API report generator
 - `assets/`
   - Supporting skill assets/templates
 - `agents/`
@@ -221,12 +221,12 @@ Recent additions include focused references for:
   - integration and dynamic-UI migration (titlebar/system backdrop, runtime XAML loading/resource packaging, WebView2 boundaries, `ItemsView`/`LayoutPanel` strategies),
   - low-level framework migration (property type/metadata/precedence mapping, visual/logical tree traversal, NameScope/template-part contracts, selector/resource/theme resolution internals),
   - API-coverage manifest linking WinUI source checkpoints and online API docs to Avalonia lookup references.
-- Avalonia 12 preview migration lane (`references/68-avalonia-12-preview2-migration-guide.md`) backed by generated sources:
-  - latest-preview verification pinned to `12.0.0-preview2` as of March 14, 2026,
-  - official breaking changes from Avalonia package-validation suppressions (`references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md`),
-  - full preview public-signature lookup (`references/api-index-12.0.0-preview2-generated.md`),
-  - official upstream wiki references folded into the guide, including the `v12 Breaking Changes` page,
-  - migration guidance for binding moves, compiled-binding defaults, storage-provider and data-transfer migration, `PseudolassesExtensions` to `PseudoClassesExtensions`, Android bootstrap changes, modern window decorations, and major new preview APIs such as page navigation, command bars, `TextOptions`, `CompiledBinding.Create`, and `IPresentationSource`.
+- Avalonia 12 migration lane (`references/68-avalonia-12-migration-guide.md`) backed by generated sources:
+  - latest lane verification pinned to `12.0.0-rc1` as of March 19, 2026,
+  - official breaking changes and added APIs from source-backed generation (`references/69-avalonia-12-breaking-changes-and-new-api-catalog.md`),
+  - full RC1 public-signature lookup (`references/api-index-12.0.0-rc1-generated.md`),
+  - official upstream release and wiki references folded into the guide, including the `v12 Breaking Changes` page,
+  - migration guidance for binding moves, compiled-binding defaults, storage-provider and data-transfer migration, `PseudolassesExtensions` to `PseudoClassesExtensions`, Android bootstrap changes, modern window decorations, focus/input contract changes, `SwipeGestureRecognizer` reshaping, `DrawerPage.DrawerBreakpointWidth` to `DrawerBreakpointLength`, and major Avalonia 12 APIs such as page navigation, command bars, `PipsPager`, `TextOptions`, `CompiledBinding.Create`, and `IPresentationSource`.
 
 These are designed to reduce accidental drift to unreleased APIs.
 
@@ -245,20 +245,20 @@ Recommended checks after regeneration:
 - Audit docs for master-only APIs introduced by mistake.
 - Update this README and [`SKILL.md`](SKILL) if version coverage changes.
 
-Preview lane regeneration:
+Avalonia 12 lane regeneration:
 
 ```bash
 python3 scripts/generate_api_index.py \
   --repo <path-to-avalonia-repo> \
-  --git-ref 12.0.0-preview2 \
-  --output references/api-index-12.0.0-preview2-generated.md \
+  --git-ref 12.0.0-rc1 \
+  --output references/api-index-12.0.0-rc1-generated.md \
   --max-per-file 100000
 
 python3 scripts/generate_api_migration_report.py \
   --repo <path-to-avalonia-repo> \
   --from-ref 11.3.12 \
-  --to-ref 12.0.0-preview2 \
-  --output references/69-avalonia-12-preview2-breaking-changes-and-new-api-catalog.md
+  --to-ref 12.0.0-rc1 \
+  --output references/69-avalonia-12-breaking-changes-and-new-api-catalog.md
 ```
 
 ## Maintenance Checklist for New Avalonia Release
@@ -271,7 +271,7 @@ python3 scripts/generate_api_migration_report.py \
    - [`README.md`](README)
    - [`SKILL.md`](SKILL)
    - [`references/compendium.md`](references/compendium)
-6. If maintaining the preview lane, refresh the preview migration guide, generated preview API index, and generated migration report against the latest preview tag.
+6. If maintaining the Avalonia 12 lane, refresh the migration guide, generated RC1-or-newer API index, and generated migration report against the latest targeted Avalonia 12 tag.
 
 ## Quality Bar
 

@@ -1,10 +1,10 @@
 # Avalonia Public API Index (Generated)
 
-- Generated at (UTC): `2026-03-14 18:39:15Z`
-- Repository: `Avalonia@12.0.0-preview2`
-- Git ref: `12.0.0-preview2`
-- Files scanned: `2658`
-- Captured public signatures: `11173`
+- Generated at (UTC): `2026-03-19 21:27:24Z`
+- Repository: `Avalonia@12.0.0-rc1`
+- Git ref: `12.0.0-rc1`
+- Files scanned: `2661`
+- Captured public signatures: `11268`
 
 ## Scope
 
@@ -13,7 +13,7 @@ This index targets public APIs across Avalonia product source files and build co
 ## Regenerate
 
 ```bash
-python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 12.0.0-preview2 --output references/api-index-12.0.0-preview2-generated.md --max-per-file 100000
+python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 12.0.0-rc1 --output /private/tmp/api-index-12.0.0-rc1-generated.md --max-per-file 100000
 ```
 
 ## Android Platform
@@ -490,6 +490,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public new Button Owner => (Button)base.Owner;`
 - `public void Invoke() {`
 
+### `src/Avalonia.Controls/Automation/Peers/CarouselPageAutomationPeer.cs`
+- Namespace: `Avalonia.Automation.Peers`
+- `public class CarouselPageAutomationPeer : ControlAutomationPeer`
+- `public CarouselPageAutomationPeer(CarouselPage owner) : base(owner) {`
+- `public new CarouselPage Owner => (CarouselPage)base.Owner;`
+
 ### `src/Avalonia.Controls/Automation/Peers/ComboBoxAutomationPeer.cs`
 - `public class ComboBoxAutomationPeer : SelectingItemsControlAutomationPeer,`
 - `public ComboBoxAutomationPeer(ComboBox owner) : base(owner) {`
@@ -528,9 +534,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Automation/Peers/DrawerPageAutomationPeer.cs`
 - Namespace: `Avalonia.Automation.Peers`
-- `public class DrawerPageAutomationPeer : ControlAutomationPeer`
+- `public class DrawerPageAutomationPeer : ControlAutomationPeer,`
 - `public DrawerPageAutomationPeer(DrawerPage owner) : base(owner) {`
 - `public new DrawerPage Owner => (DrawerPage)base.Owner;`
+- `public ExpandCollapseState ExpandCollapseState => ToState(Owner.IsOpen);`
+- `public bool ShowsMenu => false;`
+- `public void Collapse() => Owner.IsOpen = false;`
+- `public void Expand() => Owner.IsOpen = true;`
 
 ### `src/Avalonia.Controls/Automation/Peers/EmbeddableControlRootAutomationPeer.cs`
 - `public class EmbeddableControlRootAutomationPeer : ContentControlAutomationPeer, IEmbeddedRootProvider`
@@ -591,6 +601,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Controls/Automation/Peers/NoneAutomationPeer.cs`
 - `public class NoneAutomationPeer : ControlAutomationPeer`
 - `public NoneAutomationPeer(Control owner) : base(owner) {`
+
+### `src/Avalonia.Controls/Automation/Peers/PipsPagerAutomationPeer.cs`
+- `public class PipsPagerAutomationPeer : ControlAutomationPeer, ISelectionProvider`
+- `public PipsPagerAutomationPeer(PipsPager owner) : base(owner) {`
+- `public bool CanSelectMultiple => false;`
+- `public bool IsSelectionRequired => true;`
+- `public IReadOnlyList<AutomationPeer> GetSelection() {`
 
 ### `src/Avalonia.Controls/Automation/Peers/PopupAutomationPeer.cs`
 - `public class PopupAutomationPeer : ControlAutomationPeer`
@@ -836,7 +853,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<IBrush?> BackgroundProperty = AvaloniaProperty.Register<Border, IBrush?>(nameof(Background));`
 - `public static readonly StyledProperty<BackgroundSizing> BackgroundSizingProperty = AvaloniaProperty.Register<Border, BackgroundSizing>( nameof(BackgroundSizing), BackgroundSizing.CenterBorder);`
 - `public static readonly StyledProperty<IBrush?> BorderBrushProperty = AvaloniaProperty.Register<Border, IBrush?>(nameof(BorderBrush));`
-- `public static readonly StyledProperty<Thickness> BorderThicknessProperty = AvaloniaProperty.Register<Border, Thickness>(nameof(BorderThickness));`
+- `public static readonly StyledProperty<Thickness> BorderThicknessProperty = AvaloniaProperty.Register<Border, Thickness>(nameof(BorderThickness), validate: MarginProperty.ValidateValue);`
 - `public static readonly StyledProperty<CornerRadius> CornerRadiusProperty = AvaloniaProperty.Register<Border, CornerRadius>(nameof(CornerRadius));`
 - `public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<Border, BoxShadows>(nameof(BoxShadow));`
 - `public IBrush? Background {`
@@ -1037,7 +1054,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Controls/Carousel.cs`
 - `public class Carousel : SelectingItemsControl`
 - `public static readonly StyledProperty<IPageTransition?> PageTransitionProperty = AvaloniaProperty.Register<Carousel, IPageTransition?>(nameof(PageTransition));`
+- `public static readonly StyledProperty<bool> IsSwipeEnabledProperty = AvaloniaProperty.Register<Carousel, bool>(nameof(IsSwipeEnabled), defaultValue: false);`
+- `public static readonly StyledProperty<double> ViewportFractionProperty = AvaloniaProperty.Register<Carousel, double>( nameof(ViewportFraction), defaultValue: 1d, coerce: (_, value) => double.IsFinite(value) && value > 0 ? value : 1d);`
+- `public static readonly DirectProperty<Carousel, bool> IsSwipingProperty = AvaloniaProperty.RegisterDirect<Carousel, bool>(nameof(IsSwiping), o => o.IsSwiping);`
 - `public IPageTransition? PageTransition {`
+- `public bool IsSwipeEnabled {`
+- `public double ViewportFraction {`
+- `public bool IsSwiping {`
 - `public void Next() {`
 - `public void Previous() {`
 
@@ -1061,8 +1084,8 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public class WindowDrawnDecorations : StyledElement`
 - `public static readonly StyledProperty<IWindowDrawnDecorationsTemplate?> TemplateProperty = AvaloniaProperty.Register<WindowDrawnDecorations, IWindowDrawnDecorationsTemplate?>(nameof(Template));`
 - `public static readonly StyledProperty<double> DefaultTitleBarHeightProperty = AvaloniaProperty.Register<WindowDrawnDecorations, double>(nameof(DefaultTitleBarHeight));`
-- `public static readonly StyledProperty<Thickness> DefaultFrameThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultFrameThickness));`
-- `public static readonly StyledProperty<Thickness> DefaultShadowThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultShadowThickness));`
+- `public static readonly StyledProperty<Thickness> DefaultFrameThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultFrameThickness), validate: Border.BorderThicknessProperty.ValidateValue);`
+- `public static readonly StyledProperty<Thickness> DefaultShadowThicknessProperty = AvaloniaProperty.Register<WindowDrawnDecorations, Thickness>(nameof(DefaultShadowThickness), validate: Border.BorderThicknessProperty.ValidateValue);`
 - `public static readonly DirectProperty<WindowDrawnDecorations, double> TitleBarHeightProperty = AvaloniaProperty.RegisterDirect<WindowDrawnDecorations, double>( nameof(TitleBarHeight), o => o.TitleBarHeight);`
 - `public static readonly DirectProperty<WindowDrawnDecorations, Thickness> FrameThicknessProperty = AvaloniaProperty.RegisterDirect<WindowDrawnDecorations, Thickness>( nameof(FrameThickness), o => o.FrameThickness);`
 - `public static readonly DirectProperty<WindowDrawnDecorations, Thickness> ShadowThicknessProperty = AvaloniaProperty.RegisterDirect<WindowDrawnDecorations, Thickness>( nameof(ShadowThickness), o => o.ShadowThickness);`
@@ -1116,8 +1139,8 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<bool> IsEditableProperty = AvaloniaProperty.Register<ComboBox, bool>(nameof(IsEditable));`
 - `public static readonly StyledProperty<double> MaxDropDownHeightProperty = AvaloniaProperty.Register<ComboBox, double>(nameof(MaxDropDownHeight), 200);`
 - `public static readonly DirectProperty<ComboBox, object?> SelectionBoxItemProperty = AvaloniaProperty.RegisterDirect<ComboBox, object?>(nameof(SelectionBoxItem), o => o.SelectionBoxItem);`
-- `public static readonly StyledProperty<string?> PlaceholderTextProperty = AvaloniaProperty.Register<ComboBox, string?>(nameof(PlaceholderText));`
-- `public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty = AvaloniaProperty.Register<ComboBox, IBrush?>(nameof(PlaceholderForeground));`
+- `public static readonly StyledProperty<string?> PlaceholderTextProperty = TextBox.PlaceholderTextProperty.AddOwner<ComboBox>();`
+- `public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty = TextBox.PlaceholderForegroundProperty.AddOwner<ComboBox>();`
 - `public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty = ContentControl.HorizontalContentAlignmentProperty.AddOwner<ComboBox>();`
 - `public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty = ContentControl.VerticalContentAlignmentProperty.AddOwner<ComboBox>();`
 - `public static readonly StyledProperty<string?> TextProperty = TextBlock.TextProperty.AddOwner<ComboBox>(new(string.Empty, BindingMode.TwoWay));`
@@ -1322,6 +1345,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public Controls() {`
 - `public Controls(IEnumerable<Control> items) {`
 
+### `src/Avalonia.Controls/Converters/BorderGapMaskConverter.cs`
+- `public class BorderGapMaskConverter : IMultiValueConverter`
+- `public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {`
+
 ### `src/Avalonia.Controls/Converters/CornerRadiusFilterConverter.cs`
 - `public class CornerRadiusFilterConverter : IValueConverter`
 - `public Corners Filter { get; set; }`
@@ -1521,7 +1548,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Controls/Decorator.cs`
 - `public class Decorator : Control`
 - `public static readonly StyledProperty<Control?> ChildProperty = AvaloniaProperty.Register<Decorator, Control?>(nameof(Child));`
-- `public static readonly StyledProperty<Thickness> PaddingProperty = AvaloniaProperty.Register<Decorator, Thickness>(nameof(Padding));`
+- `public static readonly StyledProperty<Thickness> PaddingProperty = AvaloniaProperty.Register<Decorator, Thickness>(nameof(Padding), validate: MarginProperty.ValidateValue);`
 - `public Control? Child {`
 - `public Thickness Padding {`
 
@@ -1764,7 +1791,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Flyouts/FlyoutBase.cs`
 - `public abstract class FlyoutBase : AvaloniaObject`
-- `public static readonly DirectProperty<FlyoutBase, bool> IsOpenProperty = AvaloniaProperty.RegisterDirect<FlyoutBase, bool>(nameof(IsOpen), x => x.IsOpen);`
+- `public static readonly StyledProperty<bool> IsOpenProperty = AvaloniaProperty.Register<FlyoutBase, bool>(nameof(IsOpen));`
 - `public static readonly DirectProperty<FlyoutBase, Control?> TargetProperty = AvaloniaProperty.RegisterDirect<FlyoutBase, Control?>(nameof(Target), x => x.Target);`
 - `public static readonly AttachedProperty<FlyoutBase?> AttachedFlyoutProperty = AvaloniaProperty.RegisterAttached<FlyoutBase, Control, FlyoutBase?>("AttachedFlyout", null);`
 - `public event EventHandler? Opened;`
@@ -2295,7 +2322,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<string?> TextProperty = AvaloniaProperty.Register<NumericUpDown, string?>(nameof(Text), defaultBindingMode: BindingMode.TwoWay, enableDataValidation: true);`
 - `public static readonly StyledProperty<IValueConverter?> TextConverterProperty = AvaloniaProperty.Register<NumericUpDown, IValueConverter?>(nameof(TextConverter), defaultBindingMode: BindingMode.OneWay);`
 - `public static readonly StyledProperty<decimal?> ValueProperty = AvaloniaProperty.Register<NumericUpDown, decimal?>(nameof(Value), coerce: (s,v) => ((NumericUpDown)s).OnCoerceValue(v),`
-- `public static readonly StyledProperty<string?> PlaceholderTextProperty = AvaloniaProperty.Register<NumericUpDown, string?>(nameof(PlaceholderText));`
+- `public static readonly StyledProperty<string?> PlaceholderTextProperty = #pragma warning disable AVP1013 TextBox.PlaceholderTextProperty.AddOwner<NumericUpDown>();`
 - `public static readonly StyledProperty<string?> WatermarkProperty = PlaceholderTextProperty;`
 - `public static readonly StyledProperty<Media.IBrush?> PlaceholderForegroundProperty = TextBox.PlaceholderForegroundProperty.AddOwner<NumericUpDown>();`
 - `public static readonly StyledProperty<Media.IBrush?> WatermarkForegroundProperty = PlaceholderForegroundProperty;`
@@ -2341,9 +2368,21 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Controls/Page/BarLayoutBehavior.cs`
 - `public enum BarLayoutBehavior`
 
+### `src/Avalonia.Controls/Page/CarouselPage.cs`
+- `public class CarouselPage : SelectingMultiPage`
+- `public static readonly StyledProperty<ITemplate<Panel?>> ItemsPanelProperty = ItemsControl.ItemsPanelProperty.AddOwner<CarouselPage>();`
+- `public static readonly StyledProperty<IPageTransition?> PageTransitionProperty = AvaloniaProperty.Register<CarouselPage, IPageTransition?>(nameof(PageTransition));`
+- `public static readonly StyledProperty<bool> IsGestureEnabledProperty = AvaloniaProperty.Register<CarouselPage, bool>(nameof(IsGestureEnabled), true);`
+- `public static readonly StyledProperty<bool> IsKeyboardNavigationEnabledProperty = AvaloniaProperty.Register<CarouselPage, bool>(nameof(IsKeyboardNavigationEnabled), true);`
+- `public CarouselPage() {`
+- `public ITemplate<Panel?> ItemsPanel {`
+- `public IPageTransition? PageTransition {`
+- `public bool IsGestureEnabled {`
+- `public bool IsKeyboardNavigationEnabled {`
+
 ### `src/Avalonia.Controls/Page/ContentPage.cs`
 - `public class ContentPage : Page`
-- `public static readonly StyledProperty<object?> ContentProperty = ContentControl.ContentProperty.AddOwner<ContentPage>();`
+- `public static readonly StyledProperty<object?> ContentProperty = ContentControl.ContentProperty.AddOwner<ContentPage>(new StyledPropertyMetadata<object?>( coerce: (_, val) =>`
 - `public static readonly StyledProperty<IDataTemplate?> ContentTemplateProperty = ContentControl.ContentTemplateProperty.AddOwner<ContentPage>();`
 - `public static readonly StyledProperty<bool> AutomaticallyApplySafeAreaPaddingProperty = AvaloniaProperty.Register<ContentPage, bool>(nameof(AutomaticallyApplySafeAreaPadding), defaultValue: true);`
 - `public static readonly StyledProperty<object?> TopCommandBarProperty = AvaloniaProperty.Register<ContentPage, object?>(nameof(TopCommandBar));`
@@ -2363,6 +2402,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Page/DrawerClosingEventArgs.cs`
 - `public class DrawerClosingEventArgs : RoutedEventArgs`
+- `public DrawerClosingEventArgs(RoutedEvent routedEvent) : base(routedEvent) { }`
 - `public bool Cancel { get; set; }`
 
 ### `src/Avalonia.Controls/Page/DrawerLayoutBehavior.cs`
@@ -2378,7 +2418,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<bool> IsOpenProperty = AvaloniaProperty.Register<DrawerPage, bool>(nameof(IsOpen), coerce: CoerceIsOpen);`
 - `public static readonly StyledProperty<double> DrawerLengthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(DrawerLength), 320, validate: ValidateLength);`
 - `public static readonly StyledProperty<double> CompactDrawerLengthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(CompactDrawerLength), 48, validate: ValidateLength);`
-- `public static readonly StyledProperty<double> DrawerBreakpointWidthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(DrawerBreakpointWidth), 0d);`
+- `public static readonly StyledProperty<double> DrawerBreakpointLengthProperty = AvaloniaProperty.Register<DrawerPage, double>(nameof(DrawerBreakpointLength), 0d);`
 - `public static readonly StyledProperty<bool> IsGestureEnabledProperty = AvaloniaProperty.Register<DrawerPage, bool>(nameof(IsGestureEnabled), true);`
 - `public static readonly StyledProperty<DrawerBehavior> DrawerBehaviorProperty = AvaloniaProperty.Register<DrawerPage, DrawerBehavior>(nameof(DrawerBehavior), DrawerBehavior.Auto);`
 - `public static readonly StyledProperty<DrawerLayoutBehavior> DrawerLayoutBehaviorProperty = AvaloniaProperty.Register<DrawerPage, DrawerLayoutBehavior>(nameof(DrawerLayoutBehavior), DrawerLayoutBehavior.Overlay);`
@@ -2386,6 +2426,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<object?> DrawerHeaderProperty = AvaloniaProperty.Register<DrawerPage, object?>(nameof(DrawerHeader));`
 - `public static readonly StyledProperty<object?> DrawerFooterProperty = AvaloniaProperty.Register<DrawerPage, object?>(nameof(DrawerFooter));`
 - `public static readonly StyledProperty<object?> DrawerIconProperty = AvaloniaProperty.Register<DrawerPage, object?>(nameof(DrawerIcon));`
+- `public static readonly StyledProperty<IDataTemplate?> DrawerIconTemplateProperty = AvaloniaProperty.Register<DrawerPage, IDataTemplate?>(nameof(DrawerIconTemplate));`
 - `public static readonly StyledProperty<IDataTemplate?> DrawerTemplateProperty = AvaloniaProperty.Register<DrawerPage, IDataTemplate?>(nameof(DrawerTemplate));`
 - `public static readonly StyledProperty<IDataTemplate?> ContentTemplateProperty = AvaloniaProperty.Register<DrawerPage, IDataTemplate?>(nameof(ContentTemplate), s_defaultPageDataTemplate);`
 - `public static readonly StyledProperty<IBrush?> DrawerBackgroundProperty = AvaloniaProperty.Register<DrawerPage, IBrush?>(nameof(DrawerBackground));`
@@ -2406,7 +2447,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public bool IsOpen {`
 - `public double DrawerLength {`
 - `public double CompactDrawerLength {`
-- `public double DrawerBreakpointWidth {`
+- `public double DrawerBreakpointLength {`
 - `public bool IsGestureEnabled {`
 - `public DrawerBehavior DrawerBehavior {`
 - `public DrawerLayoutBehavior DrawerLayoutBehavior {`
@@ -2414,6 +2455,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public object? DrawerHeader {`
 - `public object? DrawerFooter {`
 - `public object? DrawerIcon {`
+- `public IDataTemplate? DrawerIconTemplate {`
 - `public IDataTemplate? DrawerTemplate {`
 - `public IDataTemplate? ContentTemplate {`
 - `public IBrush? DrawerBackground {`
@@ -2467,8 +2509,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Controls/Page/MultiPage.cs`
 - `public abstract class MultiPage : Page`
 - `public static readonly StyledProperty<IEnumerable<Page>?> PagesProperty = AvaloniaProperty.Register<MultiPage, IEnumerable<Page>?>(nameof(Pages));`
+- `public static readonly StyledProperty<IEnumerable?> ItemsSourceProperty = AvaloniaProperty.Register<MultiPage, IEnumerable?>(nameof(ItemsSource));`
 - `public static readonly StyledProperty<IDataTemplate?> PageTemplateProperty = AvaloniaProperty.Register<MultiPage, IDataTemplate?>(nameof(PageTemplate), new DefaultPageDataTemplate());`
 - `public IEnumerable<Page>? Pages {`
+- `public IEnumerable? ItemsSource {`
 - `public IDataTemplate? PageTemplate {`
 - `public event EventHandler? CurrentPageChanged;`
 - `public event EventHandler<NotifyCollectionChangedEventArgs>? PagesChanged;`
@@ -2516,6 +2560,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly AttachedProperty<Control?> BottomCommandBarProperty = AvaloniaProperty.RegisterAttached<NavigationPage, Page, Control?>("BottomCommandBar");`
 - `public static readonly AttachedProperty<bool> HasNavigationBarProperty = AvaloniaProperty.RegisterAttached<NavigationPage, Page, bool>("HasNavigationBar", true);`
 - `public static readonly StyledProperty<bool> IsGestureEnabledProperty = AvaloniaProperty.Register<NavigationPage, bool>(nameof(IsGestureEnabled), true);`
+- `public static readonly DirectProperty<NavigationPage, bool> IsNavigatingProperty = AvaloniaProperty.RegisterDirect<NavigationPage, bool>(nameof(IsNavigating), o => o._isNavigating);`
 - `public static readonly DirectProperty<NavigationPage, bool> CanGoBackProperty = AvaloniaProperty.RegisterDirect<NavigationPage, bool>(nameof(CanGoBack), o => o.CanGoBack);`
 - `public static readonly AttachedProperty<bool> IsBackButtonEnabledProperty = AvaloniaProperty.RegisterAttached<NavigationPage, Page, bool>("IsBackButtonEnabled", true);`
 - `public NavigationPage() {`
@@ -2528,10 +2573,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public double EffectiveBarHeight {`
 - `public bool IsBackButtonVisible {`
 - `public bool IsGestureEnabled {`
+- `public bool IsNavigating => _isNavigating;`
 - `public bool CanGoBack => _canGoBack;`
 - `public IReadOnlyList<Page> NavigationStack {`
 - `public IReadOnlyList<Page> ModalStack {`
-- `public int StackDepth {`
+- `public int StackDepth => _navigationStack.Count;`
 - `public static object? GetBackButtonContent(Page page) =>`
 - `public static void SetBackButtonContent(Page page, object? content) =>`
 - `public static bool GetHasBackButton(Page page) =>`
@@ -2581,15 +2627,17 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Page/Page.cs`
 - `public abstract class Page : TemplatedControl, IHeadered`
-- `public static readonly StyledProperty<Thickness> SafeAreaPaddingProperty = AvaloniaProperty.Register<Page, Thickness>(nameof(SafeAreaPadding));`
+- `public static readonly StyledProperty<Thickness> SafeAreaPaddingProperty = AvaloniaProperty.Register<Page, Thickness>(nameof(SafeAreaPadding), validate: PaddingProperty.ValidateValue);`
 - `public static readonly StyledProperty<object?> HeaderProperty = AvaloniaProperty.Register<Page, object?>(nameof(Header));`
 - `public static readonly StyledProperty<object?> IconProperty = AvaloniaProperty.Register<Page, object?>(nameof(Icon));`
+- `public static readonly StyledProperty<IDataTemplate?> IconTemplateProperty = AvaloniaProperty.Register<Page, IDataTemplate?>(nameof(IconTemplate));`
 - `public static readonly StyledProperty<Page?> CurrentPageProperty = AvaloniaProperty.Register<Page, Page?>(nameof(CurrentPage));`
 - `public static readonly StyledProperty<bool> IsInNavigationPageProperty = AvaloniaProperty.Register<Page, bool>(nameof(IsInNavigationPage));`
 - `public static readonly RoutedEvent<RoutedEventArgs> PageNavigationSystemBackButtonPressedEvent = RoutedEvent.Register<Page, RoutedEventArgs>( nameof(PageNavigationSystemBackButtonPressed), RoutingStrategies.Bubble);`
 - `public static readonly DirectProperty<Page, INavigation?> NavigationProperty = AvaloniaProperty.RegisterDirect<Page, INavigation?>( nameof(Navigation), o => o.Navigation,`
 - `public object? Header {`
 - `public object? Icon {`
+- `public IDataTemplate? IconTemplate {`
 - `public Thickness SafeAreaPadding {`
 - `public Page? CurrentPage {`
 - `public INavigation? Navigation {`
@@ -2616,8 +2664,8 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public Page Page { get; }`
 
 ### `src/Avalonia.Controls/Page/PageSelectionChangedEventArgs.cs`
-- `public class PageSelectionChangedEventArgs : EventArgs`
-- `public PageSelectionChangedEventArgs(Page? previousPage, Page? currentPage) {`
+- `public class PageSelectionChangedEventArgs : RoutedEventArgs`
+- `public PageSelectionChangedEventArgs(RoutedEvent routedEvent, Page? previousPage, Page? currentPage) : base(routedEvent) {`
 - `public Page? PreviousPage { get; }`
 - `public Page? CurrentPage { get; }`
 
@@ -2625,9 +2673,10 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public abstract class SelectingMultiPage : MultiPage`
 - `public static readonly DirectProperty<SelectingMultiPage, int> SelectedIndexProperty = AvaloniaProperty.RegisterDirect<SelectingMultiPage, int>( nameof(SelectedIndex), o => o._selectedIndex,`
 - `public static readonly DirectProperty<SelectingMultiPage, Page?> SelectedPageProperty = AvaloniaProperty.RegisterDirect<SelectingMultiPage, Page?>( nameof(SelectedPage), o => o._selectedPage);`
+- `public static readonly RoutedEvent<PageSelectionChangedEventArgs> SelectionChangedEvent = RoutedEvent.Register<SelectingMultiPage, PageSelectionChangedEventArgs>( nameof(SelectionChanged), RoutingStrategies.Bubble);`
 - `public int SelectedIndex {`
 - `public Page? SelectedPage => _selectedPage;`
-- `public event EventHandler<PageSelectionChangedEventArgs>? SelectionChanged;`
+- `public event EventHandler<PageSelectionChangedEventArgs>? SelectionChanged {`
 
 ### `src/Avalonia.Controls/Page/TabPlacement.cs`
 - `public enum TabPlacement`
@@ -2662,6 +2711,41 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public class PathIcon : IconElement`
 - `public static readonly StyledProperty<Geometry?> DataProperty = AvaloniaProperty.Register<PathIcon, Geometry?>(nameof(Data));`
 - `public Geometry? Data {`
+
+### `src/Avalonia.Controls/PipsPager/PipsPager.cs`
+- `public class PipsPager : TemplatedControl`
+- `public static readonly StyledProperty<int> MaxVisiblePipsProperty = AvaloniaProperty.Register<PipsPager, int>(nameof(MaxVisiblePips), 5);`
+- `public static readonly StyledProperty<bool> IsNextButtonVisibleProperty = AvaloniaProperty.Register<PipsPager, bool>(nameof(IsNextButtonVisible), true);`
+- `public static readonly StyledProperty<int> NumberOfPagesProperty = AvaloniaProperty.Register<PipsPager, int>(nameof(NumberOfPages));`
+- `public static readonly StyledProperty<Orientation> OrientationProperty = AvaloniaProperty.Register<PipsPager, Orientation>(nameof(Orientation), Orientation.Horizontal);`
+- `public static readonly StyledProperty<bool> IsPreviousButtonVisibleProperty = AvaloniaProperty.Register<PipsPager, bool>(nameof(IsPreviousButtonVisible), true);`
+- `public static readonly StyledProperty<int> SelectedPageIndexProperty = AvaloniaProperty.Register<PipsPager, int>(nameof(SelectedPageIndex), defaultBindingMode: BindingMode.TwoWay);`
+- `public static readonly DirectProperty<PipsPager, PipsPagerTemplateSettings> TemplateSettingsProperty = AvaloniaProperty.RegisterDirect<PipsPager, PipsPagerTemplateSettings>(nameof(TemplateSettings), x => x.TemplateSettings);`
+- `public static readonly StyledProperty<ControlTheme?> PreviousButtonStyleProperty = AvaloniaProperty.Register<PipsPager, ControlTheme?>(nameof(PreviousButtonStyle));`
+- `public static readonly StyledProperty<ControlTheme?> NextButtonStyleProperty = AvaloniaProperty.Register<PipsPager, ControlTheme?>(nameof(NextButtonStyle));`
+- `public static readonly RoutedEvent<PipsPagerSelectedIndexChangedEventArgs> SelectedIndexChangedEvent = RoutedEvent.Register<PipsPager, PipsPagerSelectedIndexChangedEventArgs>(nameof(SelectedIndexChanged), RoutingStrategies.Bubble);`
+- `public event EventHandler<PipsPagerSelectedIndexChangedEventArgs>? SelectedIndexChanged {`
+- `public PipsPager() {`
+- `public int MaxVisiblePips {`
+- `public bool IsNextButtonVisible {`
+- `public int NumberOfPages {`
+- `public Orientation Orientation {`
+- `public bool IsPreviousButtonVisible {`
+- `public int SelectedPageIndex {`
+- `public PipsPagerTemplateSettings TemplateSettings {`
+- `public ControlTheme? PreviousButtonStyle {`
+- `public ControlTheme? NextButtonStyle {`
+
+### `src/Avalonia.Controls/PipsPager/PipsPagerSelectedIndexChangedEventArgs.cs`
+- `public class PipsPagerSelectedIndexChangedEventArgs : RoutedEventArgs`
+- `public PipsPagerSelectedIndexChangedEventArgs(int oldIndex, int newIndex) : base(PipsPager.SelectedIndexChangedEvent) {`
+- `public int OldIndex { get; }`
+- `public int NewIndex { get; }`
+
+### `src/Avalonia.Controls/PipsPager/PipsPagerTemplateSettings.cs`
+- `public class PipsPagerTemplateSettings : AvaloniaObject`
+- `public static readonly DirectProperty<PipsPagerTemplateSettings, AvaloniaList<int>> PipsProperty = AvaloniaProperty.RegisterDirect<PipsPagerTemplateSettings, AvaloniaList<int>>( nameof(Pips), o => o.Pips);`
+- `public AvaloniaList<int> Pips {`
 
 ### `src/Avalonia.Controls/PixelPointEventArgs.cs`
 - `public class PixelPointEventArgs : EventArgs`
@@ -3411,9 +3495,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public new static SelectingItemsControl? ItemsControlFromItemContainer(Control container) => ItemsControl.ItemsControlFromItemContainer(container) as SelectingItemsControl;`
 - `public virtual bool UpdateSelectionFromEvent(Control container, RoutedEventArgs eventArgs) {`
 
-### `src/Avalonia.Controls/Primitives/SelectionHandleType.cs`
-- `public enum SelectionHandleType`
-
 ### `src/Avalonia.Controls/Primitives/SnapPointsAlignment.cs`
 - `public enum SnapPointsAlignment`
 
@@ -3473,12 +3554,12 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Primitives/TextSearch.cs`
 - `public static class TextSearch`
-- `public static readonly AttachedProperty<string?> TextProperty = AvaloniaProperty.RegisterAttached<Interactive, string?>("Text", typeof(TextSearch));`
-- `public static readonly AttachedProperty<BindingBase?> TextBindingProperty = AvaloniaProperty.RegisterAttached<Interactive, BindingBase?>("TextBinding", typeof(TextSearch));`
-- `public static void SetText(Interactive control, string? text) => control.SetValue(TextProperty, text);`
-- `public static string? GetText(Interactive control) => control.GetValue(TextProperty);`
-- `public static void SetTextBinding(Interactive interactive, BindingBase? value) => interactive.SetValue(TextBindingProperty, value);`
-- `public static BindingBase? GetTextBinding(Interactive interactive) => interactive.GetValue(TextBindingProperty);`
+- `public static readonly AttachedProperty<string?> TextProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, string?>("Text", typeof(TextSearch));`
+- `public static readonly AttachedProperty<BindingBase?> TextBindingProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, BindingBase?>("TextBinding", typeof(TextSearch));`
+- `public static void SetText(AvaloniaObject element, string? text) => element.SetValue(TextProperty, text);`
+- `public static string? GetText(AvaloniaObject element) => element.GetValue(TextProperty);`
+- `public static void SetTextBinding(AvaloniaObject element, BindingBase? value) => element.SetValue(TextBindingProperty, value);`
+- `public static BindingBase? GetTextBinding(AvaloniaObject element) => element.GetValue(TextBindingProperty);`
 
 ### `src/Avalonia.Controls/Primitives/TextSelectionHandle.cs`
 - `public class TextSelectionHandle : Thumb`
@@ -3552,7 +3633,9 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Controls/Primitives/VisualLayerManager.cs`
 - `public sealed class VisualLayerManager : Decorator`
-- `public bool IsPopup { get; set; }`
+- `public bool EnableAdornerLayer { get; set; } = true;`
+- `public bool EnableOverlayLayer { get; set; }`
+- `public bool EnableTextSelectorLayer { get; set; }`
 
 ### `src/Avalonia.Controls/ProgressBar.cs`
 - `public class ProgressBar : RangeBase`
@@ -4169,11 +4252,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public class TabItem : HeaderedContentControl, ISelectable`
 - `public static readonly DirectProperty<TabItem, Dock?> TabStripPlacementProperty = AvaloniaProperty.RegisterDirect<TabItem, Dock?>(nameof(TabStripPlacement), o => o.TabStripPlacement);`
 - `public static readonly StyledProperty<bool> IsSelectedProperty = SelectingItemsControl.IsSelectedProperty.AddOwner<TabItem>();`
-- `public static readonly StyledProperty<Control?> IconProperty = AvaloniaProperty.Register<TabItem, Control?>(nameof(Icon));`
+- `public static readonly StyledProperty<object?> IconProperty = AvaloniaProperty.Register<TabItem, object?>(nameof(Icon));`
+- `public static readonly StyledProperty<IDataTemplate?> IconTemplateProperty = AvaloniaProperty.Register<TabItem, IDataTemplate?>(nameof(IconTemplate));`
 - `public static readonly StyledProperty<IDataTemplate?> IndicatorTemplateProperty = AvaloniaProperty.Register<TabItem, IDataTemplate?>(nameof(IndicatorTemplate));`
 - `public Dock? TabStripPlacement {`
 - `public bool IsSelected {`
-- `public Control? Icon {`
+- `public object? Icon {`
+- `public IDataTemplate? IconTemplate {`
 - `public IDataTemplate? IndicatorTemplate {`
 
 ### `src/Avalonia.Controls/Templates/DataTemplateExtensions.cs`
@@ -4991,6 +5076,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static void MouseUp(this TopLevel topLevel, Point point, MouseButton button, RawInputModifiers modifiers = RawInputModifiers.None) =>`
 - `public static void MouseWheel(this TopLevel topLevel, Point point, Vector delta, RawInputModifiers modifiers = RawInputModifiers.None) =>`
 - `public static void DragDrop(this TopLevel topLevel, Point point, RawDragEventType type, IDataTransfer data, DragDropEffects effects, RawInputModifiers modifiers = RawInputModifiers.None) =>`
+- `public static void SetRenderScaling(this TopLevel topLevel, double scaling) =>`
 
 ## Linux Framebuffer
 
@@ -6881,12 +6967,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public Task RunAsync(Animatable control, CancellationToken cancellationToken = default) =>`
 
 ### `src/Avalonia.Base/Animation/CompositePageTransition.cs`
-- `public class CompositePageTransition : IPageTransition`
+- `public class CompositePageTransition : IPageTransition, IProgressPageTransition`
 - `public List<IPageTransition> PageTransitions { get; set; } = new List<IPageTransition>();`
 - `public Task Start(Visual? from, Visual? to, bool forward, CancellationToken cancellationToken) {`
+- `public void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+- `public void Reset(Visual visual) {`
 
 ### `src/Avalonia.Base/Animation/CrossFade.cs`
-- `public class CrossFade : IPageTransition`
+- `public class CrossFade : IPageTransition, IProgressPageTransition`
 - `public CrossFade() : this(TimeSpan.Zero) {`
 - `public CrossFade(TimeSpan duration) {`
 - `public TimeSpan Duration {`
@@ -6894,6 +6982,8 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public Easing FadeOutEasing {`
 - `public FillMode FillMode {`
 - `public async Task Start(Visual? from, Visual? to, CancellationToken cancellationToken) {`
+- `public void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+- `public void Reset(Visual visual) {`
 
 ### `src/Avalonia.Base/Animation/Cue.cs`
 - `public readonly record struct Cue : IEquatable<Cue>, IEquatable<double>`
@@ -7085,6 +7175,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public interface IPageTransition`
 - `Task Start(Visual? from, Visual? to, bool forward, CancellationToken cancellationToken);`
 
+### `src/Avalonia.Base/Animation/IProgressPageTransition.cs`
+- `public interface IProgressPageTransition : IPageTransition`
+- `void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems);`
+- `void Reset(Visual visual);`
+
 ### `src/Avalonia.Base/Animation/ITransition.cs`
 - `public interface ITransition`
 - `AvaloniaProperty Property { get; set; }`
@@ -7146,7 +7241,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public override object ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object value) {`
 
 ### `src/Avalonia.Base/Animation/PageSlide.cs`
-- `public class PageSlide : IPageTransition`
+- `public class PageSlide : IPageTransition, IProgressPageTransition`
 - `public enum SlideAxis`
 - `public PageSlide() {`
 - `public PageSlide(TimeSpan duration, SlideAxis orientation = SlideAxis.Horizontal) {`
@@ -7156,6 +7251,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public Easing SlideOutEasing { get; set; } = new LinearEasing();`
 - `public FillMode FillMode { get; set; } = FillMode.Forward;`
 - `public virtual async Task Start(Visual? from, Visual? to, bool forward, CancellationToken cancellationToken) {`
+- `public virtual void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+- `public virtual void Reset(Visual visual) {`
+
+### `src/Avalonia.Base/Animation/PageTransitionItem.cs`
+- `public readonly record struct PageTransitionItem(`
 
 ### `src/Avalonia.Base/Animation/PlayState.cs`
 - `public enum PlayState`
@@ -7213,11 +7313,13 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Animation/Transitions/Rotate3DTransition.cs`
 - Namespace: `Avalonia.Animation`
-- `public class Rotate3DTransition: PageSlide`
+- `public class Rotate3DTransition : PageSlide`
 - `public Rotate3DTransition(TimeSpan duration, SlideAxis orientation = SlideAxis.Horizontal, double? depth = null) : base(duration, orientation) {`
 - `public double? Depth { get; set; }`
 - `public Rotate3DTransition() { }`
-- `public override async Task Start(Visual? @from, Visual? to, bool forward, CancellationToken cancellationToken) {`
+- `public override async Task Start(Visual? from, Visual? to, bool forward, CancellationToken cancellationToken) {`
+- `public override void Update( double progress, Visual? from, Visual? to, bool forward, double pageLength, IReadOnlyList<PageTransitionItem> visibleItems) {`
+- `public override void Reset(Visual visual) {`
 
 ### `src/Avalonia.Base/Animation/Transitions/SizeTransition.cs`
 - `public class SizeTransition : Transition<Size>`
@@ -8299,11 +8401,20 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Input/FindNextElementOptions.cs`
 - `public sealed class FindNextElementOptions`
+- `public IInputElement? FocusedElement { get; init; }`
 - `public InputElement? SearchRoot { get; init; }`
 - `public Rect ExclusionRect { get; init; }`
 - `public Rect? FocusHintRectangle { get; init; }`
 - `public XYFocusNavigationStrategy? NavigationStrategyOverride { get; init; }`
 - `public bool IgnoreOcclusivity { get; init; }`
+
+### `src/Avalonia.Base/Input/FocusChangedEventArgs.cs`
+- `public class FocusChangedEventArgs : RoutedEventArgs, IKeyModifiersEventArgs`
+- `public FocusChangedEventArgs(RoutedEvent routedEvent) : base(routedEvent) {`
+- `public IInputElement? NewFocusedElement { get; init; }`
+- `public IInputElement? OldFocusedElement { get; init; }`
+- `public NavigationMethod NavigationMethod { get; init; }`
+- `public KeyModifiers KeyModifiers { get; init; }`
 
 ### `src/Avalonia.Base/Input/FocusChangingEventArgs.cs`
 - `public class FocusChangingEventArgs : RoutedEventArgs, IKeyModifiersEventArgs`
@@ -8318,23 +8429,19 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Input/FocusManager.cs`
 - `public class FocusManager : IFocusManager`
 - `public FocusManager() {`
-- `public FocusManager(IInputElement contentRoot) {`
+- `public IInputElement? ContentRoot {`
 - `public IInputElement? GetFocusedElement() => Current;`
-- `public bool Focus( IInputElement? control, NavigationMethod method = NavigationMethod.Unspecified, KeyModifiers keyModifiers = KeyModifiers.None) {`
-- `public void ClearFocus() {`
-- `public void ClearFocusOnElementRemoved(IInputElement removedElement, Visual oldParent) {`
+- `public bool Focus( IInputElement? element, NavigationMethod method = NavigationMethod.Unspecified, KeyModifiers keyModifiers = KeyModifiers.None) {`
 - `public IInputElement? GetFocusedElement(IFocusScope scope) {`
 - `public void SetFocusScope(IFocusScope scope) {`
 - `public void RemoveFocusRoot(IFocusScope scope) {`
 - `public static bool GetIsFocusScope(IInputElement e) => e is IFocusScope;`
-- `public bool TryMoveFocus(NavigationDirection direction) {`
-- `public bool TryMoveFocus(NavigationDirection direction, FindNextElementOptions options) {`
+- `public bool TryMoveFocus(NavigationDirection direction, FindNextElementOptions? options = null) {`
 - `public IInputElement? FindFirstFocusableElement() {`
 - `public static IInputElement? FindFirstFocusableElement(IInputElement searchScope) {`
 - `public IInputElement? FindLastFocusableElement() {`
 - `public static IInputElement? FindLastFocusableElement(IInputElement searchScope) {`
-- `public IInputElement? FindNextElement(NavigationDirection direction) {`
-- `public IInputElement? FindNextElement(NavigationDirection direction, FindNextElementOptions options) {`
+- `public IInputElement? FindNextElement(NavigationDirection direction, FindNextElementOptions? options = null) {`
 
 ### `src/Avalonia.Base/Input/GestureRecognizers/GestureRecognizer.cs`
 - `public abstract class GestureRecognizer : StyledElement`
@@ -8343,6 +8450,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public class GestureRecognizerCollection : IReadOnlyCollection<GestureRecognizer>`
 - `public GestureRecognizerCollection(IInputElement inputElement) {`
 - `public void Add(GestureRecognizer recognizer) {`
+- `public bool Remove(GestureRecognizer recognizer) {`
 - `public IEnumerator<GestureRecognizer> GetEnumerator() => _recognizers?.GetEnumerator() ?? s_Empty.GetEnumerator();`
 - `public int Count => _recognizers?.Count ?? 0;`
 
@@ -8370,20 +8478,16 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Input/GestureRecognizers/SwipeGestureRecognizer.cs`
 - `public class SwipeGestureRecognizer : GestureRecognizer`
-- `public static readonly StyledProperty<double> ThresholdProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>(nameof(Threshold), 30d);`
-- `public static readonly StyledProperty<double> CrossAxisCancelThresholdProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>( nameof(CrossAxisCancelThreshold), 8d);`
-- `public static readonly StyledProperty<double> EdgeSizeProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>(nameof(EdgeSize), 0d);`
-- `public static readonly StyledProperty<bool> IsEnabledProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(IsEnabled), true);`
+- `public static readonly StyledProperty<bool> CanHorizontallySwipeProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(CanHorizontallySwipe));`
+- `public static readonly StyledProperty<bool> CanVerticallySwipeProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(CanVerticallySwipe));`
+- `public static readonly StyledProperty<double> ThresholdProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, double>(nameof(Threshold), defaultValue: 0d);`
+- `public static readonly StyledProperty<bool> IsMouseEnabledProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(IsMouseEnabled), defaultValue: false);`
+- `public static readonly StyledProperty<bool> IsEnabledProperty = AvaloniaProperty.Register<SwipeGestureRecognizer, bool>(nameof(IsEnabled), defaultValue: true);`
+- `public bool CanHorizontallySwipe {`
+- `public bool CanVerticallySwipe {`
 - `public double Threshold {`
-- `public double CrossAxisCancelThreshold {`
-- `public double EdgeSize {`
+- `public bool IsMouseEnabled {`
 - `public bool IsEnabled {`
-
-### `src/Avalonia.Base/Input/GotFocusEventArgs.cs`
-- `public class GotFocusEventArgs : RoutedEventArgs, IKeyModifiersEventArgs`
-- `public GotFocusEventArgs() : base(InputElement.GotFocusEvent) {`
-- `public NavigationMethod NavigationMethod { get; init; }`
-- `public KeyModifiers KeyModifiers { get; init; }`
 
 ### `src/Avalonia.Base/Input/HoldingRoutedEventArgs.cs`
 - `public class HoldingRoutedEventArgs : RoutedEventArgs`
@@ -8433,7 +8537,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Input/IFocusManager.cs`
 - `public interface IFocusManager`
 - `IInputElement? GetFocusedElement();`
-- `void ClearFocus();`
+- `bool Focus( IInputElement? element, NavigationMethod method = NavigationMethod.Unspecified, KeyModifiers keyModifiers = KeyModifiers.None);`
+- `bool TryMoveFocus(NavigationDirection direction, FindNextElementOptions? options = null);`
+- `IInputElement? FindFirstFocusableElement();`
+- `IInputElement? FindLastFocusableElement();`
+- `IInputElement? FindNextElement(NavigationDirection direction, FindNextElementOptions? options = null);`
 
 ### `src/Avalonia.Base/Input/IFocusScope.cs`
 - `public interface IFocusScope`
@@ -8444,8 +8552,8 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Input/IInputElement.cs`
 - `public interface IInputElement`
-- `event EventHandler<GotFocusEventArgs>? GotFocus;`
-- `event EventHandler<RoutedEventArgs>? LostFocus;`
+- `event EventHandler<FocusChangedEventArgs>? GotFocus;`
+- `event EventHandler<FocusChangedEventArgs>? LostFocus;`
 - `event EventHandler<KeyEventArgs>? KeyDown;`
 - `event EventHandler<KeyEventArgs>? KeyUp;`
 - `event EventHandler<TextInputEventArgs>? TextInput;`
@@ -8525,6 +8633,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly RoutedEvent<PullGestureEventArgs> PullGestureEvent = RoutedEvent.Register<InputElement, PullGestureEventArgs>( nameof(PullGesture), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<PullGestureEndedEventArgs> PullGestureEndedEvent = RoutedEvent.Register<InputElement, PullGestureEndedEventArgs>( nameof(PullGestureEnded), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<SwipeGestureEventArgs> SwipeGestureEvent = RoutedEvent.Register<InputElement, SwipeGestureEventArgs>( nameof(SwipeGesture), RoutingStrategies.Bubble);`
+- `public static readonly RoutedEvent<SwipeGestureEndedEventArgs> SwipeGestureEndedEvent = RoutedEvent.Register<InputElement, SwipeGestureEndedEventArgs>( nameof(SwipeGestureEnded), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<ScrollGestureEventArgs> ScrollGestureEvent = RoutedEvent.Register<InputElement, ScrollGestureEventArgs>( nameof(ScrollGesture), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<ScrollGestureInertiaStartingEventArgs> ScrollGestureInertiaStartingEvent = RoutedEvent.Register<InputElement, ScrollGestureInertiaStartingEventArgs>( nameof(ScrollGestureInertiaStarting), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<ScrollGestureEndedEventArgs> ScrollGestureEndedEvent = RoutedEvent.Register<InputElement, ScrollGestureEndedEventArgs>( nameof(ScrollGestureEnded), RoutingStrategies.Bubble);`
@@ -8549,6 +8658,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public event EventHandler<PointerDeltaEventArgs>? PointerTouchPadGestureMagnify {`
 - `public event EventHandler<PointerDeltaEventArgs>? PointerTouchPadGestureRotate {`
 - `public event EventHandler<SwipeGestureEventArgs>? SwipeGesture {`
+- `public event EventHandler<SwipeGestureEndedEventArgs>? SwipeGestureEnded {`
 - `public event EventHandler<PointerDeltaEventArgs>? PointerTouchPadGestureSwipe {`
 - `public event EventHandler<TappedEventArgs>? Tapped {`
 - `public event EventHandler<TappedEventArgs>? RightTapped {`
@@ -8566,9 +8676,9 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<bool> IsHitTestVisibleProperty = AvaloniaProperty.Register<InputElement, bool>(nameof(IsHitTestVisible), true);`
 - `public static readonly DirectProperty<InputElement, bool> IsPointerOverProperty = AvaloniaProperty.RegisterDirect<InputElement, bool>(nameof(IsPointerOver), o => o.IsPointerOver);`
 - `public static readonly StyledProperty<bool> IsTabStopProperty = KeyboardNavigation.IsTabStopProperty.AddOwner<InputElement>();`
-- `public static readonly RoutedEvent<GotFocusEventArgs> GotFocusEvent = RoutedEvent.Register<InputElement, GotFocusEventArgs>(nameof(GotFocus), RoutingStrategies.Bubble);`
+- `public static readonly RoutedEvent<FocusChangedEventArgs> GotFocusEvent = RoutedEvent.Register<InputElement, FocusChangedEventArgs>(nameof(GotFocus), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<FocusChangingEventArgs> GettingFocusEvent = RoutedEvent.Register<InputElement, FocusChangingEventArgs>(nameof(GettingFocus), RoutingStrategies.Bubble);`
-- `public static readonly RoutedEvent<RoutedEventArgs> LostFocusEvent = RoutedEvent.Register<InputElement, RoutedEventArgs>(nameof(LostFocus), RoutingStrategies.Bubble);`
+- `public static readonly RoutedEvent<FocusChangedEventArgs> LostFocusEvent = RoutedEvent.Register<InputElement, FocusChangedEventArgs>(nameof(LostFocus), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<FocusChangingEventArgs> LosingFocusEvent = RoutedEvent.Register<InputElement, FocusChangingEventArgs>(nameof(LosingFocus), RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<KeyEventArgs> KeyDownEvent = RoutedEvent.Register<InputElement, KeyEventArgs>( nameof(KeyDown), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<KeyEventArgs> KeyUpEvent = RoutedEvent.Register<InputElement, KeyEventArgs>( nameof(KeyUp), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
@@ -8585,9 +8695,9 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly RoutedEvent<ContextRequestedEventArgs> ContextRequestedEvent = RoutedEvent.Register<InputElement, ContextRequestedEventArgs>( nameof(ContextRequested), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
 - `public static readonly RoutedEvent<RoutedEventArgs> ContextCanceledEvent = RoutedEvent.Register<InputElement, RoutedEventArgs>( nameof(ContextCanceled), RoutingStrategies.Tunnel | RoutingStrategies.Bubble);`
 - `public InputElement() {`
-- `public event EventHandler<GotFocusEventArgs>? GotFocus {`
+- `public event EventHandler<FocusChangedEventArgs>? GotFocus {`
 - `public event EventHandler<FocusChangingEventArgs>? GettingFocus {`
-- `public event EventHandler<RoutedEventArgs>? LostFocus {`
+- `public event EventHandler<FocusChangedEventArgs>? LostFocus {`
 - `public event EventHandler<FocusChangingEventArgs>? LosingFocus {`
 - `public event EventHandler<KeyEventArgs>? KeyDown {`
 - `public event EventHandler<KeyEventArgs>? KeyUp {`
@@ -9063,14 +9173,20 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public int Id { get; }`
 - `public Vector Inertia { get; }`
 
+### `src/Avalonia.Base/Input/SwipeDirection.cs`
+- `public enum SwipeDirection`
+
 ### `src/Avalonia.Base/Input/SwipeGestureEventArgs.cs`
-- `public enum SwipeDirection { Left, Right, Up, Down }`
 - `public class SwipeGestureEventArgs : RoutedEventArgs`
+- `public SwipeGestureEventArgs(int id, Vector delta, Vector velocity) : base(InputElement.SwipeGestureEvent) {`
 - `public int Id { get; }`
-- `public SwipeDirection SwipeDirection { get; }`
 - `public Vector Delta { get; }`
-- `public Point StartPoint { get; }`
-- `public SwipeGestureEventArgs(int id, SwipeDirection direction, Vector delta, Point startPoint) : base(InputElement.SwipeGestureEvent) {`
+- `public Vector Velocity { get; }`
+- `public SwipeDirection SwipeDirection { get; }`
+- `public class SwipeGestureEndedEventArgs : RoutedEventArgs`
+- `public SwipeGestureEndedEventArgs(int id, Vector velocity) : base(InputElement.SwipeGestureEndedEvent) {`
+- `public int Id { get; }`
+- `public Vector Velocity { get; }`
 
 ### `src/Avalonia.Base/Input/TappedEventArgs.cs`
 - `public class TappedEventArgs : RoutedEventArgs, IKeyModifiersEventArgs`
@@ -9297,7 +9413,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public static readonly StyledProperty<double> MaxWidthProperty = AvaloniaProperty.Register<Layoutable, double>(nameof(MaxWidth), double.PositiveInfinity, validate: ValidateMaximumDimension);`
 - `public static readonly StyledProperty<double> MinHeightProperty = AvaloniaProperty.Register<Layoutable, double>(nameof(MinHeight), validate: ValidateMinimumDimension);`
 - `public static readonly StyledProperty<double> MaxHeightProperty = AvaloniaProperty.Register<Layoutable, double>(nameof(MaxHeight), double.PositiveInfinity, validate: ValidateMaximumDimension);`
-- `public static readonly StyledProperty<Thickness> MarginProperty = AvaloniaProperty.Register<Layoutable, Thickness>(nameof(Margin));`
+- `public static readonly StyledProperty<Thickness> MarginProperty = AvaloniaProperty.Register<Layoutable, Thickness>(nameof(Margin), validate: ValidateThickness);`
 - `public static readonly StyledProperty<HorizontalAlignment> HorizontalAlignmentProperty = AvaloniaProperty.Register<Layoutable, HorizontalAlignment>(nameof(HorizontalAlignment));`
 - `public static readonly StyledProperty<VerticalAlignment> VerticalAlignmentProperty = AvaloniaProperty.Register<Layoutable, VerticalAlignment>(nameof(VerticalAlignment));`
 - `public static readonly StyledProperty<bool> UseLayoutRoundingProperty = AvaloniaProperty.Register<Layoutable, bool>(nameof(UseLayoutRounding), defaultValue: true, inherits: true);`
@@ -11373,15 +11489,6 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public virtual double DefaultIncrementalTab => 0;`
 - `public virtual double LetterSpacing { get; }`
 
-### `src/Avalonia.Base/Media/TextFormatting/TextRange.cs`
-- `public readonly record struct TextRange`
-- `public TextRange(int start, int length) {`
-- `public int Start { get; }`
-- `public int Length { get; }`
-- `public int End => Start + Length - 1;`
-- `public TextRange Take(int length) {`
-- `public TextRange Skip(int length) {`
-
 ### `src/Avalonia.Base/Media/TextFormatting/TextRun.cs`
 - `public abstract class TextRun`
 - `public const int DefaultTextSourceLength = 1;`
@@ -12881,7 +12988,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 
 ### `src/Avalonia.Base/Rendering/Composition/Compositor.cs`
 - `public partial class Compositor`
-- `public Compositor(IPlatformGraphics? gpu, bool useUiThreadForSynchronousCommits = false) : this(RenderLoop.LocatorAutoInstance, gpu, useUiThreadForSynchronousCommits) {`
+- `public Compositor(IPlatformGraphics? gpu, bool useUiThreadForSynchronousCommits = false) : this(AvaloniaLocator.Current.GetRequiredService<IRenderLoop>(), gpu, useUiThreadForSynchronousCommits) {`
 - `public Task RequestCommitAsync() => RequestCompositionBatchCommitAsync().Processed;`
 - `public CompositionBatch RequestCompositionBatchCommitAsync() {`
 - `public void RequestCompositionUpdate(Action action) {`
@@ -12953,7 +13060,7 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public class DefaultRenderTimer : IRenderTimer`
 - `public DefaultRenderTimer(int framesPerSecond) {`
 - `public int FramesPerSecond { get; }`
-- `public event Action<TimeSpan> Tick {`
+- `public Action<TimeSpan>? Tick {`
 - `public virtual bool RunsInBackground => true;`
 
 ### `src/Avalonia.Base/Rendering/ICustomHitTest.cs`
@@ -12966,10 +13073,17 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public Visual? RootVisual { get; }`
 - `public double RenderScaling { get; }`
 
+### `src/Avalonia.Base/Rendering/IRenderLoop.cs`
+- `public interface IRenderLoop`
+
 ### `src/Avalonia.Base/Rendering/IRenderTimer.cs`
 - `public interface IRenderTimer`
-- `event Action<TimeSpan> Tick;`
+- `Action<TimeSpan>? Tick { get; set; }`
 - `bool RunsInBackground { get; }`
+
+### `src/Avalonia.Base/Rendering/RenderLoop.cs`
+- `public static class RenderLoop`
+- `public static IRenderLoop FromTimer(IRenderTimer timer) => new DefaultRenderLoop(timer);`
 
 ### `src/Avalonia.Base/Rendering/RendererDebugOverlays.cs`
 - Namespace: `Avalonia.Rendering`
@@ -12994,14 +13108,14 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 ### `src/Avalonia.Base/Rendering/SleepLoopRenderTimer.cs`
 - `public class SleepLoopRenderTimer : IRenderTimer`
 - `public SleepLoopRenderTimer(int fps) {`
-- `public event Action<TimeSpan> Tick {`
+- `public Action<TimeSpan>? Tick {`
 - `public bool RunsInBackground => true;`
 
 ### `src/Avalonia.Base/Rendering/ThreadProxyRenderTimer.cs`
 - Namespace: `Avalonia.Rendering`
 - `public sealed class ThreadProxyRenderTimer : IRenderTimer`
 - `public ThreadProxyRenderTimer(IRenderTimer inner, int maxStackSize = 1 * 1024 * 1024) {`
-- `public event Action<TimeSpan> Tick {`
+- `public Action<TimeSpan>? Tick {`
 - `public bool RunsInBackground => true;`
 
 ### `src/Avalonia.Base/Rendering/UiThreadRenderTimer.cs`
@@ -13861,6 +13975,11 @@ python3 scripts/generate_api_index.py --repo <path-to-avalonia-repo> --git-ref 1
 - `public class WinFormsAvaloniaControlHost : WinFormsControl, IMessageFilter`
 - `public WinFormsAvaloniaControlHost() {`
 - `public AvControl? Content {`
+- `public bool PreFilterMessage(ref Message m) {`
+
+### `src/Windows/Avalonia.Win32.Interoperability/WinForms/WinFormsAvaloniaMessageFilter.cs`
+- Namespace: `Avalonia.Win32.Interoperability`
+- `public class WinFormsAvaloniaMessageFilter : IMessageFilter`
 - `public bool PreFilterMessage(ref Message m) {`
 
 ### `src/Windows/Avalonia.Win32/AngleOptions.cs`
